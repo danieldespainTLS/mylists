@@ -108,6 +108,8 @@
 		<p class='hint'>DEV NOTE: "kicking the can" to the <strong><em>Edit List</em></strong> screen means we don't have to duplicate work here.  
 		They'll just be "editing" (adding to) a list that's initially empty.</p>
 
+		<p class='hint'>It also avoids the problem that the "list" doesn't actually exist in the database yet.</p>
+
 		<p><input type='submit' value='Enter Names' class='button green' /></p>
 	</fieldset>
 </form>
