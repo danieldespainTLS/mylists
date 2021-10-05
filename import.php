@@ -26,8 +26,10 @@
 	<fieldset class='toggleSourceMode'>
 		<input type='radio' name='sourceMode' value='import' id='sourceMode_import' class='toggle' checked />
 		<label for='sourceMode_import' onClick="toggleSourceMode('import');">Import a File</label>
-		<input type='radio' name='sourceMode' value='import' id='sourceMode_copy' class='toggle' />
+		<input type='radio' name='sourceMode' value='copy' id='sourceMode_copy' class='toggle' />
 		<label for='sourceMode_copy' onClick="toggleSourceMode('copy');">Copy a List</label>
+		<input type='radio' name='sourceMode' value='manual' id='sourceMode_manual' class='toggle' />
+		<label for='sourceMode_manual' onClick="toggleSourceMode('manual');">Enter Manually</label>
 	</fieldset>
 
 	<fieldset id='sourceImport' class='sourceImport'>
@@ -63,6 +65,50 @@
 			</select>
 		</p>
 		<p><input type='submit' value='Copy Names' class='button green' /></p>
+	</fieldset>
+
+	<fieldset id='sourceManual' class='sourceManual hidden'>
+		<h2>Enter names Manually</h2>
+
+		<table class='hidden'>
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type='text' value='John' placeholder='First Name' /></td>
+					<td><input type='text' value='Jane' placeholder='Last Name' /></td>
+					<td></td>
+					<td><span class='redText'>X</span></td>
+				</tr>
+				<tr>
+					<td><input type='text' value='Johnson' placeholder='First Name' /></td>
+					<td><input type='text' value='Janitor' placeholder='Last Name' /></td>
+					<td></td>
+					<td><span class='redText'>X</span></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr><td colspan='4'><hr /></td></tr>
+				<tr>
+					<td><input type='text' placeholder='First Name' /></td>
+					<td><input type='text' placeholder='Last Name' /></td>
+					<td><button class='button blue'>Add Name</button></td>
+					<td><span class='button red ghosted'>cancel</span></td>
+				</tr>
+			</tfoot>
+		</table>
+
+		<p>You'll enter the names for your list on the next screen.</p>
+
+		<p class='hint'>DEV NOTE: "kicking the can" to the <strong><em>Edit List</em></strong> screen means we don't have to duplicate work here.  
+		They'll just be "editing" (adding to) a list that's initially empty.</p>
+
+		<p><input type='submit' value='Enter Names' class='button green' /></p>
 	</fieldset>
 </form>
 

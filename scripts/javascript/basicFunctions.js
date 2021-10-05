@@ -20,16 +20,24 @@ function addMyListFunctions(){
 function toggleSourceMode(mode) {
 	let sourceImport = document.getElementById('sourceImport');
 	let sourceCopy = document.getElementById('sourceCopy');
+	let sourceManual = document.getElementById('sourceManual');
 	
 	let toggleImport = document.getElementById('toggleImport');
 	let toggleCopy = document.getElementById('toggleCopy');
+	let toggleManual = document.getElementById('toggleManual');
 	
 	if(mode == 'import'){
 		sourceImport.classList.remove('hidden');
 		sourceCopy.classList.add('hidden');
-	}else{
+		sourceManual.classList.add('hidden');
+	}else if(mode == 'copy'){
 		sourceImport.classList.add('hidden');
 		sourceCopy.classList.remove('hidden');
+		sourceManual.classList.add('hidden');
+	}else{
+		sourceImport.classList.add('hidden');
+		sourceCopy.classList.add('hidden');
+		sourceManual.classList.remove('hidden');
 	}
 }
 
