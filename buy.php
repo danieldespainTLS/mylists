@@ -13,9 +13,9 @@
 
 		<p>Here's a preview</p>
 
-		<button class='button red' style='font-size: 24pt;'>Hit the big red button!</button>
+		<button class='button red' style='font-size: 24pt;'>Hit the big red BUY button!</button>
 
-		<a href='lists.html'>Start Over</a>
+		<p><a href='lists.html'>Start Over</a></p>
 	</article>
 	</body>
 </html>
