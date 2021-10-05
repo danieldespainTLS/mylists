@@ -95,7 +95,7 @@
 </p>
 
 <p>
-	<button class='button green'>Continue</button>
+	<button class='button green' onClick="goTo('buy.php');">Continue</button>
 </p>
 
 
