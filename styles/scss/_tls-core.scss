@@ -1,0 +1,474 @@
+/* ########## Global styles for entire site ########## */
+
+@import 'tls-colors';
+@import 'tls-sizes';
+@import 'tls-breakpoints';
+@import 'tls-fonts';
+
+
+
+// ROOT LEVEL SETTINGS //
+
+body {
+	a, button {
+		-webkit-tap-highlight-color: transparent !important;
+	}
+
+    background-color: $pageBG;
+	font-family: $montserrat;
+	-webkit-text-size-adjust:none;
+
+	margin: 0;
+	padding: 0;
+
+    font-size: 12pt;
+    font-weight: 400;
+    font-style: normal;
+	line-height: 160%;
+
+	strong {
+		font-weight: 600;
+    }
+
+    em {
+		// font-weight: 400;
+		font-weight: inherit;
+    }
+
+    em strong,
+    strong em {
+        font-weight: 600;
+        font-style: italic;
+    }
+}
+
+
+
+
+
+// HEADLINES //
+h1, h2, h3, h4, h5, h6 {
+	font-family: $oswald;
+	font-weight: 700;
+	margin: .75em 0 .1em 0;
+	padding: 0;
+	line-height: 130%;
+	font-style: normal;
+    clear: both;
+    color: $darkBlue;
+
+    & > a {
+        color: inherit;
+        &:hover {
+            color: $blue-2;
+            text-decoration: underline;
+        }
+        &:active {
+            color: $darkBlue-2;
+        }
+        &:visited {
+            color: $darkBlue-2;
+            &:hover {
+                color: $blue-2;
+            }
+        }
+    }
+
+    &.noTopMargin, &.noMarginTop {
+        margin-top: .1em;
+    }
+}
+
+/* If a heading comes right after another heading, reduce top margin (leading) */
+h1 + h1, h1 + h2, h1 + h3, h1 + h4, h1 + h5, h1 + h6,
+h2 + h2, h2 + h3, h2 + h4, h2 + h5, h2 + h6,
+h3 + h3, h3 + h4, h3 + h5, h3 + h6,
+h4 + h4, h4 + h5, h4 + h6,
+h5 + h5, h5 + h6,
+h6 + h6 {
+	margin-top: .25em;
+}
+
+$hrSize: 2px;
+hr {
+	margin: ($gutter * 2) 0;
+	background-color: $blue5;
+	height: $hrSize;
+	border: 0;
+	position: relative;
+}
+
+hr + h1,
+h1 + h1,
+h1:first-of-type + h1 {
+	margin-top: 0;
+}
+
+li > h1,
+li > h2,
+li > h3,
+li > h4,
+li > h5,
+li > h6 {
+	margin-top: 0;
+}
+
+// first headline of content doesn't need margin
+.content > h1,
+.content > h2,
+.content > h3,
+.content > h4,
+.content > h5,
+.content > h6 {
+    margin-top: 0;
+}
+
+$baseSize: 24pt;
+main {
+	header {
+		margin: ($gutter * 2);
+	}
+	h1 {
+		font-size: $baseSize;
+		padding-top: .25em;
+		color: $darkBlue;
+
+		&:first-of-type {
+			margin-top: 0;
+			padding-top: 0;
+		}
+	}
+	h2 {
+		font-size: ($baseSize * .92);
+		color: $darkBlue1;
+	}
+	h3 {
+		font-size: ($baseSize * .85);
+		color: $darkBlue2;
+	}
+	h4 {
+		font-size: ($baseSize * .77);
+		color: $darkBlue3;
+	}
+	h5 {
+		font-size: ($baseSize * .71);
+		color: $darkBlue4;
+	}
+	h6 {
+		font-size: ($baseSize * .66);
+		color: $darkBlue5;
+	}
+
+    // very first headline inside main is unique
+    header > h1,
+    section > article > header > h1 {
+        color: $green-2;
+        font-size: ($baseSize * 1.1) + 0pt;
+        border-bottom: 4px solid $logo-yellow;
+    }
+}
+
+/* ###################################### */
+/* RESPONSIVE STYLES (screen size) */
+/* TABLET STYLES (not specifically tied to any particular tablet) */
+@media screen and (max-width: $tablet) {
+	$baseSize: 20;
+	h1 {
+		font-size: $baseSize + 0pt;
+	}
+	h2 {
+		font-size: ($baseSize * .92) + 0pt;
+	}
+	h3 {
+		font-size: ($baseSize * .85) + 0pt;
+	}
+	h4 {
+		font-size: ($baseSize * .77) + 0pt;
+	}
+	h5 {
+		font-size: ($baseSize * .71) + 0pt;
+	}
+	h6 {
+		font-size: ($baseSize * .66) + 0pt;
+	}
+}
+
+/* PHONE STYLES (not specifically tied to any particular phone) */
+// adjust headline sizes on phones
+@media screen and (max-width: $phone) {
+	$baseSize: 16;
+	h1 {
+		font-size: $baseSize + 0pt;
+	}
+	h2 {
+		font-size: ($baseSize * .92) + 0pt;
+	}
+	h3 {
+		font-size: ($baseSize * .86) + 0pt;
+	}
+	h4 {
+		font-size: ($baseSize * .79) + 0pt;
+	}
+	h5 {
+		font-size: ($baseSize * .74) + 0pt;
+	}
+	h6 {
+		font-size: ($baseSize * .70) + 0pt;
+	}
+}
+
+
+
+
+
+// LINKS //
+a {
+	color: $link;
+
+	&:hover {
+        color: $linkHover;
+        text-decoration: underline;
+	}
+	&:active {
+		color: $linkActive;
+    }
+    &:visited {
+        color: $linkVisited;
+        &:hover {
+            color: $linkVisitedHover;
+        }
+	}
+
+	&.hiddenLink,
+	&.hiddenLink:hover,
+	&.hiddenLink:active,
+	&.hiddenLink:visited {
+		color: inherit;
+		text-decoration: inherit;
+	}
+	&.hiddenLink:hover {
+		text-decoration: underline;
+	}
+}
+
+
+
+
+
+// TEXT (BODY) ELEMENTS //
+p, div, li, blockquote, table, thead, th, td, tfoot, figure, dl, dt, dd {
+	margin: 0;
+	padding: 0;
+	empty-cells: show;
+}
+
+p {
+    margin-bottom: ($gutter * 2);
+}
+
+article,
+body article {
+    max-width: $maxArticleWidth;
+    margin: 0 auto ($gutter * 4) auto;
+
+    &:last-of-type {
+        margin-bottom: $gutter;
+    }
+}
+
+body.single article {
+    max-width: 100%;
+}
+
+ul.reset,
+ol.reset {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	&>li {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+// blocked items have complete outline and margin between
+ul.blockedItems,
+ol.blockedItems {
+	&>li {
+		margin-bottom: ($gutter / 1.5);
+		padding: ($gutter / 1.5);
+		border: 1px solid $blue5;
+		background-color: $frostOverlay;
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:hover {
+			border-color: $blue-2;
+		}
+	}
+}
+
+// lined items have no margin and single line between (no line above first; no line below last)
+ul.linedItems, 
+ol.linedItems {
+	&>li {
+		margin: 0;
+		padding: ($gutter / 1.5);
+		border-bottom: 1px solid $blue5;
+		background-color: $frostOverlay;
+		
+		&:last-child {
+			border-bottom: 0px solid transparent;
+			margin-bottom: 0;
+		}
+	}
+}
+
+
+blockquote {
+	font-family: $lato;
+	font-style: italic;
+	font-size: 13pt;
+	margin: $gutter ($gutter * 4);
+	padding: ($gutter) ($gutter * 2);
+	border: 1px solid $blue;
+	border-right-width: 0;
+	border-bottom-width: 0;
+	background-color: white;
+
+	cite {
+		display: block;
+		margin-top: $gutter;
+		text-align: right;
+		font-family: $montserrat;
+		font-weight: 700;
+		font-size: 12pt;
+	}
+}
+
+
+
+.redText {
+	color: $redText;
+}
+.greenText {
+    color: $greenText;
+}
+.greyText, .grayText {
+	color: $greyText;
+}
+.blueText {
+	color: $blueText;
+}
+.orangeText {
+    color: $orangeText;
+}
+.brownText {
+    color: $brownText;
+}
+.purpleText {
+    color: $purpleText;
+}
+.yellowText {
+	color: $yellow;
+}
+
+
+
+.hint {
+	font-size: 75%;
+	line-height: 125%;
+	margin-top: 2px;
+	opacity: .75;
+	font-style: italic;
+
+	&.straight {
+		font-style: normal;
+	}
+
+	&.noMargin {
+		margin-left: 0;
+	}
+}
+
+.helpCursor {
+	cursor: help;
+}
+
+.finePrint,
+.legal {
+	color: $greyText;
+	font-size: 9pt;
+}
+
+
+
+/* use classList.add('hidden') or classList.remove('hidden') */
+.hidden,
+.hide {
+	display: none !important;
+	pointer-events: none;
+}
+
+.nobr {
+	white-space: nowrap;
+}
+
+.clearfix {
+	clear: both;
+}
+
+
+
+
+
+
+/* ###################################### */
+/* SCREEN AND PRINT MEDIA SPECIFIC STYLES */
+// SCREEN
+@media screen {
+	.noScreen {
+		display: none;
+	}
+}
+
+
+
+// PRINT
+@media print {
+	body {
+        background-color: transparent;
+    }
+
+    .noPrint {
+		display: none;
+    }
+
+	.redText {
+		color: $redTextPrint;
+	}
+	.greenText {
+		color: $greenTextPrint;
+	}
+	.greyText, .grayText {
+		color: $greyTextPrint;
+	}
+	.blueText {
+		color: $blueTextPrint;
+	}
+    .orangeText {
+        color: $orangeTextPrint;
+    }
+    .brownText {
+        color: $brownTextPrint;
+    }
+    .purpleText {
+        color: $purpleTextPrint;
+    }
+	.yellowText {
+		color: $logo-yellow-shadow;
+	}
+}

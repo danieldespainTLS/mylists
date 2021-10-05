@@ -1,0 +1,159 @@
+
+.newList {
+	background-color: #eee;
+	margin-bottom: $gutter;
+	padding: $gutter;
+	box-sizing: border-box;
+	
+	fieldset {
+		margin: 0;
+		padding: $gutter;
+		box-sizing: border-box;
+		border: 1px solid grey;
+	}
+	
+	fieldset.listName {
+		padding: 0;
+		border: 0px solid transparent;
+	}
+	
+	fieldset.toggleSourceMode {
+		display: inline-flex;
+		flex-flow: row nowrap;
+		margin: $gutter 0;
+		padding: 0;
+		color: grey;
+		background-color: black;
+		border: 3px solid grey;
+		border-radius: 50px;
+		
+		input {
+			display: none;
+		}
+		
+		.toggle {
+			& + label {
+				padding: ($gutter / 2) $gutter;
+				border-radius: 50px;
+				cursor: pointer;
+			}
+			
+			&:checked + label {
+				background-color: white;
+				color: black;
+			}
+		}
+	}
+	
+	fieldset.sourceImport, 
+	fieldset.sourceCopy {
+		border: 1px solid grey;
+		box-sizing: border-box;
+	}
+	
+	.importFormatHint {
+		display: block;
+		margin: ($gutter / 2) 0;
+	}
+}
+
+
+
+
+.instructions {
+	margin: 4px 0;
+	color: #235889;
+	font-style: italic;
+}
+
+table.namesList {
+	border-bottom: 1px solid $borderBetweenColor;
+	border: 1px solid black;
+	padding: 0;
+	margin: 0;
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 1200px;
+	
+	thead {
+		th {
+			text-align: left;
+			border-bottom: 2px solid black;
+			padding: 4px ($gutter / 2);
+		}
+	}
+	
+	tbody {
+		td {
+			padding: 4px ($gutter / 2);
+			border-bottom: 1px solid #ccc;
+		}
+		
+		tr {
+			&:hover {
+				background-color: rgba(255,255,0, .25);
+			}
+			
+			&:last-of-type {
+				td {
+					border-bottom: 0px solid transparent;
+				}
+			}
+				
+			&:nth-child(odd) {
+				background-color: rgba(0,0,0, 5%);
+				
+				&:hover {
+					background-color: rgba(255,255,0, .25);
+				}
+			}
+		}
+	}
+	
+	tfoot {
+		border-top: 2px solid grey;
+		td {
+			padding: 4px ($gutter / 2);
+		}
+	}
+	
+	.swap {
+		text-decoration: none;
+		color: #00AEEF;
+	}
+	
+	.deleteName {
+		text-decoration: none;
+		color: red;
+	}
+}
+
+
+
+
+form.addName {
+	border: 1px solid black;
+	margin: $gutter 0;
+	padding: $gutter;
+	
+	fieldset {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: flex-start;
+		gap: $gutter;
+		border: 0px solid transparent;
+		margin: 0;
+		padding: 0;
+	}
+	
+	legend {
+		display: block;
+		margin-bottom: $gutter;
+		font-weight: bold;
+	}
+
+	.inputGroup {
+		display: flex;
+		flex-flow: column nowrap;
+	}
+}

@@ -1,0 +1,63 @@
+@import 'tls-colors';
+
+
+
+.debugOutput {
+	border: 1px solid grey;
+	font-size: 10pt;
+	font-family: Courier;
+	line-height: 110%;
+	padding: .25em;
+	margin: .5em 0;
+	background-color: white;
+
+	&.scroll {
+		max-height: 240px;
+		overflow: scroll;
+	}
+
+	pre {
+		margin: 0;
+	}
+
+	table {
+		th,
+		td {
+			padding: 2px;
+			font-weight: normal;
+			font-size: 10pt;
+
+			.appName {
+				color: $blue-2;
+			}
+		}
+
+		th {
+			padding-right: 8px;
+			text-align: right;
+			font-size: 10pt;
+			white-space: nowrap;
+			color: grey;
+		}
+
+		thead th,
+		thead td {
+			border-bottom: 2px solid grey;
+		}
+	}
+
+	.notFound {
+		color: $redText;
+	}
+}
+
+
+.sqlInsert, 
+.sqlError {
+	font-size: 8pt;
+	font-family: $monaco;
+}
+
+.sqlError {
+	color: $redText;
+}

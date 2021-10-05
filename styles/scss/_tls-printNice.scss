@@ -1,0 +1,235 @@
+@import 'tls-colors';
+
+.printNice {
+	border-collapse: collapse;
+	border: 1px solid rgba(0,0,0,.5);
+	margin: 1px;
+	padding: 0;
+	
+	
+	
+	td {
+		padding: 1px 2px;
+		margin: 0;
+		font-family: verdana;
+		font-size: 8pt;
+	}
+	
+	th {
+		padding: 0 4px 0 2px;
+		text-align: right;
+		min-width: 40px;
+		font-family: verdana;
+		font-size: 8pt;
+	}
+	
+	.green {
+		color: $greenText;
+	}
+	.red {
+		color: $redText;
+	}
+	
+	.nullValue {
+		color: chocolate;
+		font-style: italic;
+		font-family: palatino;
+		text-transform: lowercase;
+		font-size: 9pt;
+	}
+	
+	.booleanTrue, 
+	.booleanFalse {
+		font-family: $monaco;
+		font-size: 7pt;
+		font-weight: bold;
+	}
+	.booleanTrue {
+		color: $green2;
+	}
+	.booleanFalse {
+		color: $redText;
+	}
+	
+	.emptyArray {
+		font-family: palatino;
+		font-style: italic;
+		font-size: 9pt;
+		color: blueViolet;
+		text-transform: lowercase;
+	}
+	
+	.emptyString {
+		font-family: palatino;
+		font-style: italic;
+		font-size: 9pt;
+		color: cornflowerblue;
+		text-transform: lowercase;
+	}
+	
+	
+	
+	/* table (array)'s name */
+	.tableHeader {
+		background-color:#333333;
+		font-weight: bold;
+		color: white;
+	}
+	
+	
+	
+	/* first label column a little darker visually */
+	th {
+		background-color: rgba(0,0,0,.065);
+	}
+	
+	tr:nth-child(odd) {
+		background-color: #d8d8d8; // darker
+	}
+	tr:nth-child(even) {
+		background-color: #eeeeee; // lighter
+	}
+}
+
+
+
+/* secondary label column a little darker visually */
+.printNice .printNice th {
+	background-color: rgba(0,0,140,.065);
+}
+
+.printNice .printNice tr:nth-child(odd) {
+	background-color: #dadaf8; // darker
+}
+.printNice .printNice tr:nth-child(even) {
+	background-color: #eeeeff; // lighter
+}
+
+
+
+/* third label column a little darker visually */
+.printNice .printNice .printNice th {
+	background-color: rgba(0,140,140,.065);
+}
+
+.printNice .printNice .printNice tr:nth-child(odd) {
+	background-color: #daf3f8; // darker
+}
+.printNice .printNice .printNice tr:nth-child(even) {
+	background-color: #eefcff; // lighter
+}
+
+
+
+/* fourth label column a little darker visually */
+.printNice .printNice .printNice .printNice th {
+	background-color: rgba(0,140,0,.065);
+}
+
+.printNice .printNice .printNice .printNice tr:nth-child(odd) {
+	background-color: #daf8e4; // darker
+}
+.printNice .printNice .printNice .printNice tr:nth-child(even) {
+	background-color: #eefff4; // lighter
+}
+
+
+
+/* fifth label column a little darker visually */
+.printNice .printNice .printNice .printNice .printNice th {
+	background-color: rgba(140,140,0,.065);
+}
+
+.printNice .printNice .printNice .printNice .printNice tr:nth-child(odd) {
+	background-color: #f8f8da; // darker
+}
+.printNice .printNice .printNice .printNice .printNice tr:nth-child(even) {
+	background-color: #ffffee; // lighter
+}
+
+
+
+/* sixth label column a little darker visually */
+.printNice .printNice .printNice .printNice .printNice .printNice th {
+	background-color: rgba(140,80,0,.065);
+}
+
+.printNice .printNice .printNice .printNice .printNice .printNice tr:nth-child(odd) {
+	background-color: #f8e4da; // darker
+}
+.printNice .printNice .printNice .printNice .printNice .printNice tr:nth-child(even) {
+	background-color: #fff4ee; // lighter
+}
+
+
+
+/* seventh label column a little darker visually */
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice th {
+	background-color: rgba(140,0,50,.065);
+}
+
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:nth-child(odd) {
+	background-color: #f3daf8; // darker
+}
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:nth-child(even) {
+	background-color: #fceeff; // lighter
+}
+
+
+
+/* eighth label column a little darker visually */
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice th {
+	background-color: rgba(20,0,140,.065);
+}
+
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:nth-child(odd) {
+	background-color: #e6e0f2; // darker
+}
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:nth-child(even) {
+	background-color: #f4f1fb; // lighter
+}
+
+
+
+/* ninth label column a little darker visually */
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice th {
+	background-color: rgba(0,50,50,.065);
+}
+
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:nth-child(odd) {
+	background-color: #e6ebec; // darker
+}
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:nth-child(even) {
+	background-color: #f5f7f8; // lighter
+}
+
+
+
+/* tenth label column a little darker visually */
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice th {
+	background-color: rgba(70,70,0,.065);
+}
+
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:nth-child(odd) {
+	background-color: #f4f4ec; // darker
+}
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:nth-child(even) {
+	background-color: #fcfcf8; // lighter
+}
+
+
+
+.printNice tr:hover, 
+.printNice .printNice tr:hover, 
+.printNice .printNice .printNice tr:hover, 
+.printNice .printNice .printNice .printNice tr:hover, 
+.printNice .printNice .printNice .printNice .printNice tr:hover, 
+.printNice .printNice .printNice .printNice .printNice .printNice tr:hover, 
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:hover, 
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:hover, 
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:hover, 
+.printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice .printNice tr:hover {
+	background-color: white;
+	color: #09b600;
+}
+

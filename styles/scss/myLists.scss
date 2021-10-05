@@ -1,0 +1,136 @@
+/* LOCAL VARIABLES */
+$gutter: 1rem;
+
+$borderBetweenColor: #ccc;
+
+$cardUnselectedColor: #ddd;
+$cardUnselectedColorHover: #ccc;
+$cardSelectedColor: #666;
+$cardSelectedColorHover: #444;
+
+
+
+
+
+/* LOCAL MIXINS */
+
+
+
+
+
+/* STYLES */
+article, 
+body article {
+	margin: ($gutter / 2);
+}
+
+
+
+
+.hidden {
+	display: none;
+}
+
+h1, h2, h3, h4 {
+	margin: 0;
+	padding: 0;
+}
+
+.hint {
+	font-size: 8pt;
+	font-weight: normal;
+	font-style: italic;
+}
+
+.redText {
+	color: red;
+}
+
+.tdr {
+	text-align: right;
+}
+.tdc {
+	text-align: center;
+}
+
+
+.buttonRow {
+	margin: 0;
+	padding: $gutter 0;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: $gutter;
+}
+
+.button {
+	border: 0;
+	box-shadow: none;
+	margin: 0;
+	padding: 8px;
+	font-size: 10pt;
+	cursor: pointer;
+	
+	&.blue {
+		background-color: #00AEEF;
+		color: white;
+		font-weight: bold;
+	}
+	
+	&.green {
+		background-color: green;
+		color: white;
+		font-weight: bold;
+	}
+	
+	&.red {
+		color: white;
+		background-color: red;
+	}
+	
+	&.red {
+		&.ghosted {
+			background-color: transparent;
+			color: red;
+			font-weight: normal;
+		}
+	}
+}
+
+
+
+
+/* ###################################### */
+/* RESPONSIVE STYLES (screen size) */
+/* TABLET STYLES (not specifically tied to any particular tablet) */
+@media screen and (max-width: $tablet) {
+	article {
+		margin: ($gutter /2);
+	}
+}
+
+
+
+/* PHONE STYLES (not specifically tied to any particular phone) */
+@media screen and (max-width: $phone) {
+	article {
+		margin: 4px;
+	}
+}
+
+
+
+
+/* ###################################### */
+/* SCREEN AND PRINT MEDIA SPECIFIC STYLES */
+// SCREEN
+@media screen {
+
+}
+
+
+
+// PRINT
+@media print {
+
+}

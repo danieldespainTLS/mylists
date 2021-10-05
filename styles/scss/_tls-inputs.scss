@@ -1,0 +1,483 @@
+/* ########## Form input styles ########## */
+
+@import 'tls-mixins';
+
+
+
+$inputBorder: 1px solid $blue-2;
+$requiredBorder: 4px solid $blue-2;
+
+// input[type=button],
+// reset is found in tls-mixins.scss
+.button {
+	@include buttonReset();
+	text-decoration: none;
+	
+	&.tiny {
+		@include buttonReset("tiny");
+	}
+	&.small {
+		@include buttonReset("small");
+	}
+	&.regular {
+		@include buttonReset("regular"); // default: not necessary
+	}
+	&.large {
+		@include buttonReset("large");
+	}
+
+	&.largeFont {
+		font-size: 200%;
+	}
+	
+	
+
+	&.blue {
+		@include blueButton();
+
+		&:hover {
+			@include blueButtonHover();
+        }
+        &:active {
+            @include blueButtonActive();
+        }
+
+		&.disabled, &:disabled {
+			@include blueButtonDisabled();
+		}
+
+		&.ghost {
+			@include blueButtonGhost();
+			
+			&:hover {
+				@include blueButtonGhostHover();
+            }
+			
+            &:active {
+				@include blueButtonGhostActive();
+			}
+			
+			&.disabled, &:disabled {
+				@include blueButtonGhostDisabled;
+			}
+		}
+		
+		&.flat {
+			@include blueButtonFlat();
+			
+			&:hover {
+				@include blueButtonFlatHover();
+			}
+			
+			&:active {
+				@include blueButtonFlatActive();
+			}
+
+			&.disabled, &:disabled {
+				@include blueButtonFlatDisabled;
+			}
+		}
+
+	}
+
+    &.green {
+        @include greenButton();
+
+		&:hover {
+			@include greenButtonHover();
+        }
+        &:active {
+            @include greenButtonActive();
+        }
+
+		&.disabled, &:disabled {
+			@include greenButtonDisabled();
+		}
+
+		&.ghost {
+			@include greenButtonGhost();
+
+			&:hover {
+				@include greenButtonGhostHover();
+            }
+
+            &:active {
+                @include greenButtonGhostActive();
+			}
+			
+			&.disabled, &:disabled {
+				@include greenButtonGhostDisabled;
+			}
+		}
+
+		&.flat {
+			@include greenButtonFlat();
+			
+			&:hover {
+				@include greenButtonFlatHover();
+			}
+			
+			&:active {
+				@include greenButtonFlatActive();
+			}
+
+			&.disabled, &:disabled {
+				@include greenButtonFlatDisabled;
+			}
+		}
+
+	}
+	
+	&.red {
+        @include redButton();
+
+		&:hover {
+			@include redButtonHover();
+        }
+        &:active {
+            @include redButtonActive();
+        }
+
+		&.disabled, &:disabled {
+			@include redButtonDisabled();
+		}
+
+		&.ghost {
+			@include redButtonGhost();
+
+			&:hover {
+				@include redButtonGhostHover();
+            }
+
+            &:active {
+                @include redButtonGhostActive();
+			}
+			
+			&.disabled, &:disabled {
+				@include redButtonGhostDisabled;
+			}
+		}
+
+		&.flat {
+			@include redButtonFlat();
+			
+			&:hover {
+				@include redButtonFlatHover();
+			}
+			
+			&:active {
+				@include redButtonFlatActive();
+			}
+
+			&.disabled, &:disabled {
+				@include redButtonFlatDisabled;
+			}
+		}
+    }
+}
+
+
+
+@media screen and (max-width: ($buttonMinWidth * 2.5)) {
+	.button{
+		&.tiny, 
+		&.small, 
+		&.regular, 
+		&.large {
+			min-width: 100%;
+		}
+	}
+}
+
+
+
+// reset is found in tls-mixins.scss
+.iconButton {
+	@include iconButtonReset;
+}
+
+
+
+.subtleButton {
+	&.blue {
+		@include subtleButton();
+
+		&:hover {
+			@include subtleButtonHover();
+		}
+
+		&:active {
+			@include subtleButtonActive();
+		}
+
+		&.disabled, &:disabled {
+			@include subtleButtonDisabled();
+		}
+
+		&.ghost {
+			@include subtleButtonGhost();
+
+			&:hover {
+				@include subtleButtonGhostHover();
+            }
+
+            &:active {
+                @include subtleButtonGhostActive();
+            }
+	
+			&.disabled, &:disabled {
+				@include subtleButtonGhostDisabled;
+			}
+		}
+
+		&.flat {
+			@include subtleButtonFlat();
+
+			&:hover {
+				@include subtleButtonFlatHover();
+			}
+			
+			&.disabled, &:disabled {
+				@include subtleButtonFlatDisabled();
+			}
+		}
+	}
+
+	&.green {
+		@include subtleGreenButton();
+
+		&:hover {
+			@include subtleGreenButtonHover();
+		}
+
+		&:active {
+			@include subtleGreenButtonActive();
+		}
+
+		&.disabled, &:disabled {
+			@include subtleGreenButtonDisabled();
+		}
+
+		&.ghost {
+			@include subtleGreenButtonGhost();
+
+			&:hover {
+				@include subtleGreenButtonGhostHover();
+            }
+
+            &:active {
+                @include subtleGreenButtonGhostActive();
+            }
+	
+			&.disabled, &:disabled {
+				@include subtleGreenButtonGhostDisabled;
+			}
+		}
+
+		&.flat {
+			@include subtleGreenButtonFlat();
+
+			&:hover {
+				@include subtleGreenButtonFlatHover();
+            }
+
+            &:active {
+                @include subtleGreenButtonFlatActive();
+            }
+	
+			&.disabled, &:disabled {
+				@include subtleGreenButtonFlatDisabled;
+			}
+		}
+	}
+
+	&.red {
+		@include subtleRedButton();
+
+		&:hover {
+			@include subtleRedButtonHover();
+		}
+
+		&:active {
+			@include subtleRedButtonActive();
+		}
+
+		&.disabled, &:disabled {
+			@include subtleRedButtonDisabled();
+		}
+
+		&.ghost {
+			@include subtleRedButtonGhost();
+
+			&:hover {
+				@include subtleRedButtonGhostHover();
+            }
+
+            &:active {
+                @include subtleRedButtonGhostActive();
+            }
+	
+			&.disabled, &:disabled {
+				@include subtleRedButtonGhostDisabled;
+			}
+		}
+
+		&.flat {
+			@include subtleRedButtonFlat();
+
+			&:hover {
+				@include subtleRedButtonFlatHover();
+            }
+
+            &:active {
+                @include subtleRedButtonFlatActive();
+            }
+	
+			&.disabled, &:disabled {
+				@include subtleRedButtonFlatDisabled;
+			}
+		}
+	}
+}
+
+
+
+form {
+	label {
+		display: block;
+		font-size: 10pt;
+
+		&.inline {
+			display: inline-block;
+		}
+	}
+
+	input[type='radio'] + label.inline,
+	input[type='checkbox'] + label.inline {
+		padding-left: ($gutter / 2);
+	}
+
+	.form-group {
+		margin: ($gutter * 2) 0;
+	}
+
+	h2 + .form-group {
+		margin-top: ($gutter / 2);
+	}
+
+
+
+	input[type=text],
+	input[type=email],
+	input[type=url],
+	input[type=number],
+	input[type=tel] {
+		margin: 0 $gutter ($gutter / 2) 0;
+		padding: ($gutter / 4);
+		font-family: $lato;
+		font-weight: 400;
+		font-style: italic;
+		font-size: 12pt;
+		border: $inputBorder;
+		background-color: white;
+	}
+
+	textarea {
+		border: $inputBorder;
+		background-color: white;
+		width: 90%;
+		max-width: ($maxArticleWidth * .75);
+		height: 10em;
+		font-family: $lato;
+		font-weight: 400;
+		font-style: italic;
+		font-size: 12pt;
+	}
+
+	input[type=number],
+	input[type=tel] {
+		font-style: normal;
+		background-color: white;
+	}
+
+	select.styled {
+		display: inline-block;
+		font-size: 12pt;
+		font-family: sans-serif;
+		color: $black;
+		line-height: 1.2;
+		padding: ($gutter / 4) 2em ($gutter / 4) ($gutter / 2);
+		width: auto;
+		max-width: 100%;
+		box-sizing: border-box;
+		margin: 0 0 ($gutter / 2) 0;
+		border: $inputBorder;
+		box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+		border-radius: 4px;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		background-color: white;
+		background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+		  linear-gradient(to bottom, $white 0%, $white 100%);
+		background-repeat: no-repeat, repeat;
+		background-position: right .7em top 50%, 0 0;
+		background-size: .65em auto, 100%;
+	}
+	select.styled::-ms-expand {
+		display: none;
+	}
+	select.styled:hover {
+		border-color: $inputBorder;
+	}
+	select.styled:focus {
+		border-color: $inputBorder;
+		box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+		box-shadow: 0 0 0 3px -moz-mac-focusring;
+		color: black;
+		outline: none;
+	}
+	select.styled option {
+		font-weight:normal;
+	}
+
+	textarea:required,
+	input[type=text]:required,
+	input[type=email]:required,
+	input[type=url]:required,
+	input[type=number]:required,
+	input[type=tel]:required, 
+	select.styled:required {
+		border-left: $requiredBorder;
+	}
+
+	textarea:read-only,
+	input[type=text]:read-only,
+	input[type=email]:read-only,
+	input[type=url]:read-only,
+	input[type=number]:read-only,
+	input[type=tel]:read-only {
+		background-color: rgba(255,255,255,.5);
+	}
+
+	.valueError {
+		border-color: $logo-red !important;
+	}
+
+
+	.description, 
+	.help, 
+	.hint {
+		.align-top {
+			margin-top: 0;
+		}
+		.align-bottom {
+			margin-bottom: 0;
+		}
+		&.error {
+			opacity: 1;
+			font-size: 80%;
+			font-style: normal;
+		}
+	}
+}

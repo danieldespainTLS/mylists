@@ -1,0 +1,171 @@
+
+.nameList {
+	border-bottom: 1px solid $borderBetweenColor;
+	border: 1px solid black;
+	padding: 0;
+	margin: 0;
+	
+	.nameRow {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		gap: ($gutter / 2);
+
+		&:nth-child(odd) {
+			background-color: rgba(0,0,0, .05);
+		}
+		
+		input {
+			margin: 0;
+			margin-left: ($gutter / 2);
+			padding: 0;
+		}
+		
+		padding: 8px 4px;
+		border-top: 1px solid $borderBetweenColor;
+		
+		&:first-of-type {
+			border-top: 0px solid transparent;
+		}
+		
+		&:hover {
+			background-color: rgba(255,255,0, .25);
+		}
+	}
+	
+	.name {
+		display: inline-flex;
+		flex-grow: 1;
+		flex-flow: row wrap;
+		.firstName {
+			color: blue;
+		}
+		
+		.lastName {
+			color: green;
+		}
+	}
+	
+	&.firstLast {
+		.firstName:not(:empty) {
+			order: 1;
+
+			&::after {
+				content: '\a0';
+			}
+		}
+
+		.lastName {
+			order: 2;
+		}
+	}
+	
+	&.lastCommaFirst {
+		.firstName {
+			order: 2;
+		}
+
+		.firstName:not(:empty) + .lastName:not(:empty) {
+			&::after {
+				content: ',\a0';
+			}
+		}
+	}
+	
+	&.firstOnly {
+		.lastName {
+			display: none;
+		}
+		
+		.firstName:empty {
+			opacity: 25%;
+			font-style: italic;
+			
+			&:before {
+				content: 'no first name';
+			}
+		}
+	}
+	
+	&.lastOnly {
+		.firstName {
+			display: none;
+		}
+		
+		.lastName:empty {
+			opacity: 25%;
+			font-style: italic;
+			
+			&:before {
+				content: 'no last name';
+			}
+		}
+	}
+	
+	&.firstLast, 
+	&.lastCommaFirst {
+		.firstName:empty + .lastName:empty {
+			&:before {
+				content: 'no name';
+				color: black;
+				opacity: 25%;
+				font-style: italic;
+			}
+		}
+	}
+	
+	.icon {
+		display: none;
+		padding: ($gutter / 2);
+		font-size: 7pt;
+		font-family: sans-serif;
+		
+		&:hover {
+			color: blue;
+			cursor: pointer;
+		}
+	}
+}
+
+
+.buttonRow {
+	padding: $gutter 0;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: $gutter;
+}
+
+.blueLink {
+	text-decoration: none;
+	color: #00AEEF;
+}
+
+.button {
+	border: 0;
+	box-shadow: none;
+	margin: 0;
+	padding: 8px;
+	font-size: 10pt;
+	cursor: pointer;
+	
+	&.blue {
+		background-color: #00AEEF;
+		color: white;
+		font-weight: bold;
+	}
+	
+	&.green {
+		background-color: green;
+		color: white;
+		font-weight: bold;
+	}
+	
+	&.red {
+		&.ghosted {
+			background-color: transparent;
+			color: red;
+			font-weight: normal;
+		}
+	}
+}

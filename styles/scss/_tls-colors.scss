@@ -1,0 +1,261 @@
+/* ########## Global definition of colors for SCSS ########## */
+
+// shades of dark blue
+$darkBlue-2: #1E355A;
+$darkBlue-1: #1C3962;
+$darkBlue:  #193D6C;
+$darkBlue1: #1A4372;
+$darkBlue2: #1D4978;
+$darkBlue3: #205080;
+$darkBlue4: #225484;
+$darkBlue5: #235889;
+
+// between darkBlue and blue: 1 is darkest
+$darkBlueTransition1: #1A699F;
+$darkBlueTransition2: #117AB4;
+$darkBlueTransition3: #098AC9;
+
+// shades of blue
+$blue-2: #009bdf;
+$blue-1: #00a3e6;
+$blue:  #00aeef;
+$blue1: #18b2ee;
+$blue2: #28b5ed;
+$blue3: #34b7ed;
+$blue4: #4cbbed;
+$blue5: #63bfec;
+
+// between blue and lightBlue: 1 is darkest
+$blueTransition1: #79c9f0;
+$blueTransition2: #8ed2f4;
+$blueTransition3: #9fdaf7;
+
+// main blue gradient
+$blueGradientLight: $blue;
+$blueGradientDark: $blue-2;
+
+// shades of light blue
+$lightBlue-2: #b9e5fb;
+$lightBlue-1: #c7eafb;
+$lightBlue:  #d4effc;
+$lightBlue1: #daf1fd;
+$lightBlue2: #e0f3fd;
+$lightBlue3: #e6f5fd;
+$lightBlue4: #ebf8fe;
+$lightBlue5: #f1fafe;
+
+// shades of green
+$green-2: #059849;
+$green-1: #01a04c;
+$green:  #00A64F;
+$green1: #27aa52;
+$green2: #3bae55;
+$green3: #4ab259;
+$green4: #56b75c;
+$green5: #61bd61;
+
+// between green and lightGreen: 1 is darkest
+$greenTransition1: #7FC975;
+$greenTransition2: #90D685;
+$greenTransition3: #9FE298;
+
+// light green
+$lightGreen-2: #b5e8a9;
+$lightGreen-1: #c2f2b8;
+$lightGreen: #d4f2c7;
+$lightGreen1: #dbf4d1;
+$lightGreen2: #e2f6da;
+$lightGreen3: #eaf8e5;
+$lightGreen4: #f1f9ee;
+$lightGreen5: #f6fbf4;
+
+// shades of red
+$red-2: #cb262c;
+$red-1: #d92429;
+$red:  #ed1d24;
+$red1: #ed2e2c;
+$red2: #ee3833;
+$red3: #ef423a;
+$red4: #ef4a42;
+$red5: #f0524a;
+
+// shades of yellow
+$yellow-2: #fad922;
+$yellow-1: #fbe222;
+$yellow:  #fff200;
+$yellow1: #FCEF4B;
+$yellow2: #FCF16B;
+$yellow3: #FCF284;
+$yellow4: #FCF49A;
+$yellow5: #FFFFAE;
+
+
+
+
+
+
+
+// LOGO colors
+$logo-glint: #fff;
+$logo-blue: #0071BB;
+$logo-blue-shadow: #005086;
+$logo-green: #00a651;
+$logo-green-shadow: #056f45;
+$logo-red: #ed1d24;
+$logo-red-shadow: #af2a30;
+$logo-yellow: #fff200;
+$logo-yellow-shadow: #f99c21;
+$logo-buffer: #fff;
+$logo-buffer-shadow: #d1d3d4;
+$logo-letter-shadow: #000;
+
+$logo-apple: #ef3736;
+$logo-apple-shadow: #a6272a;
+$logo-apple-deep-shadow: #9a262b;
+
+$logo-apple-leaf-glint: #97c7a7;
+$logo-apple-leaf: #5aa875;
+$logo-apple-leaf-shadow: #40805b;
+
+$logo-apple-stem: #8e6a31;
+$logo-apple-stem-highlight: #a4773b;
+$logo-apple-stem-underside: #6c5429;
+$logo-apple-stem-shadow: #55451e;
+
+
+// OTHER colors
+$tls-brown	: rgb(116, 75, 47);
+$tls-purple	: #6c0f91;
+
+
+
+
+
+// PAGE
+$white          : #fff;
+$black          : #000;
+$halfwayToBlack : #142B45;
+$pageBG		    : $lightBlue5;
+$veryLight	    : $lightBlue; // figure background
+$frostOverlay	: rgba(255,255,255, .75);
+$whiteBGfade    : #eff9fe; // fade 90% opacity
+$halfwayToWhite : #f8fdff; // halfway between lightBlue5 and white
+$buff			: #FFFFD7;
+
+
+// BORDERS
+$veryLightBorderOnWhite	: $lightBlue;
+$lightBorderOnWhite		: $blueTransition2;
+$mediumBorderOnWhite	: $blue-2;
+$darkBorderOnWhite		: $darkBlueTransition2;
+
+
+// LINKS
+$link				: $blue-1;
+$linkHover			: $darkBlue5;
+$linkActive			: $green;
+$linkVisited		: $blue-2;
+$linkVisitedHover	: $darkBlue3;
+$linkPrint			: $blue-2;
+
+
+// ZEBRA STRIPING
+$zebraStripeOdd		: $halfwayToWhite;
+$zebraStripeEven	: $white;
+$rowHighlight		: $lightBlue-2;
+$rowHighlight       : $yellow5;
+$rowHighlightPink	: #ffd6e4;
+
+
+// RED TEXT
+$almostRedText		: lighten($logo-red, 20%); // before comitting to redText (ie: hover)
+$redText			: $logo-red;
+$redTextPrint		: $logo-apple-shadow;
+
+$redOutline			: $redTextPrint;
+$redFill			: pink;
+
+
+// ORANGE TEXT
+$orangeText				: $logo-yellow-shadow;
+$orangeTextPrint		: $logo-yellow-shadow;
+$orangeBackground		: #FFC364;
+$orangeBackgroundPrint	: gold;
+
+
+// BROWN TEXT
+$brownText			: $tls-brown;
+$brownTextPrint		: $tls-brown;
+
+
+// PURPLE TEXT
+$purpleText			: $tls-purple;
+$purpleTextPrint	: $tls-purple;
+
+
+// BLUE TEXT
+$almostBlueText		: $blue-2; // before comitting to blueText (ie: hover)
+$blueText			: $logo-blue;
+$blueTextPrint		: $logo-blue-shadow;
+
+
+// GREEN TEXT
+$almostGreenText	: lighten($logo-green, 20%); // before comitting to greenText (ie: hover)
+$greenText			: $logo-green;
+$greenTextPrint		: $logo-green-shadow;
+
+$greenOutline		: $linkPrint;
+$greenFill			: #9acd9b; // #9acd9b;
+
+
+// FINE (GREY) PRINT
+$greyText		: #999;
+$greyTextPrint	: #333;
+$grayText		: $greyText;
+$grayTextPrint	: $greyTextPrint;
+
+
+// INFO BLUE (i) icon
+$infoBlue		: #79b7f5;
+$infoBlueHover	: #3065dd;
+
+
+
+// BARCODES
+$barcodeBG: #ffffff;
+
+
+// retiring status types: "DROP", "TBD", "TBD25", "NLS"
+.status_DROP {
+	color: #800080;
+}
+.status_TBD {
+	color: #8B4513;
+}
+.status_TBD25 {
+	color: $orangeText;
+}
+.status_TBD50,
+.status_TBD75 {
+	color: $redText;
+}
+.status_TDB75 {
+	font-weight: bold;
+}
+.status_NLS {
+	color: grey;
+	opacity: .5;
+}
+.status_REMOVE {
+	color: $logo-apple-deep-shadow;
+	text-decoration: line-through;
+}
+.status_PURGE {
+	color: hotpink;
+	text-decoration: line-through;
+}
+// sold out is status_OH0
+.status_OH0 {
+	color: $redText;
+	opacity: 1;
+}

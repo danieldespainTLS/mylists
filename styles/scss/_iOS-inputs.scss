@@ -1,0 +1,108 @@
+/* ########## emulates common iOS inputs ########## */
+
+@import 'tls-colors';
+
+// Color Variables
+$onColor: $green;
+$offColor: white;
+$outterBorderColor: lightgray;
+$knobColor: whitesmoke;
+
+// size variables
+$diameter: 20;
+$borderLineWidth: 1;
+$trackWidth: 40;
+$roundness: .5; // .5 or higher will be circle; < .5 will be more square
+
+
+
+@mixin inactiveMixin {
+	content: "";
+	position: absolute;
+	display: block;
+}
+
+@mixin beforeAnimation {
+	transition: .2s cubic-bezier(.24, 0, .5, 1);
+}
+
+@mixin afterAnimation {
+	box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 
+	0 3px 0px 0 hsla(0, 0%, 0%, .04), 
+	0 3px 9px hsla(0, 0%, 0%, .13), 
+	0 2px 3px hsla(0, 0%, 0%, .05);
+	transition: .35s cubic-bezier(.54, 1.60, .5, 1);
+}
+
+// toggle switch (checkbox as a slider)
+.slidingToggleContainer {
+	line-height: $diameter * 1px + ($borderLineWidth * 2);
+	height: $diameter * 1px + ($borderLineWidth * 2);
+	position: relative;
+
+	& span.description {
+		// color: brown;
+		// position: absolute;
+		// top: 0;
+	}
+}
+
+input[type='checkbox'] {
+	&.slidingToggle {
+		opacity: 0; // hides checkbox
+		position: absolute;
+
+		& + label {
+			position: relative;
+			display: inline-block;
+			user-select: none;
+			transition: .4s ease;
+			height: $diameter * 1px;
+			width: $trackWidth * 1px;
+			border: $borderLineWidth * 1px solid $outterBorderColor;
+			border-radius: ($diameter * $roundness) * 1px;
+			background: $offColor; // Inactive color
+			
+			&:before {
+				@include inactiveMixin;
+				@include beforeAnimation;
+				height: $diameter * 1px;
+				width: ($trackWidth + $borderLineWidth) * 1px;
+				top: 0;
+				left: 0;
+				border-radius: ($diameter * $roundness) * 1px;
+			}
+			&:after {
+				@include inactiveMixin;
+				@include afterAnimation;
+				background: $knobColor;
+				height: ($diameter - $borderLineWidth - $borderLineWidth) * 1px;
+				width: ($diameter - $borderLineWidth - $borderLineWidth) * 1px;
+				top: $borderLineWidth * 1px;
+				left: 0px;
+				border-radius: ($diameter * $roundness) * 1px;
+			}
+
+			& + span.description {
+				padding-left: .5em;
+				font-size: 10pt !important;
+				opacity: 1;
+				line-height: $diameter * 1px + ($borderLineWidth * 2);
+				top: 0;
+				position: absolute;
+				margin: 0;
+			}
+		}
+
+		// when active
+		&:checked {
+			& + label:before {
+				background: $onColor; // Active Color
+				transition: width .2s cubic-bezier(0, 0, 0, .1);
+			}
+			& + label:after {
+				left: ($trackWidth + $borderLineWidth + $borderLineWidth - $diameter) * 1px;
+			}
+		}
+	}
+}

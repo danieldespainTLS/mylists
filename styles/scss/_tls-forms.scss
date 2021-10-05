@@ -1,0 +1,373 @@
+/* ########## Form input styles ########## */
+
+@import 'tls-mixins';
+@import 'tls-sizes';
+
+
+
+$inputBorder: 1px solid $blue-2;
+$requiredBorder: 4px solid $blue-2;
+
+// input[type=button],
+// reset is found in tls-mixins.scss
+
+
+form {
+	background-color: $lightBlue-2;
+	max-width: ($maxArticleWidth * .75);
+
+	margin: $gutter 0;
+	padding: $gutter;
+
+	fieldset {
+		margin: 0 0 $gutter 0;
+		padding: ($gutter / 2) 0 0 0;
+		border: 0px solid transparent;
+
+		legend {
+			margin: 0;
+			padding: 0;
+			font-size: 9pt;
+			color:$darkBlue5;
+			width: 100%;
+			border-bottom: 1px solid $blue5;
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	.formGroup {
+		margin-top: 0;
+		margin-bottom: $gutter;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center; // apply class verticalTop or verticalBottom to change
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		label {
+			width: $sidebarWidth;
+			max-width: $sidebarMaxWidth;
+			padding-right: ($gutter / 2);
+			text-align: right;
+		}
+
+		&.checkbox {
+			line-height: 1rem;
+			margin-bottom: ($gutter / 4);
+
+			label, 
+			input {
+				line-height: 1rem;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+		}
+
+		& input[type=text],
+		& input[type=email],
+		& input[type=url],
+		& input[type=number],
+		& input[type=tel] {
+			margin-bottom: 0
+		}
+
+		& select.styled {
+			margin-bottom: 0;
+		}
+
+		&.tinyMargin {
+			margin-bottom: ($gutter / 4);
+		}
+
+		&.noMargin {
+			margin-bottom: 0;
+		}
+
+		&.verticalCenter {
+			// already default alignment
+			align-items: center;
+		}
+		&.verticalTop {
+			align-items: flex-start;
+		}
+		&.verticalBottom {
+			align-items: flex-end;
+		}
+	}
+
+	.formColumns {
+		display: flex;
+		flex-flow: row wrap;
+		border: 1px solid $green5; //$lightGreen-2;
+		padding: ($gutter / 2) $gutter 0 $gutter;
+		margin-bottom: $gutter;
+		background-color: rgba($lightGreen, .1);
+
+		fieldset {
+			min-width: 300px;
+			padding-right: $gutter;
+			flex-grow: 1;
+			margin-bottom: $gutter;
+
+			&:last-of-type {
+				padding-right: 0;
+			}
+		}
+	}
+
+	.formColumns.noBorder {
+		border: 0px solid transparent;
+		padding: 0;
+		margin-bottom: 0;
+		background-color: transparent;
+	}
+
+	.checkboxToggleIcon {
+		align-items: center;
+
+		& label.icon {
+			display: flex;
+			width: auto;
+			flex: row nowrap;
+			align-items: center;
+			cursor: pointer;
+
+			&.icon >* {
+				padding-left: ($gutter / 2);
+			}
+		}
+	}
+
+	//FIXME: trying to upstream this and make it generic from productcdn.scss (.seasons and .safetyWarnings)
+	// override width of each checkbox entry using .multipleCheckboxes li {flex-basis: ###px}
+	.multipleCheckboxes {
+		display: flex;
+		flex-flow: row wrap;
+
+		input[type=checkbox]{
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-left: 0;
+		}
+
+		li {
+			display: flex;
+			flex-flow: row nowrap;
+			flex-basis: 180px;
+			align-items: center;
+			margin: 0 ($gutter / 2) ($gutter / 4) 0;
+			padding: 0;
+			height: 1.5rem;
+			line-height: 1.5rem;
+		}
+		
+		label {
+			padding-left: ($gutter / 3);
+			cursor: pointer;
+		}
+		
+		&.withBorders li {
+			border: 1px solid $blue;
+			padding: 0 0 0 10px;
+			border-radius: 12px;
+			background-color: rgba($blue, .20);
+			margin-bottom: ($gutter / 2);
+		}
+
+		&.singleColumn li {
+			flex-basis: 100%;
+		}
+	}
+
+
+	&.shortLabels, 
+	fieldset.shortLabels {
+		.formGroup {
+			label {
+				width: ($sidebarWidth * .5);
+				max-width: ($sidebarMaxWidth * .5);
+			}
+		}
+	}
+
+	&.longLabels, 
+	fieldset.longLabels {
+		.formGroup {
+			label {
+				width: ($sidebarWidth * 1.5);
+				max-width: ($sidebarMaxWidth * 1.5);
+			}
+		}
+	}
+
+	.instructions {
+		margin: 0 0 ($gutter / 2) 0;
+		font-size: 10pt;
+	}
+
+	.hint {
+		margin-left: $gutter;
+	}
+	.longHint {
+		width: 100%;
+		flex-basis: 1;
+	}
+	.hint.underFieldHint {
+		display: block;
+		clear: both;
+		width: 80%;
+		margin-left: $sidebarWidth;
+		margin-top: 2px;
+		
+		padding-left: ($gutter / 2);
+		padding-top: 0;
+		font-size: 10pt;
+		font-style: normal;
+	}
+	.shortLabels .hint.underFieldHint {
+		margin-left: ($sidebarWidth * .5);
+	}
+	.longLabels .hint.underFieldHint {
+		margin-left: ($sidebarWidth * 1.5);
+	}
+
+	input[type='number'], 
+	input[type='text'] {
+		font-size: 10pt;
+		padding: 2px;
+		font-style: normal;
+
+		&.wide {
+			width: 20rem !important;
+		}
+	}
+
+	input[type='number']{
+		width: 6em;
+		text-align: right;
+	}
+
+	select{
+		margin: 0;
+
+		&.narrow {
+			width: 10rem !important;
+			max-width: none;
+		}
+		&.medium {
+			width: 15rem !important;
+		}
+		&.wide {
+			width: 20rem !important;
+			max-width: none;
+		}
+	}
+
+	input:disabled {
+		border-color: $greyText !important;
+		opacity: 75%;
+		cursor: not-allowed;
+	}
+
+	input[type='submit']{
+		margin: $gutter 0 0 0;
+	}
+}
+
+
+form {
+	&.fullWidth {
+		width: auto;
+		max-width: none;
+	}
+
+	&.noBackground {
+		background-color: transparent;
+	}
+
+	&.noMargin {
+		margin: 0;
+	}
+
+	&.noPadding {
+		padding: 0;
+	}
+
+	fieldset {
+		&.noPadding {
+			padding: 0;
+		}
+
+		&.noMargin {
+			margin: 0;
+		}
+	}
+
+	legend {
+		&.noBorder {
+			border-bottom-width: 0;
+		}
+	}
+}
+
+
+
+
+
+/* ###################################### */
+/* RESPONSIVE STYLES (screen size) */
+/* TABLET STYLES (not specifically tied to any particular tablet) */
+@media screen and (max-width: $tablet) {
+	form, 
+	form.shortLabels {
+		padding: ($gutter / 2);
+
+		fieldset {
+			legend {
+				text-align: left;
+			}
+		}
+
+		fieldset.shortLabels .formGroup, 
+		fieldset.longLabels .formGroup, 
+		.formGroup {
+			flex-flow: column nowrap;
+			align-items: flex-start;
+
+			label {
+				width: 100%;
+				max-width: 100%;
+				text-align: left;
+				padding: 0;
+			}
+
+			&.verticalCenter {
+				align-items: flex-start;
+			}
+			
+			&.checkbox {
+				flex-flow: row nowrap;
+				
+				label {
+					order: 10;
+					margin-left: ($gutter / 4);
+				}
+			}
+		}
+
+		.formColumns {
+			flex-flow: column wrap;
+		}
+	}
+}
+
+
+
+/* PHONE STYLES (not specifically tied to any particular phone) */
+@media screen and (max-width: $phone) {
+}

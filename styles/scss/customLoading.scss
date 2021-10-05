@@ -1,0 +1,55 @@
+@import 'tls-core';
+
+.allBlue {
+	color: $darkBlueTransition1;
+}
+
+
+.differentColors {
+	.spinner {
+		background-color: $logo-apple-leaf-shadow;
+	}
+
+	.label {
+		color: $logo-apple-stem-underside;
+	}
+}
+
+
+.itsyBitsy {
+	gap: 4px;
+	
+	.spinner {
+		width: 16px;
+		height: 16px;
+	}
+	
+	.label {
+		font-size: 9pt;
+		font-weight: normal;
+	}
+}
+
+.fastSpinner {
+	color: $tls-purple;
+	
+	.spinner {
+		animation-duration: 250ms;
+	}
+}
+
+.slowSpinner {
+	color: $tls-purple;
+	
+	.spinner {
+		animation-duration: 2750ms;
+	}
+}
+
+.bigSpinner {
+	.spinner {
+		width: 144px;
+		height: 144px;
+		margin: 6rem;
+	}
+}

@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<script type='text/javascript' src="responseXML.js"></script>
+	</head>
+	
+	<body>
+	
+		<form name='cccLookup'> 
+			Select a User:
+			<select name="users" onChange="showUser(this.value)">
+				<option value="400100280751">Froggie & Friends</option>
+				<option value="400100280690">Colorful Froggies accents</option>
+				<option value="400100125199">Froggies border</option>
+				<option value="400100125250">Froggies</option>
+			</select>
+			
+			<input type='text' name='cccStyle' maxlength='100' size='32' />
+			<input type='button' value='Look Up Product' onClick="showUser(document.cccLookup.cccStyle.value);" />
+		</form>
+		
+		<div style="text-align: left">
+			<table border='1' borderColor='#CCCCCC' cellpadding='3' cellspacing='0'>
+				<tr>
+					<th>Style</th>
+					<th>Vendor</th>
+					<th>Title</th>
+					<th>Price</th>
+					<th>New Price</th>
+					<th>Effective Date</th>
+					<th>Page</th>
+				</tr>
+				<tr>
+					<td><span id="styleID">s</span></td>
+					<td><span id="vendor">v</span></td>
+					<td><span id="title">d</span></td>
+					<td><span id="price">p</span></td>
+					<td><span id="newPrice">new_p</span></td>
+					<td><span id="priceDate">p_date</span></td>
+					<td><span id="page">pg</span></td>
+				</tr>
+			</table>
+		</div>
+
+<p>Westcott Forged Steel School Scissors&#44; 5&quot; Pointed</p>
+
+<!-- item`			TEXT NOT NULL, 
+	`title`	TEXT NOT NULL, 
+	`price`			float(12, 2) NOT NULL, 
+	`newPrice`		float(12, 2) NOT NULL, 
+	`priceDate`		TEXT NOT NULL, 
+	`page1`			int(6) NOT NULL, 
+	`page2`			int(6) NOT NULL, 
+	`page3`			int(6) NOT NULL, 
+	`page4`			int(6) NOT NULL, 
+	`page5
+	-->
+
+
+	</body>
+</html>

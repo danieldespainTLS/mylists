@@ -1,0 +1,217 @@
+table.listList {
+	border-bottom: 1px solid $borderBetweenColor;
+	border: 1px solid black;
+	padding: 0;
+	margin: 0;
+	border-collapse: collapse;
+	
+	thead {
+		th {
+			text-align: left;
+			border-bottom: 2px solid black;
+			padding: 4px ($gutter / 2);
+		}
+	}
+	
+	tbody {
+		td {
+			padding: 0px ($gutter / 2);
+			border-bottom: 1px solid #ccc;
+			
+			&.listName {
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: center;
+				gap: ($gutter / 2);
+				flex-grow: 1;
+				
+				label {
+					flex-grow: 1;
+				}
+			}
+			
+			&.lastModified {
+				font-size: 80%;
+			}
+		}
+		
+		tr {
+			&:hover {
+				background-color: rgba(255,255,0, .25);
+			}
+			
+			&:last-of-type {
+				td {
+					border-bottom: 0px solid transparent;
+				}
+			}
+				
+			&:nth-child(odd) {
+				background-color: rgba(0,0,0, .05);
+				
+				&:hover {
+					background-color: rgba(255,255,0, .25);
+				}
+			}
+		}
+	}
+	
+	label {
+		display: block;
+		padding: ($gutter / 2) 0;
+	}
+	
+	.editList {
+		text-decoration: none;
+		color: #00AEEF;
+	}
+	
+	.deleteList {
+		text-decoration: none;
+		color: red;
+	}
+	
+	.listRow {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		gap: ($gutter / 2);
+	}
+}
+
+
+
+@media screen and (max-width: 600px) {
+  table.listList {
+    border: 0px solid transparent;
+		width: 100%;
+		
+		input[type='checkbox'] {
+			// display: none;
+		}
+		
+		thead {
+			border: none;
+			clip: rect(0 0 0 0);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute;
+			width: 1px;
+		}
+		
+		tbody {
+			tr, 
+			tr:last-of-type {
+				td {
+					border-bottom: 0px solid grey;
+					
+					&:last-child {
+						border-bottom: 0px solid transparent;
+					}
+				}
+			}
+			
+			tr {
+				display: block;
+				border: 2px solid blue;
+				margin-bottom : $gutter;
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+				
+				&:hover {
+					label {
+						background-color: $cardUnselectedColorHover;
+					}
+					
+					input[type='checkbox']:checked {
+						display: none;
+
+						+ label {
+							background-color: $cardSelectedColorHover;
+						}
+					}
+				}
+			}
+			
+			td {
+				display: block;
+				box-sizing: border-box;
+				padding: ($gutter / 4) ($gutter / 2);
+				// border-bottom: 6px solid #ccc;
+
+				&.listName {
+					padding: 0;
+				}
+
+				&.nameQty {
+					float: left;
+					text-align: left;
+					font-weight: bold;
+					width: 100%;
+
+					&:after {
+						content: ' names';
+					}
+				}
+
+				&.editList {
+					width: 20%;
+					float: right;
+					text-align: right;
+				}
+
+				&.lastModified {
+					font-size: 10pt;
+					width: 80%;
+					text-align: left;
+
+					&:before {
+						content: 'Last modified: ';
+					}
+				}
+
+				&.deleteList {
+					text-align: left;
+					clear: both;
+				}
+			}
+		}
+		
+		input[type='checkbox'] {
+			display: none;
+			
+			+ label {
+				background-color: $cardUnselectedColor;
+				padding: ($gutter / 2) 0;
+				margin: 0;
+				text-align: center;
+				font-size: 120%;
+				font-weight: bold;
+				
+				&:before {
+					content: 'select';
+					text-transform: uppercase;
+					display: block;
+					font-size: 10pt;
+					font-weight: normal;
+					padding: 0 0 $gutter / 4 0;
+				}
+			}
+			
+			&:checked {
+				+ label {
+					background-color: $cardSelectedColor;
+					color: white;
+					
+					&:before {
+						content: 'selected';
+					}
+				}
+			}
+		}
+	}
+}
