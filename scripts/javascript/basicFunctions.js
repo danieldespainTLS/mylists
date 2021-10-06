@@ -146,11 +146,10 @@ function changeNameOrder(){
 	let chosenOrder = orderSelect.value;
 	
 	listOfNames.classList.remove('firstLast');
-
 	listOfNames.classList.remove('lastCommaFirst');
-
+	listOfNames.classList.remove('firstInitial');
+	listOfNames.classList.remove('lastInitial');
 	listOfNames.classList.remove('firstOnly');
-
 	listOfNames.classList.remove('lastOnly');
 
 	listOfNames.classList.add(chosenOrder);

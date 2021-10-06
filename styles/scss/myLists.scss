@@ -75,6 +75,12 @@ h1, h2, h3, h4 {
 		background-color: #00AEEF;
 		color: white;
 		font-weight: bold;
+
+		&.ghosted {
+			background-color: transparent;
+			color: blue;
+			font-weight: normal;
+		}
 	}
 	
 	&.green {

@@ -71,6 +71,52 @@
 			}
 		}
 	}
+
+	&.firstInitial {
+		.firstName {
+			display: block;
+			font-size: 0;
+
+			&:first-letter {
+				font-size: 12pt;
+			}
+			
+			&:not(:empty):after {
+				content: '.\a0';
+				font-size: 12pt;
+			}
+		}
+	}
+
+	&.lastInitial {
+		.firstName:not(:empty) {
+			&:after {
+				content: '\a0';
+			}
+		}
+
+		.firstName:not(:empty) + .lastName:not(:empty) {
+			&::before {
+				// content: '';
+				margin-left: 24px;
+				font-size: 12pt;
+			}
+		}
+
+		.lastName {
+			display: block;
+			font-size: 0;
+
+			&:first-letter {
+				font-size: 12pt;
+			}
+			
+			&:not(:empty):after {
+				content: '.';
+				font-size: 12pt;
+			}
+		}
+	}
 	
 	&.firstOnly {
 		.lastName {
@@ -103,6 +149,8 @@
 	}
 	
 	&.firstLast, 
+	&.firstInitial, 
+	&.lastInitial, 
 	&.lastCommaFirst {
 		.firstName:empty + .lastName:empty {
 			&:before {
@@ -111,6 +159,12 @@
 				opacity: 25%;
 				font-style: italic;
 			}
+		}
+	}
+
+	&.lastInitial {
+		.firstName:empty + .lastName:empty {
+			font-size: 12pt;
 		}
 	}
 	

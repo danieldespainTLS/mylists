@@ -88,6 +88,8 @@
 
 <select name="nameOrder" id="nameOrder" onChange="changeNameOrder();">
 	<option value="firstLast">First Last</option>
+	<option value="firstInitial">F. Last</option>
+	<option value="lastInitial">First L.</option>
 	<option value="lastCommaFirst">Last, First</option>
 	<option value="firstOnly">First only</option>
 	<option value="lastOnly">Last only</option>
@@ -95,7 +97,8 @@
 </p>
 
 <p>
-	<button class='button green' onClick="goTo('buy.php');">Continue</button>
+	<button class='button green' onClick="goTo('buy.php');">Continue</button> 
+	<button class='button blue ghosted' onClick="goTo('edit.php');">Edit These Names</button>
 </p>
 
 
