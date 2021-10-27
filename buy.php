@@ -13,7 +13,7 @@
 
 		<p>Here's a preview</p>
 
-		<button class='button red' style='font-size: 24pt;'>Hit the big red BUY button!</button>
+		<button class='button red' style='font-size: 24pt;'>Now Hit this BUY button!</button>
 
 		<p><a href='lists.php'>Start Over</a></p>
 	</article>

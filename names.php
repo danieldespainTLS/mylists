@@ -45,7 +45,7 @@
 
 <ul id='listOfNames' class='nameList firstLast'>
 	<li class='nameRow'>
-		<input type='checkbox' id='name_1' class='nameCheckbox' data-assigned-groups="2,4,6" />
+		<input type='checkbox' id='name_1' class='nameCheckbox' data-assigned-groups="2,4,6" checked />
 		<label class='name' for='name_1'>
 			<span class='firstName'>Adam</span>
 			<span class='lastName'>Anderson</span>
@@ -54,7 +54,7 @@
 	</li>
 
 	<li class='nameRow'>
-		<input type='checkbox' id='name_2' class='nameCheckbox' data-assigned-groups="1,4,6" />
+		<input type='checkbox' id='name_2' class='nameCheckbox' data-assigned-groups="1,4,6" checked />
 		<label class='name' for='name_2'>
 			<span class='firstName'>Bryan</span>
 			<span class='lastName'>Bundgaard</span>
@@ -63,7 +63,7 @@
 	</li>
 	
 	<li class='nameRow'>
-		<input type='checkbox' id='name_3' class='nameCheckbox' data-assigned-groups="1,7" />
+		<input type='checkbox' id='name_3' class='nameCheckbox' data-assigned-groups="1,7" checked />
 		<label class='name' for='name_3'>
 			<span class='firstName'>Mary Anne</span>
 			<span class='lastName'>Walters</span>
@@ -72,7 +72,7 @@
 	</li>
 
 	<li class='nameRow'>
-		<input type='checkbox' id='name_4' class='nameCheckbox' data-assigned-groups="2,3,7" />
+		<input type='checkbox' id='name_4' class='nameCheckbox' data-assigned-groups="2,3,7" checked />
 		<label class='name' for='name_4'>
 			<span class='firstName'>Cher</span>
 			<span class='lastName'></span>
@@ -81,7 +81,7 @@
 	</li>
 	
 	<li class='nameRow'>
-		<input type='checkbox' id='name_5' class='nameCheckbox' data-assigned-groups="2,4,6" />
+		<input type='checkbox' id='name_5' class='nameCheckbox' data-assigned-groups="2,4,6" checked />
 		<label class='name' for='name_5'>
 			<span class='firstName'></span>
 			<span class='lastName'>Houdini</span>

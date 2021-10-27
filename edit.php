@@ -266,7 +266,8 @@
 
 
 <p>
-	<button class='button green large' onClick="goTo('lists.php');">Finished Editing List</button>
+	<button class='button green large' onClick="goTo('names.php');">Continue</button>
+	<button class='button blue large ghosted' onClick="goTo('lists.php');">Return to My Lists</button>
 </p>
 
 
