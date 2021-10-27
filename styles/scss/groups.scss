@@ -1,0 +1,60 @@
+form.addGroup {
+	border: 1px solid #63BFEC;
+	margin: $gutter 0;
+	padding: $gutter;
+	background-color: #F1FAFE;
+	
+	fieldset {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: flex-start;
+		gap: $gutter;
+		border: 0px solid transparent;
+		margin: 0;
+		padding: 0;
+	}
+	
+	legend {
+		display: block;
+		margin-bottom: $gutter;
+		font-weight: bold;
+	}
+
+	.inputGroup {
+		display: flex;
+		flex-flow: column nowrap;
+	}
+}
+
+
+ul.groupsList {
+	margin: $gutter 0;
+	max-width: 40em;
+	margin: $gutter auto;
+
+	& > li {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: $gutter;
+		background-color: #ddd;
+		border: 1px solid black;
+		border-radius: 8px;
+		padding: ($gutter / 2);
+		margin: ($gutter / 2);
+	}
+
+	.handle {
+		text-align: center;
+		font-size: 7pt;
+		font-style: italic;
+		color: #666;
+	}
+
+	h2 {
+		flex-grow: 1;
+		font-size: 20pt;
+		text-align: left;
+	}
+}

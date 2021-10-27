@@ -80,6 +80,13 @@ table.namesList {
 			text-align: left;
 			border-bottom: 2px solid black;
 			padding: 4px ($gutter / 2);
+
+			&.tdc {
+				text-align: center;
+			}
+			&.tdr {
+				text-align: right;
+			}
 		}
 	}
 	
@@ -87,6 +94,13 @@ table.namesList {
 		td {
 			padding: 4px ($gutter / 2);
 			border-bottom: 1px solid #ccc;
+
+			&.tdc {
+				text-align: center;
+			}
+			&.tdr {
+				text-align: right;
+			}
 		}
 		
 		tr {
@@ -184,7 +198,32 @@ form.addName {
 
 
 
+.groupsAssignedEditor {
+	position: fixed;
+	top: 20px;
+	width: 400px;
+	right: -400px;
+	border: 1px solid black;
+	background-color: rgba(255,255,255, .95);
+	margin: 0;
+	padding: $gutter;
+	box-sizing: border-box;
+	transition: all .25s;
 
+	&.show {
+		right: 0;
+	}
+
+	ul {
+		li {
+			padding: ($gutter / 2) 0 ($gutter / 2) ($gutter / 2);
+
+			&:hover {
+				background-color: #ffd;
+			}
+		}
+	}
+}
 
 
 

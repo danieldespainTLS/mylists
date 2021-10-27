@@ -18,7 +18,7 @@ table.listList {
 			padding: 0px ($gutter / 2);
 			border-bottom: 1px solid #ccc;
 			
-			&.listName {
+			& .listName {
 				display: flex;
 				flex-flow: row nowrap;
 				align-items: center;

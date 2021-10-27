@@ -29,9 +29,11 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class='listName'>
-				<input type='checkbox' id='list_1' />
-				<label for='list_1'>2019 Class List<br /><span class='hint redText'>Expires in 216 days. <a hre=''>Learn why...</a></span></label>
+			<td class=''>
+				<div class='listName'>
+					<input type='checkbox' id='list_1' />
+					<label for='list_1'>2019 Class List<br /><span class='hint redText'>Expires in 216 days. <a href=''>Learn why...</a></span></label>
+				</div>
 			</td>
 			<td class='tdr nameQty' data-label='Names'>24</td>
 			<td class='tdc editList'><a href='edit.php' class='editList'>edit</a></td>
@@ -39,29 +41,23 @@
 			<td class='tdc deleteList'><a href='' class='deleteList'>X</a></td>
 		</tr>
 		<tr>
-			<td class='listName'>
-				<input type='checkbox' id='list_2' />
-				<label for='list_2'>2019 Class List new Students</label>
+			<td class=''>
+				<div class='listName'>
+					<input type='checkbox' id='list_2' />
+					<label for='list_2'>2020 Class List</label>
+				</div>
 			</td>
-			<td class='tdr nameQty' data-label='Names'>3</td>
+			<td class='tdr nameQty' data-label='Names'>29</td>
 			<td class='tdc editList'><a href='edit.php' class='editList'>edit</a></td>
-			<td class='lastModified' data-label='Last Modified'>August 24, 2019</td>
+			<td class='lastModified' data-label='Last Modified'>August 24, 2020</td>
 			<td class='tdc deleteList'><a href='' class='deleteList'>X</a></td>
 		</tr>
 		<tr>
-			<td class='listName'>
-				<input type='checkbox' id='list_3' />
-				<label for='list_3'>2020 Field Trip</label>
-			</td>
-			<td class='tdr nameQty' data-label='Names'>21</td>
-			<td class='tdc editList'><a href='edit.php' class='editList'>edit</a></td>
-			<td class='lastModified' data-label='Last Modified'>February 3, 2020</td>
-			<td class='tdc deleteList'><a href='' class='deleteList'>X</a></td>
-		</tr>
-		<tr>
-			<td class='listName'>
-				<input type='checkbox' id='list_4' />
-				<label for='list_4'>Parent Helpers</label>
+			<td class=''>
+				<div class='listName'>
+					<input type='checkbox' id='list_4' />
+					<label for='list_4'>Parent Helpers</label>
+				</div>
 			</td>
 			<td class='tdr nameQty' data-label='Names'>2</td>
 			<td class='tdc editList'><a href='edit.php' class='editList'>edit</a></td>
@@ -69,19 +65,23 @@
 			<td class='tdc deleteList'><a href='' class='deleteList'>X</a></td>
 		</tr>
 		<tr>
-			<td class='listName'>
-				<input type='checkbox' id='list_5' />
-				<label for='list_5'>Reading Group 1</label>
+			<td class=''>
+				<div class='listName'>
+					<input type='checkbox' id='list_3' />
+					<label for='list_3'>2021 Class List</label>
+				</div>
 			</td>
-			<td class='tdr nameQty' data-label='Names'>12</td>
+			<td class='tdr nameQty' data-label='Names'>23</td>
 			<td class='tdc editList'><a href='edit.php' class='editList'>edit</a></td>
-			<td class='lastModified' data-label='Last Modified'>March 20, 2021</td>
+			<td class='lastModified' data-label='Last Modified'>August 3, 2021</td>
 			<td class='tdc deleteList'><a href='' class='deleteList'>X</a></td>
 		</tr>
 		<tr>
-			<td class='listName'>
-				<input type='checkbox' id='list_6' />
-				<label for='list_6'>Reading Group 2</label>
+			<td class=''>
+				<div class='listName'>
+					<input type='checkbox' id='list_5' />
+					<label for='list_5'>After School Chess Club</label>
+				</div>
 			</td>
 			<td class='tdr nameQty' data-label='Names'>12</td>
 			<td class='tdc editList'><a href='edit.php' class='editList'>edit</a></td>
@@ -97,7 +97,7 @@
 </p>
 
 <p class='buttonRow'>
-	<button class='button green' onClick="goTo('names.php');">Continue</button>
+	<button class='button green large' onClick="goTo('names.php');">Continue</button>
 </p>
 
 

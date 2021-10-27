@@ -16,11 +16,13 @@
 <h1>Create a New List</h1>
 <p>Create a new list by <strong>importing a text file</strong> or by <strong>copying an existing list</strong>.</p>
 
+<p>You'll be able to <strong>organize your names into groups</strong> in the next step.</p>
+
 <form action='edit.php' class='newList'>
 	<fieldset class='listName'>
 		<h2>Give Your List a Name</h2>
 		<p><input type='text' name='listName' placeholder='List Name' maxlength='64' required /></p>
-		<div id='listNameTaken' class='hint'>'FooBar' is already taken.  <a href='' title='Edit list FooBar'>Edit list 'FooBar'</a></div>
+		<div id='listNameTaken' class='hint'>'FooBar' is already taken.  <a href='edit.php' title='Edit list FooBar'>Edit list 'FooBar'</a></div>
 	</fieldset>
 
 	<fieldset class='toggleSourceMode'>
@@ -60,8 +62,10 @@
 			<label for='listToCopy'>Choose a list:</label>
 			<select name='listToCopy' id='listToCopy'>
 				<option value='list_1'>2019 Class List (24 names)</option>
-				<option value='list_2'>2020 Field Trip (21 Names)</option>
+				<option value='list_2'>2020 Class List (29 Names)</option>
+				<option value='list_2'>2021 Class List (23 Names)</option>
 				<option value='list_3'>Parent Helpers (2 names)</option>
+				<option value='list_3'>After School Chess Club (12 names)</option>
 			</select>
 		</p>
 		<p><input type='submit' value='Copy Names' class='button green' /></p>
