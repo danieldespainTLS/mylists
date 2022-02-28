@@ -16,7 +16,7 @@
 	}
 	
 	th {
-		padding: 0 4px 0 2px;
+		padding: 0 ($pxGutter / 2) 0 ($pxGutter / 4);
 		text-align: right;
 		min-width: 40px;
 		font-family: verdana;

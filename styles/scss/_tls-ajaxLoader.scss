@@ -1,10 +1,56 @@
+$spinnerSize: 36px;
+$spinnerPadding: 6px;
+
+.APIajaxLoader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	// gap: ($gutter / 2);
+	justify-content: space-around;
+	width: ($spinnerSize + ($spinnerPadding * 2) + 24px);
+	height:($spinnerSize + ($spinnerPadding * 2));
+	background-color: rgba($halfwayToWhite, .75);
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+	padding: $spinnerPadding;
+	box-sizing: border-box;
+	border-bottom-left-radius: $pxGutter;
+	border-bottom-right-radius: $pxGutter;
+	z-index: 900;
+	top: (($spinnerSize + ($spinnerPadding * 2)) * -1);
+	transition: all .25s;
+	
+	&.show {
+		top: 0;
+	}
+
+	svg {
+		width: $spinnerSize;
+		height: $spinnerSize;
+	}
+
+	.counter {
+		font-family: $barlowCondensed;
+		font-size: 13pt;
+		line-height: 13pt;
+		text-align: center;
+		font-weight: 200;
+		color: $greyTextPrint;
+	}
+}
+
 .loadingSpinner {
 	display: flex;
 	align-items: center;
 	
 	.spinner {
-		width: 32px;
-		height: 32px;
+		width: $spinnerSize;
+		height: $spinnerSize;
 	
 		background-repeat: no-repeat;
 		background-position: center;
@@ -12,7 +58,7 @@
 		mask-repeat: no-repeat;
 		-webkit-mask-repeat: no-repeat;
 		mask-position: center;
-		-webkit-mask-position: center;
+		-webkit-mask-position: left;
 	
 		animation-name: spin;
 		animation-duration: 750ms;

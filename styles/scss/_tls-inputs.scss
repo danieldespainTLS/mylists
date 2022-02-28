@@ -5,7 +5,8 @@
 
 
 $inputBorder: 1px solid $blue-2;
-$requiredBorder: 4px solid $blue-2;
+$requiredBorderWidth: 3px;
+$requiredBorder: $requiredBorderWidth solid $darkBlue5;
 
 // input[type=button],
 // reset is found in tls-mixins.scss
@@ -371,6 +372,7 @@ form {
 	input[type=email],
 	input[type=url],
 	input[type=number],
+	input[type=date],
 	input[type=tel] {
 		margin: 0 $gutter ($gutter / 2) 0;
 		padding: ($gutter / 4);
@@ -380,6 +382,10 @@ form {
 		font-size: 12pt;
 		border: $inputBorder;
 		background-color: white;
+
+		&.noMargin {
+			margin: 0;
+		}
 	}
 
 	textarea {
@@ -398,6 +404,14 @@ form {
 	input[type=tel] {
 		font-style: normal;
 		background-color: white;
+	}
+
+	input[type=text].longField {
+		width: 80%;
+	}
+
+	input[type=text].mediumField {
+		width: 40%;
 	}
 
 	select.styled {
@@ -441,14 +455,50 @@ form {
 		font-weight:normal;
 	}
 
+	select.disabled, 
+	select:disabled {
+		border-color: $greyText !important;
+		background-image: none;
+		background-color: rgba($white, .5);
+		opacity: .75;
+		cursor: not-allowed;
+	}
+
+	// shouldBeDeclared is not technically required, but field should always have a value
+	.shouldBeDeclared textarea,
+	.shouldBeDeclared input[type=text],
+	.shouldBeDeclared input[type=email],
+	.shouldBeDeclared input[type=url],
+	.shouldBeDeclared input[type=number],
+	.shouldBeDeclared input[type=date],
+	.shouldBeDeclared input[type=tel], 
+	.shouldBeDeclared select.styled,
+	textarea.shouldBeDeclared,
+	input[type=text].shouldBeDeclared,
+	input[type=email].shouldBeDeclared,
+	input[type=url].shouldBeDeclared,
+	input[type=number].shouldBeDeclared,
+	input[type=date].shouldBeDeclared,
+	input[type=tel].shouldBeDeclared, 
+	select.styled.shouldBeDeclared {
+		border-width: 2px;
+	}
+
+	.shouldBeDeclared label, 
+	.shouldBeDeclared legend {
+		font-weight: 600;
+	}
+
 	textarea:required,
 	input[type=text]:required,
 	input[type=email]:required,
 	input[type=url]:required,
 	input[type=number]:required,
+	input[type=date],
 	input[type=tel]:required, 
 	select.styled:required {
-		border-left: $requiredBorder;
+		border-width: $requiredBorderWidth;
+		border-bottom-width: ($requiredBorderWidth * 1.75);
 	}
 
 	textarea:read-only,
@@ -456,6 +506,7 @@ form {
 	input[type=email]:read-only,
 	input[type=url]:read-only,
 	input[type=number]:read-only,
+	input[type=date],
 	input[type=tel]:read-only {
 		background-color: rgba(255,255,255,.5);
 	}

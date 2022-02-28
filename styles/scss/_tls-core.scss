@@ -280,6 +280,10 @@ body.single article {
     max-width: 100%;
 }
 
+body.sideMargins {
+	margin: 0 $gutter;
+}
+
 ul.reset,
 ol.reset {
 	list-style-type: none;
@@ -290,6 +294,19 @@ ol.reset {
 		margin: 0;
 		padding: 0;
 	}
+}
+
+button.reset,
+.button.reset {
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	text-align: center;
+	box-sizing: border-box;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
 }
 
 // blocked items have complete outline and margin between
@@ -381,7 +398,7 @@ blockquote {
 .hint {
 	font-size: 75%;
 	line-height: 125%;
-	margin-top: 2px;
+	margin-top: ($pxGutter / 4);
 	opacity: .75;
 	font-style: italic;
 
@@ -419,6 +436,16 @@ blockquote {
 
 .clearfix {
 	clear: both;
+}
+
+.noSelect {
+	-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		-khtml-user-select: none; /* Konqueror HTML */
+			-moz-user-select: none; /* Old versions of Firefox */
+			-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none; /* Non-prefixed version, currently
+								supported by Chrome, Edge, Opera and Firefox */
 }
 
 

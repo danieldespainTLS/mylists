@@ -1,19 +1,19 @@
 /* ########## Global definition of colors for SCSS ########## */
 
 // shades of dark blue
-$darkBlue-2: #1E355A;
-$darkBlue-1: #1C3962;
-$darkBlue:  #193D6C;
-$darkBlue1: #1A4372;
-$darkBlue2: #1D4978;
+$darkBlue-2: #1e355a;
+$darkBlue-1: #1c3962;
+$darkBlue:  #193d6c;
+$darkBlue1: #1a4372;
+$darkBlue2: #1d4978;
 $darkBlue3: #205080;
 $darkBlue4: #225484;
 $darkBlue5: #235889;
 
 // between darkBlue and blue: 1 is darkest
-$darkBlueTransition1: #1A699F;
-$darkBlueTransition2: #117AB4;
-$darkBlueTransition3: #098AC9;
+$darkBlueTransition1: #1a699f;
+$darkBlueTransition2: #117ab4;
+$darkBlueTransition3: #098ac9;
 
 // shades of blue
 $blue-2: #009bdf;
@@ -47,7 +47,7 @@ $lightBlue5: #f1fafe;
 // shades of green
 $green-2: #059849;
 $green-1: #01a04c;
-$green:  #00A64F;
+$green:  #00a64f;
 $green1: #27aa52;
 $green2: #3bae55;
 $green3: #4ab259;
@@ -55,18 +55,18 @@ $green4: #56b75c;
 $green5: #61bd61;
 
 // between green and lightGreen: 1 is darkest
-$greenTransition1: #7FC975;
-$greenTransition2: #90D685;
-$greenTransition3: #9FE298;
+$greenTransition1: #7fc975;
+$greenTransition2: #90d685;
+$greenTransition3: #9fe298;
 
 // light green
-$lightGreen-2: #b5e8a9;
-$lightGreen-1: #c2f2b8;
-$lightGreen: #d4f2c7;
+$lightGreen-2: #b6daa7;
+$lightGreen-1: #c3e0b4;
+$lightGreen: #cfe5bd;
 $lightGreen1: #dbf4d1;
 $lightGreen2: #e2f6da;
-$lightGreen3: #eaf8e5;
-$lightGreen4: #f1f9ee;
+$lightGreen3: #ebf5e5;
+$lightGreen4: #f1f8ee;
 $lightGreen5: #f6fbf4;
 
 // shades of red
@@ -79,17 +79,35 @@ $red3: #ef423a;
 $red4: #ef4a42;
 $red5: #f0524a;
 
+// shades of orange
+$orange-2: #874e26;
+$orange-1: #af602a;
+$orange:  #d8702a;
+$orange1:  #ea8625;
+$orange2:  #f59b21; // nearly logo-yellow-shadow
+$orange3:  #f8a91c;
+$orange4:  #f9b825;
+$orange5:  #fdc424;
+
 // shades of yellow
 $yellow-2: #fad922;
 $yellow-1: #fbe222;
 $yellow:  #fff200;
-$yellow1: #FCEF4B;
-$yellow2: #FCF16B;
-$yellow3: #FCF284;
-$yellow4: #FCF49A;
-$yellow5: #FFFFAE;
+$yellow1: #fcef4b;
+$yellow2: #fcf16b;
+$yellow3: #fcf284;
+$yellow4: #fef999;
+$yellow5: #ffffae;
 
-
+// shades of grey
+$grey-2: #333333; // greyTextPrint
+$grey-1: #3f3f3f;
+$grey: #515151;
+$grey1: #646364;
+$grey2: #777777; // closest to 'grey (808080)'
+$grey3: #929191; // greyText
+$grey4: #afaeaf;
+$grey5: #d1d3d4; // logo buffer shadow
 
 
 
@@ -97,7 +115,7 @@ $yellow5: #FFFFAE;
 
 // LOGO colors
 $logo-glint: #fff;
-$logo-blue: #0071BB;
+$logo-blue: #0071bb;
 $logo-blue-shadow: #005086;
 $logo-green: #00a651;
 $logo-green-shadow: #056f45;
@@ -122,10 +140,17 @@ $logo-apple-stem-highlight: #a4773b;
 $logo-apple-stem-underside: #6c5429;
 $logo-apple-stem-shadow: #55451e;
 
+$logo-bulb-stop-1: #fff218;
+$logo-bulb-stop-2: #c3922c;
+$logo-bulb-stop-3: $logo-bulb-stop-2;
+$logo-bulb-stop-4: #f4c615;
+$logo-bulb-stop-5: #fed401;
+$logo-bulb-stop-6: #fcee23;
+$logo-bulb-stop-7: #ffffff;
 
 // OTHER colors
-$tls-brown	: rgb(116, 75, 47);
-$tls-purple	: #6c0f91;
+$brown	: #6b442a; // rgb(116, 75, 47);
+$purple	: #6c0f91;
 
 
 
@@ -134,13 +159,13 @@ $tls-purple	: #6c0f91;
 // PAGE
 $white          : #fff;
 $black          : #000;
-$halfwayToBlack : #142B45;
+$halfwayToBlack : #142b45;
 $pageBG		    : $lightBlue5;
 $veryLight	    : $lightBlue; // figure background
 $frostOverlay	: rgba(255,255,255, .75);
 $whiteBGfade    : #eff9fe; // fade 90% opacity
 $halfwayToWhite : #f8fdff; // halfway between lightBlue5 and white
-$buff			: #FFFFD7;
+$buff			: #ffffd7;
 
 
 // BORDERS
@@ -177,20 +202,20 @@ $redFill			: pink;
 
 
 // ORANGE TEXT
-$orangeText				: $logo-yellow-shadow;
-$orangeTextPrint		: $logo-yellow-shadow;
-$orangeBackground		: #FFC364;
+$orangeText				: $orange2;
+$orangeTextPrint		: $orange1;
+$orangeBackground		: $orange5;
 $orangeBackgroundPrint	: gold;
 
 
 // BROWN TEXT
-$brownText			: $tls-brown;
-$brownTextPrint		: $tls-brown;
+$brownText			: $brown;
+$brownTextPrint		: $brown;
 
 
 // PURPLE TEXT
-$purpleText			: $tls-purple;
-$purpleTextPrint	: $tls-purple;
+$purpleText			: $purple;
+$purpleTextPrint	: $purple;
 
 
 // BLUE TEXT
@@ -209,8 +234,8 @@ $greenFill			: #9acd9b; // #9acd9b;
 
 
 // FINE (GREY) PRINT
-$greyText		: #999;
-$greyTextPrint	: #333;
+$greyText		: $grey3;
+$greyTextPrint	: $grey-2;
 $grayText		: $greyText;
 $grayTextPrint	: $greyTextPrint;
 
@@ -225,12 +250,16 @@ $infoBlueHover	: #3065dd;
 $barcodeBG: #ffffff;
 
 
-// retiring status types: "DROP", "TBD", "TBD25", "NLS"
+// evaluation or retiring status types: "DROP", "TBD", "TBD25", "NLS"
+.status_EVALUATE {
+	color: $grey2;
+	font-style: italic;
+}
 .status_DROP {
 	color: #800080;
 }
 .status_TBD {
-	color: #8B4513;
+	color: $orange-2;
 }
 .status_TBD25 {
 	color: $orangeText;
@@ -243,7 +272,7 @@ $barcodeBG: #ffffff;
 	font-weight: bold;
 }
 .status_NLS {
-	color: grey;
+	color: $grey2;
 	opacity: .5;
 }
 .status_REMOVE {

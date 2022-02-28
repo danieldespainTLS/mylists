@@ -17,7 +17,7 @@
 
 
 .itsyBitsy {
-	gap: 4px;
+	gap: ($pxGutter / 2);
 	
 	.spinner {
 		width: 16px;
@@ -31,7 +31,7 @@
 }
 
 .fastSpinner {
-	color: $tls-purple;
+	color: $purple;
 	
 	.spinner {
 		animation-duration: 250ms;
@@ -39,7 +39,7 @@
 }
 
 .slowSpinner {
-	color: $tls-purple;
+	color: $purple;
 	
 	.spinner {
 		animation-duration: 2750ms;

@@ -715,7 +715,7 @@ table.listing {
 		
 		/* + - links (example: f3.php) are too close without this extra spacing */
 		.changeLink {
-			margin-right: 2px;
+			margin-right: ($pxGutter / 4);
 		}
 	}
 }
