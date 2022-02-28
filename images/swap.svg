@@ -1,1 +1,4 @@
-<svg id="back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451.8 451.8"><defs><style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:40px;}</style></defs><polyline class="cls-1" points="31.52 176.36 430.28 176.36 314.35 60.43"/><polyline class="cls-1" points="420.28 275.44 21.52 275.44 137.45 391.37"/></svg>
+<svg id="swap" class="{{class-name}}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 450">
+<path id="right" d="m443.61 161.41-.08-.09L327.6 45.39a20 20 0 0 0-28.29 28.29l82.09 82.08L30.62 158a17.5 17.5 0 0 0 0 35l398.76 2.5a19.95 19.95 0 0 0 14.23-34.05Z"/>
+<path id="left" d="M419.38 257l-398.76-2.5a19.95 19.95 0 0 0-14.23 34l.08.09L122.4 404.61a20 20 0 1 0 28.29-28.29L68.6 294.23 419.38 292a17.5 17.5 0 0 0 0-35Z"/>
+</svg>
