@@ -150,7 +150,8 @@ $logo-bulb-stop-7: #ffffff;
 
 // OTHER colors
 $brown	: #6b442a; // rgb(116, 75, 47);
-$purple	: #6c0f91;
+$purple	: #632576; // #6c0f91;
+$pink	: #fdd8df;
 
 
 
@@ -189,7 +190,7 @@ $zebraStripeOdd		: $halfwayToWhite;
 $zebraStripeEven	: $white;
 $rowHighlight		: $lightBlue-2;
 $rowHighlight       : $yellow5;
-$rowHighlightPink	: #ffd6e4;
+$rowHighlightPink	: $pink;
 
 
 // RED TEXT
@@ -250,41 +251,41 @@ $infoBlueHover	: #3065dd;
 $barcodeBG: #ffffff;
 
 
-// evaluation or retiring status types: "DROP", "TBD", "TBD25", "NLS"
-.status_EVALUATE {
+// evaluation or retiring sellingStatus types: "DROP", "TBD", "TBD25", "NLS"
+.sellingStatus_EVALUATE {
 	color: $grey2;
 	font-style: italic;
 }
-.status_DROP {
+.sellingStatus_DROP {
 	color: #800080;
 }
-.status_TBD {
+.sellingStatus_TBD {
 	color: $orange-2;
 }
-.status_TBD25 {
+.sellingStatus_TBD25 {
 	color: $orangeText;
 }
-.status_TBD50,
-.status_TBD75 {
+.sellingStatus_TBD50,
+.sellingStatus_TBD75 {
 	color: $redText;
 }
-.status_TDB75 {
+.sellingStatus_TDB75 {
 	font-weight: bold;
 }
-.status_NLS {
+.sellingStatus_NLS {
 	color: $grey2;
 	opacity: .5;
 }
-.status_REMOVE {
+.sellingStatus_REMOVE {
 	color: $logo-apple-deep-shadow;
 	text-decoration: line-through;
 }
-.status_PURGE {
+.sellingStatus_PURGE {
 	color: hotpink;
 	text-decoration: line-through;
 }
-// sold out is status_OH0
-.status_OH0 {
+// sold out is sellingStatus_OH0
+.sellingStatus_OH0 {
 	color: $redText;
 	opacity: 1;
 }
