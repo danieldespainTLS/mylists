@@ -40,7 +40,7 @@
 						<option value="6">Boys</option>
 						<option value="7">Girls</option>
 					</select>
-					<a href="groups.php" class='hint'>Create Groups</a>
+					<a href="groups.php" class='hint'>Edit Groups</a>
 				</th>
 				<th class='tdr hint'>ajax</th>
 				<th class='tdc'>Delete</th>
@@ -55,15 +55,17 @@
 				</td>
 				<td><input type='text' name='lastName_1' id='lastName_1' class='contentEditable' tabindex='2' value='Anderson' placeholder='Last Name' onChange="showSaveButton(1);" /></td>
 				<td>
-					<label class='groupsContainer' for='groupName_1'>
+					<div style="display: flex; flex-flow: row nowrap; align-items: center; gap: .5rem;">
 						<input type='checkbox' class='groupCheckbox' name='groupName_1' id='groupName_1' data-assigned-groups="2,4,6" onClick="toggleManageGroups();" />
-						<ul class='reset groups' id='groups_1'>
-							<li>Green Table</li>
-							<li>Reading Group 2</li>
-							<li>Boys</li>
-						</ul>
-						<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
-					</label>
+						<label class='groupsContainer' for='groupName_1' >
+							<ul class='reset groups' id='groups_1'>
+								<li>Green Table</li>
+								<li>Reading Group 2</li>
+								<li>Boys</li>
+							</ul>
+							<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
+						</label>
+					</div>
 				</td>
 				<td><button id='updateName_1' class='updateName hidden' onClick="saveNameChange(1);">save</button></td>
 				<td class='tdc deleteName'><a href='#' id='deleteName_1' class='deleteName' onClick="deleteEditRow(1);">X</a></td>
@@ -76,15 +78,17 @@
 				</td>
 				<td><input type='text' id='lastName_2' class='contentEditable' tabindex='4' value='Bundgaard' placeholder='Last Name' onChange="showSaveButton(2);" /></td>
 				<td>
-					<label class='groupsContainer' for='groupName_2'>
+					<div style="display: flex; flex-flow: row nowrap; align-items: center; gap: .5rem;">
 						<input type='checkbox' class='groupCheckbox' name='groupName_2' id='groupName_2' data-assigned-groups="1,4,6" onClick="toggleManageGroups();" />
-						<ul class='reset groups' id='groups_2'>
-							<li>Orange Table</li>
-							<li>Reading Group 2</li>
-							<li>Boys</li>
-						</ul>
-						<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
-					</label>
+						<label class='groupsContainer' for='groupName_2'>
+							<ul class='reset groups' id='groups_2'>
+								<li>Orange Table</li>
+								<li>Reading Group 2</li>
+								<li>Boys</li>
+							</ul>
+							<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
+						</label>
+					</div>
 				</td>
 				<td><button id='updateName_2' class='updateName hidden' onClick="saveNameChange(2);">save</button></td>
 				<td class='tdc deleteName'><a href='#' id='deleteName_2' class='deleteName' onClick="deleteEditRow(2);">X</a></td>
@@ -97,14 +101,16 @@
 				</td>
 				<td><input type='text' id='lastName_3' class='contentEditable' tabindex='6' value='Anne Walters' placeholder='Last Name' onChange="showSaveButton(3);" /></td>
 				<td>
-					<label class='groupsContainer' for='groupName_3'>
+					<div style="display: flex; flex-flow: row nowrap; align-items: center; gap: .5rem;">
 						<input type='checkbox' class='groupCheckbox' name='groupName_3' id='groupName_3' data-assigned-groups="1,7" onClick="toggleManageGroups();" />
-						<ul class='reset groups' id='groups_3'>
-							<li>Orange Table</li>
-							<li>Girls</li>
-						</ul>
-						<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
-					</label>
+						<label class='groupsContainer' for='groupName_3'>
+							<ul class='reset groups' id='groups_3'>
+								<li>Orange Table</li>
+								<li>Girls</li>
+							</ul>
+							<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
+						</label>
+					</div>
 				</td>
 				<td><button id='updateName_3' class='updateName hidden' onClick="saveNameChange(3);">save</button></td>
 				<td class='tdc deleteName'><a href='#' id='deleteName_3' class='deleteName' onClick="deleteEditRow(3);">X</a></td>
@@ -117,15 +123,17 @@
 				</td>
 				<td><input type='text' id='lastName_4' class='contentEditable' tabindex='8' value='' placeholder='Last Name' onChange="showSaveButton(4);" /></td>
 				<td>
-					<label class='groupsContainer' for='groupName_4'>
+					<div style="display: flex; flex-flow: row nowrap; align-items: center; gap: .5rem;">
 						<input type='checkbox' class='groupCheckbox' name='groupName_4' id='groupName_4' data-assigned-groups="2,3,7" onClick="toggleManageGroups();" />
-						<ul class='reset groups' id='groups_4'>
-							<li>Green Table</li>
-							<li>Reading Group 1</li>
-							<li>Girls</li>
-						</ul>
-						<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
-					</label>
+						<label class='groupsContainer' for='groupName_4'>
+							<ul class='reset groups' id='groups_4'>
+								<li>Green Table</li>
+								<li>Reading Group 1</li>
+								<li>Girls</li>
+							</ul>
+							<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
+						</label>
+					</div>
 				</td>
 				<td><button id='updateName_4' class='updateName hidden' onClick="saveNameChange(4);">save</button></td>
 				<td class='tdc deleteName'><a href='#' id='deleteName_4' class='deleteName' onClick="deleteEditRow(4);">X</a></td>
@@ -138,15 +146,17 @@
 				</td>
 				<td><input type='text' id='lastName_5' class='contentEditable' tabindex='10' value='Houdini' placeholder='Last Name' onChange="showSaveButton(5);" /></td>
 				<td>
-					<label class='groupsContainer' for='groupName_5'>
+					<div style="display: flex; flex-flow: row nowrap; align-items: center; gap: .5rem;">
 						<input type='checkbox' class='groupCheckbox' name='groupName_5' id='groupName_5' data-assigned-groups="2,4,6" onClick="toggleManageGroups();" />
-						<ul class='reset groups' id='groups_5'>
-							<li>Green Table</li>
-							<li>Reading Group 2</li>
-							<li>Boys</li>
-						</ul>
-						<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
-					</label>
+						<label class='groupsContainer' for='groupName_5'>
+							<ul class='reset groups' id='groups_5'>
+								<li>Green Table</li>
+								<li>Reading Group 2</li>
+								<li>Boys</li>
+							</ul>
+							<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
+						</label>
+					</div>
 				</td>
 				<td><button id='updateName_5' class='updateName hidden' onClick="saveNameChange(5);">save</button></td>
 				<td class='tdc deleteName'><a href='#' id='deleteName_5' class='deleteName' onClick="deleteEditRow(5);">X</a></td>
@@ -159,12 +169,14 @@
 				</td>
 				<td><input type='text' id='lastName_6' class='contentEditable' tabindex='12' value='' placeholder='Last Name' onChange="showSaveButton(6);" /></td>
 				<td>
-					<label class='groupsContainer' for='groupName_6'>
+					<div style="display: flex; flex-flow: row nowrap; align-items: center; gap: .5rem;">
 						<input type='checkbox' class='groupCheckbox' name='groupName_6' id='groupName_6' data-assigned-groups="" onClick="toggleManageGroups();" />
-						<ul class='reset groups' id='groups_6'>
-						</ul>
-						<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
-					</label>
+						<label class='groupsContainer' for='groupName_6'>
+							<ul class='reset groups' id='groups_6'>
+							</ul>
+							<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
+						</label>
+					</div>
 				</td>
 				<td><button id='updateName_6' class='updateName hidden' onClick="saveNameChange(6);">save</button></td>
 				<td class='tdc deleteName'><a href='#' id='deleteName_6' class='deleteName' onClick="deleteEditRow(6);">X</a></td>
@@ -177,12 +189,14 @@
 				</td>
 				<td><input type='text' id='lastName_7' class='contentEditable' tabindex='14' value='Room 19' placeholder='Last Name' onChange="showSaveButton(7);" /></td>
 				<td>
-					<label class='groupsContainer' for='groupName_7'>
+					<div style="display: flex; flex-flow: row nowrap; align-items: center; gap: .5rem;">
 						<input type='checkbox' class='groupCheckbox' name='groupName_7' id='groupName_7' data-assigned-groups="" onClick="toggleManageGroups();" />
-						<ul class='reset groups' id='groups_7'>
-						</ul>
-						<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
-					</label>
+						<label class='groupsContainer' for='groupName_7'>
+							<ul class='reset groups' id='groups_7'>
+							</ul>
+							<button class='button blue tiny ghosted' onClick="openNameGroupEditor(1);">Edit</button>
+						</label>
+					</div>
 				</td>
 				<td><button id='updateName_7' class='updateName hidden' onClick="saveNameChange(7);">save</button></td>
 				<td class='tdc deleteName'><a href='#' id='deleteName_7' class='deleteName' onClick="deleteEditRow(7);">X</a></td>
@@ -208,8 +222,8 @@
 							<option value="6">Boys</option>
 							<option value="7">Girls</option>
 						</select>
-						<button class='button blue tiny' onClick="assignGroupToSelected();">Add</button>
-						<button class='button red ghosted' onClick="removeGroupFromSelected();">Remove</button>
+						<button class='button blue tiny' onClick="assignGroupToSelected();">Add Group</button>
+						<button class='button red ghosted' onClick="removeGroupFromSelected();">Remove Group</button>
 					</div>
 					<div style='margin: 8px 0;'><a href='groups.php'>Edit Groups</a></div>
 				</td>
