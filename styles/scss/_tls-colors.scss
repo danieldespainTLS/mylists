@@ -109,6 +109,18 @@ $grey3: #929191; // greyText
 $grey4: #afaeaf;
 $grey5: #d1d3d4; // logo buffer shadow
 
+// shades of purple to nearly magenta
+$purple-2: #3d184f;
+$purple-1: #4f2163;
+$purple: #632576; // #602977
+$purple1: #722589;
+$purple2: #8d1fa4;
+$purple3: #a819bf;
+$purple4: #c212d9;
+$purple5: #dd0cf4;
+$magenta: magenta; // (#FF00FF is true magenta)
+$hotPurple: purple; // #800080 (html purple)
+
 
 
 
@@ -149,9 +161,8 @@ $logo-bulb-stop-6: #fcee23;
 $logo-bulb-stop-7: #ffffff;
 
 // OTHER colors
-$brown	: #6b442a; // rgb(116, 75, 47);
-$purple	: #632576; // #6c0f91;
-$pink	: #fdd8df;
+$brown: #6b442a; // rgb(116, 75, 47);
+$pink: #fdd8df;
 
 
 
@@ -163,7 +174,7 @@ $black          : #000;
 $halfwayToBlack : #142b45;
 $pageBG		    : $lightBlue5;
 $veryLight	    : $lightBlue; // figure background
-$frostOverlay	: rgba(255,255,255, .75);
+$frostOverlay	: rgba($white, .75);
 $whiteBGfade    : #eff9fe; // fade 90% opacity
 $halfwayToWhite : #f8fdff; // halfway between lightBlue5 and white
 $buff			: #ffffd7;
@@ -248,44 +259,65 @@ $infoBlueHover	: #3065dd;
 
 
 // BARCODES
-$barcodeBG: #ffffff;
+$barcodeBG: #fff;
 
 
 // evaluation or retiring sellingStatus types: "DROP", "TBD", "TBD25", "NLS"
-.sellingStatus_EVALUATE {
+.sellingStatusEVALUATE {
 	color: $grey2;
 	font-style: italic;
 }
-.sellingStatus_DROP {
-	color: #800080;
+.sellingStatusTEST {
+	color: $grey1;
 }
-.sellingStatus_TBD {
+.sellingStatusSTOCK {
+	color: inherit;
+}
+.sellingStatusDIGITAL {
+	color: $darkBlue-2;
+}
+.sellingStatusFIVEDAYS {
+	color: $darkBlue;
+}
+.sellingStatusDIRECT {
+	color: $darkBlue2;
+}
+.sellingStatusTBD {
 	color: $orange-2;
 }
-.sellingStatus_TBD25 {
+.sellingStatusTBD25 {
 	color: $orangeText;
 }
-.sellingStatus_TBD50,
-.sellingStatus_TBD75 {
+.sellingStatusTBD50 {
 	color: $redText;
 }
-.sellingStatus_TDB75 {
+.sellingStatusTBD75 {
+	color: $hotPurple;
 	font-weight: bold;
 }
-.sellingStatus_NLS {
+.sellingStatusDBIN {
+	color: $purple5;
+	font-weight: bold;
+}
+.sellingStatusNLS {
 	color: $grey2;
 	opacity: .5;
 }
-.sellingStatus_REMOVE {
+.sellingStatusINTERNAL {
+	color: $grey;
+	font-style: italic;
+}
+.sellingStatusREMOVE {
 	color: $logo-apple-deep-shadow;
 	text-decoration: line-through;
 }
-.sellingStatus_PURGE {
+.sellingStatusPURGE {
+	color: $purple5;
 	color: hotpink;
 	text-decoration: line-through;
 }
-// sold out is sellingStatus_OH0
-.sellingStatus_OH0 {
+// sold out is sellingStatusSOLDOUT
+.sellingStatusSOLDOUT {
 	color: $redText;
 	opacity: 1;
 }
