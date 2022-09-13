@@ -163,6 +163,7 @@ $logo-bulb-stop-7: #ffffff;
 // OTHER colors
 $brown: #6b442a; // rgb(116, 75, 47);
 $pink: #fdd8df;
+$hotPink: hotpink; // HTML hotpink
 
 
 
@@ -263,62 +264,58 @@ $infoBlueHover	: #3065dd;
 $barcodeBG: #fff;
 
 
-// evaluation or retiring sellingStatus types: "DROP", "TBD", "TBD25", "NLS"
-.sellingStatusEVALUATE {
-	color: $grey2;
-	font-style: italic;
-}
-.sellingStatusTEST {
-	color: $grey1;
-}
-.sellingStatusSTOCK {
-	color: inherit;
-}
-.sellingStatusDIGITAL {
-	color: $darkBlue-2;
-}
-.sellingStatusFIVEDAYS {
-	color: $darkBlue;
-}
-.sellingStatusDIRECT {
-	color: $darkBlue2;
-}
-.sellingStatusTBD {
-	color: $orange-2;
-}
-.sellingStatusTBD25 {
-	color: $orangeText;
-}
-.sellingStatusTBD50 {
-	color: $redText;
-}
-.sellingStatusTBD75 {
-	color: $hotPurple;
-	font-weight: bold;
-}
-.sellingStatusDBIN {
-	color: $purple5;
-	font-weight: bold;
-}
-.sellingStatusNLS {
-	color: $grey2;
-	opacity: .5;
-}
-.sellingStatusINTERNAL {
-	color: $grey;
-	font-style: italic;
-}
-.sellingStatusREMOVE {
-	color: $logo-apple-deep-shadow;
-	text-decoration: line-through;
-}
-.sellingStatusPURGE {
-	color: $purple5;
-	color: hotpink;
-	text-decoration: line-through;
-}
-// sold out is sellingStatusSOLDOUT
-.sellingStatusSOLDOUT {
-	color: $redText;
-	opacity: 1;
+// item sellingStatus types: "EVALUATE", "STOCK", "DIGITAL", "TBD", "NLS", "PURGE", …
+.sellingStatus {
+	&.EVALUATE {
+		color: $grey3;
+		font-style: italic;
+	}
+	&.TEST {
+		color: $grey1;
+	}
+	&.STOCK {
+		color: inherit;
+	}
+	&.DIGITAL {
+		color: $darkBlueTransition1;
+	}
+	&.FIVEDAYS {
+		color: $logo-green-shadow;
+	}
+	&.DIRECT {
+		color: $logo-apple-leaf;
+		font-style: italic;
+	}
+	&.TBD {
+		color: $orange-1;
+	}
+	&.TBD25 {
+		color: $orangeText;
+	}
+	&.TBD50 {
+		color: $redText;
+	}
+	&.TBD75 {
+		color: $hotPurple;
+	}
+	&.DBIN {
+		color: $purple5;
+		font-weight: bold;
+	}
+	&.NLS {
+		color: $grey2;
+		opacity: .4;
+	}
+	&.INTERNAL {
+		color: $grey;
+		font-style: italic;
+	}
+	&.REMOVE {
+		color: $logo-apple-deep-shadow;
+		text-decoration: line-through;
+	}
+	&.PURGE {
+		color: $hotPink;
+		text-decoration: line-through;
+	}
 }
