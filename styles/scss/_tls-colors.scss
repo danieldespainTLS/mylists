@@ -181,10 +181,17 @@ $buff			: #ffffd7;
 
 
 // BORDERS
-$veryLightBorderOnWhite	: $lightBlue;
-$lightBorderOnWhite		: $blueTransition2;
-$mediumBorderOnWhite	: $blue-2;
-$darkBorderOnWhite		: $darkBlueTransition2;
+$borderOnLight-2	: $darkBlue4; // = very dark
+$borderOnLight-1	: $darkBlueTransition3; // = dark
+$borderOnLight		: $blue3; // = medium (most common)
+$borderOnLight1		: $blueTransition3; // = light
+$borderOnLight2		: $lightBlue; // = very light
+//NOTE: bordersOnDark are "reversed" meaning: $borderOnDark-1 is innermost hierarchical level
+$borderOnDark-2		: $darkBlue-1; // = very dark
+$borderOnDark-1		: $darkBlue5; // = dark
+$borderOnDark		: $darkBlueTransition1; // = medium (most common)
+$borderOnDark1		: $blue4; // = light
+$borderOnDark2		: $blueTransition2; // = very light
 
 
 // LINKS
