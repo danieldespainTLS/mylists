@@ -1,23 +1,21 @@
-/* ########## Fonts for the entire website ########## */
+/* Fonts */
 
-// fonts are enqueued in the enque.php file
-$oswald: 'Oswald', 'Helvetica Neue', Helvetica, 'Arial Narrow', Arial, sans-serif; // 200 - 700 :: only using 400 or 700
-// $asap: 'Asap', sans-serif; // 400 - 700
-// $asapCondensed: 'Asap Condensed', sans-serif; // 400 - 700
+$oswald: 'Oswald', 'Helvetica Neue', 'Helvetica', 'Arial Narrow', 'Arial', sans-serif; // 200 - 700 :: only using 400 or 700
+$montserrat: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; // 100 - 900
+$barlowCondensed: 'Barlow Condensed', 'Oswald', 'Helvetica Neue', 'Helvetica', 'Arial Narrow', 'Arial', sans-serif; // 100 - 900 :: only using 300 - 600 and 300i - 600i
 $lato: 'Lato', sans-serif; // 100, 300, 400, 700, 900 :: only using 400, 700, 400i, 700i
-// $merriweather: 'Merriweather', serif; // 300, 400 700, 900
-$montserrat: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; // 100 - 900
-// $montserratAlternative: 'Montserrat Alternates', sans-serif; // 100 - 900
-$monaco: 'Monaco', Verdana, 'Courier New', Courier, monospace;
-$barlowCondensed: 'Barlow Condensed', 'Oswald', 'Helvetica Neue', Helvetica, 'Arial Narrow', Arial, sans-serif; // 100 - 900 :: only using 300 - 600 and 300i - 600i
 
+$monaco: 'Monaco', 'Verdana', 'Courier New', 'Courier', monospace;
+$courier: 'Courier New', 'Courier', monospace;
 
+// <code> is often rendered in courier, at a smaller x-height; numeric class solves this
+.numeric {
+	font-family: $monaco;
+}
 
-/* FONTS can be imported:
-    in the CSS file: @import url('https://fonts.googleapis.com/css?family=...')
-    or
-    in the HTML file: <link href="https://fonts.googleapis.com/css?family=..." rel="stylesheet">
-    but
-    avoid doing both because two http calls to google is redundant
-*/
+// import fonts in the CSS file: @import url('https://fonts.googleapis.com/css?family=...')
+// or in the HTML file: <link href="https://fonts.googleapis.com/css?family=…" rel="stylesheet">
+// … avoid doing both because two http calls to google is redundant
 @import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:300,300i,400,400i,500,500i,600,600i|Oswald:300,400,500,700|Lato:300,400,700,300i,400i,700i|Montserrat:bold,bolditalic,300,400,400i,500,600,700,800,800i,900,900i');
+
+// fonts for WordPress are enqueued in file `enque.php`
