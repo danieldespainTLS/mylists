@@ -1,15 +1,22 @@
 @import 'tls-colors';
-
-
+@import 'tls-fonts';
 
 .debugOutput {
-	border: 1px solid grey;
-	font-size: 10pt;
-	font-family: Courier;
-	line-height: 110%;
-	padding: .25em;
+	border: 1px solid $grey2;
+	font-family: $courier;
+	font-size: 9pt;
+	line-height: 10pt;
 	margin: .5em 0;
-	background-color: white;
+	padding: .125em .25em;
+	background-color: $frostOverlay;
+	color: $grey-2;
+	opacity: .5;
+	transition: opacity .5s;
+	
+	&:hover {
+		color: $black;
+		opacity: 1.0;
+	}
 
 	&.scroll {
 		max-height: 240px;
@@ -20,37 +27,14 @@
 		margin: 0;
 	}
 
-	table {
-		th,
-		td {
-			padding: ($pxGutter / 4);
-			font-weight: normal;
-			font-size: 10pt;
-
-			.appName {
-				color: $blue-2;
-			}
-		}
-
-		th {
-			padding-right: 8px;
-			text-align: right;
-			font-size: 10pt;
-			white-space: nowrap;
-			color: grey;
-		}
-
-		thead th,
-		thead td {
-			border-bottom: 2px solid grey;
-		}
-	}
-
-	.notFound {
-		color: $redText;
+	p {
+		margin-bottom: ($gutter / 2);
 	}
 }
 
+.notFound {
+	color: $redText;
+}
 
 .sqlInsert, 
 .sqlError {
@@ -60,4 +44,18 @@
 
 .sqlError {
 	color: $redText;
+}
+
+.JSONstringified {
+	// white-space: pre;
+	font-family: $monaco;
+	font-size: 8pt;
+	font-style: normal;
+	line-height: 125%;
+	opacity: .25;
+	transition: opacity .5s;
+
+	&:hover {
+		opacity: 1.0;
+	}
 }

@@ -70,7 +70,7 @@ Class Settings {
 
 		// NEVER
 		// show application settings publicly!
-		// use showApplicationSettings() to see all environment variables that were requested
+		// use echo $this->showApplicationSettings() to see all environment variables that were requested
 	}
 
 
@@ -109,22 +109,18 @@ Class Settings {
 	 * Show all application settings that were retrieved from environment variables
 	 */
 	public function showApplicationSettings() : string {
-		$table  = "<div class='debugOutput'>";
-		$table .= "<table border='1' cellpadding='2' cellspacing='0'>";
+		$table  = "<table border='1' cellpadding='2' cellspacing='0' class='listing grid'>";
 		$table .= "<thead>";
-		$table .= "<tr><th class='thr'><code><strong>applicationSettings</strong></th><td>" . (count($this->enVars) > 0 ? "<em>array</em>" : "none requested") . "</td></tr>";
+		$table .= "<tr><th class='thr'><strong>applicationSettings</strong></th><td>" . (count($this->enVars) > 0 ? "<em>array</em>" : "none requested") . "</td></tr>";
 		$table .= "</thead>";
 		$table .= "<tbody>";
 		foreach($this->enVars as $key => $value){
-			$table .= "<tr><th class='thr" . ($value ? "" : " notFound") . "'><span class='appName'>" . $this->appName . "_</span>" . $key . "</th><td>" . $value . "</td></tr>";
+			$table .= "<tr><th class='thr" . ($value ? "" : " notFound") . "'><span class='highlighter violet'>" . $this->appName . "_</span>" . $key . "</th><td>" . $value . "</td></tr>";
 		}
 		$table .= "</tbody></table>";
-		$table .= "</div>";
 	
 		return $table;
 	}
-	
-
 }
 
 ?>

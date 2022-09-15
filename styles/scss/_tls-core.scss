@@ -393,7 +393,45 @@ blockquote {
 	color: $yellow;
 }
 
+$highlightBorderThickness: .15em;
+.highlighter {
+	// fallback to green highlighter if no color is specified
+	border-bottom: $highlightBorderThickness solid rgba($green, .666);
+	background-color: rgba($green, .30);
+	color: darken($color: $green, $amount: 30);
 
+	&.red {
+		border-bottom: $highlightBorderThickness solid rgba($red, .666);
+		background-color: rgba($red, .25);
+		color: darken($color: $red, $amount: 30);
+	}
+	&.orange {
+		border-bottom: $highlightBorderThickness solid rgba($logo-yellow-shadow, .666);
+		background-color: rgba($logo-yellow-shadow, .25);
+		color: darken($color: $orange, $amount: 30);
+	}
+	&.yellow {
+		border-bottom: $highlightBorderThickness solid rgba($yellow, 1);
+		background-color: rgba($yellow, .25);
+		color: darken($color: $orange, $amount: 30);
+	}
+	&.green {
+		border-bottom: $highlightBorderThickness solid rgba($green, .666);
+		background-color: rgba($green, .25);
+		color: darken($color: $green, $amount: 30);
+	}
+	&.blue {
+		border-bottom: $highlightBorderThickness solid rgba($blue, .666);
+		background-color: rgba($blue, .2);
+		color: darken($color: $blue, $amount: 30);
+	}
+	&.purple, 
+	&.violet {
+		border-bottom: $highlightBorderThickness solid rgba($hotPurple, .666);
+		background-color: rgba($hotPurple, .2);
+		color: darken($color: $purple, $amount: 30);
+	}
+}
 
 .hint {
 	font-size: 75%;
