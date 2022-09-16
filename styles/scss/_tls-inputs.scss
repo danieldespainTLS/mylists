@@ -1,15 +1,50 @@
-/* ########## Form input styles ########## */
+/* Form Inputs */
 
 @import 'tls-mixins';
 
-
-
 $inputBorder: 1px solid $blue-2;
 $requiredBorderWidth: 3px;
-$requiredBorder: $requiredBorderWidth solid $darkBlue5;
+
+@mixin selectSizes($sidebar: 20%, $sidebarMultiplier: 1, $maxWidth: null) {
+	$calculatedMaxWidth: $maxWidth; // provided by user
+	@if $maxWidth == null {
+		$calculatedMaxWidth: (100% - ($sidebar * 1)); // calculate it: not beyond label width
+	}
+
+	select {
+		width: auto; // by default shrinks width to content
+		max-width: $calculatedMaxWidth;
+	
+		$calculatedWidth: (100% - ($sidebar * $sidebarMultiplier));
+
+		// min() ensures width isn't more than (100% - label)
+		&.tiny {
+			width: min(25%, $calculatedWidth);
+		}
+		&.narrow {
+			width: min(40%, $calculatedWidth);
+		}
+		&.medium {
+			width: min(60%, $calculatedWidth);
+		}
+		&.wide {
+			width: min(80%, $calculatedWidth);
+		}
+		&.fullWidth {
+			width: 100%;
+		}
+
+		// only if max-width is 'none'
+		@if $maxWidth == none {
+			&.totalMinusLabel {
+				width: $calculatedWidth;
+			}
+		}
+	}
+}
 
 // input[type=button],
-// reset is found in tls-mixins.scss
+// buttonReset() is found in tls-mixins.scss
 .button {
 	@include buttonReset();
 	text-decoration: none;
@@ -21,7 +56,7 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 		@include buttonReset("small");
 	}
 	&.regular {
-		@include buttonReset("regular"); // default: not necessary
+		@include buttonReset("regular"); // regular is default: not necessary
 	}
 	&.large {
 		@include buttonReset("large");
@@ -31,19 +66,19 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 		font-size: 200%;
 	}
 	
-	
-
 	&.blue {
 		@include blueButton();
 
 		&:hover {
 			@include blueButtonHover();
         }
+
         &:active {
             @include blueButtonActive();
         }
 
-		&.disabled, &:disabled {
+		&.disabled, 
+		&:disabled {
 			@include blueButtonDisabled();
 		}
 
@@ -58,7 +93,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 				@include blueButtonGhostActive();
 			}
 			
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include blueButtonGhostDisabled;
 			}
 		}
@@ -74,7 +110,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 				@include blueButtonFlatActive();
 			}
 
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include blueButtonFlatDisabled;
 			}
 		}
@@ -87,11 +124,13 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 		&:hover {
 			@include greenButtonHover();
         }
+
         &:active {
             @include greenButtonActive();
         }
 
-		&.disabled, &:disabled {
+		&.disabled, 
+		&:disabled {
 			@include greenButtonDisabled();
 		}
 
@@ -106,7 +145,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
                 @include greenButtonGhostActive();
 			}
 			
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include greenButtonGhostDisabled;
 			}
 		}
@@ -122,7 +162,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 				@include greenButtonFlatActive();
 			}
 
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include greenButtonFlatDisabled;
 			}
 		}
@@ -135,11 +176,13 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 		&:hover {
 			@include redButtonHover();
         }
+
         &:active {
             @include redButtonActive();
         }
 
-		&.disabled, &:disabled {
+		&.disabled, 
+		&:disabled {
 			@include redButtonDisabled();
 		}
 
@@ -154,7 +197,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
                 @include redButtonGhostActive();
 			}
 			
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include redButtonGhostDisabled;
 			}
 		}
@@ -170,13 +214,13 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 				@include redButtonFlatActive();
 			}
 
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include redButtonFlatDisabled;
 			}
 		}
     }
 }
-
 
 
 @media screen and (max-width: ($buttonMinWidth * 2.5)) {
@@ -191,12 +235,10 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 }
 
 
-
 // reset is found in tls-mixins.scss
 .iconButton {
 	@include iconButtonReset;
 }
-
 
 
 .subtleButton {
@@ -211,7 +253,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 			@include subtleButtonActive();
 		}
 
-		&.disabled, &:disabled {
+		&.disabled, 
+		&:disabled {
 			@include subtleButtonDisabled();
 		}
 
@@ -226,7 +269,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
                 @include subtleButtonGhostActive();
             }
 	
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include subtleButtonGhostDisabled;
 			}
 		}
@@ -237,8 +281,13 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 			&:hover {
 				@include subtleButtonFlatHover();
 			}
+
+			&:active {
+                @include subtleButtonFlatActive();
+            }
 			
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include subtleButtonFlatDisabled();
 			}
 		}
@@ -255,7 +304,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 			@include subtleGreenButtonActive();
 		}
 
-		&.disabled, &:disabled {
+		&.disabled, 
+		&:disabled {
 			@include subtleGreenButtonDisabled();
 		}
 
@@ -270,7 +320,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
                 @include subtleGreenButtonGhostActive();
             }
 	
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include subtleGreenButtonGhostDisabled;
 			}
 		}
@@ -286,7 +337,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
                 @include subtleGreenButtonFlatActive();
             }
 	
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include subtleGreenButtonFlatDisabled;
 			}
 		}
@@ -303,7 +355,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
 			@include subtleRedButtonActive();
 		}
 
-		&.disabled, &:disabled {
+		&.disabled, 
+		&:disabled {
 			@include subtleRedButtonDisabled();
 		}
 
@@ -318,7 +371,8 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
                 @include subtleRedButtonGhostActive();
             }
 	
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include subtleRedButtonGhostDisabled;
 			}
 		}
@@ -334,13 +388,13 @@ $requiredBorder: $requiredBorderWidth solid $darkBlue5;
                 @include subtleRedButtonFlatActive();
             }
 	
-			&.disabled, &:disabled {
+			&.disabled, 
+			&:disabled {
 				@include subtleRedButtonFlatDisabled;
 			}
 		}
 	}
 }
-
 
 
 form {
@@ -353,8 +407,8 @@ form {
 		}
 	}
 
-	input[type='radio'] + label.inline,
-	input[type='checkbox'] + label.inline {
+	input[type=radio] + label.inline,
+	input[type=checkbox] + label.inline {
 		padding-left: ($gutter / 2);
 	}
 
@@ -366,32 +420,43 @@ form {
 		margin-top: ($gutter / 2);
 	}
 
-
-
 	input[type=text],
 	input[type=email],
 	input[type=url],
 	input[type=number],
 	input[type=date],
 	input[type=tel] {
-		margin: 0 $gutter ($gutter / 2) 0;
+		margin: 0 ($gutter / 1.5) ($gutter / 2) 0;
 		padding: ($gutter / 4);
 		font-family: $lato;
 		font-weight: 400;
 		font-style: italic;
 		font-size: 12pt;
 		border: $inputBorder;
-		background-color: white;
+		background-color: $white;
 
 		&.noMargin {
 			margin: 0;
 		}
 	}
 
+	input[type=number],
+	input[type=tel] {
+		font-style: normal;
+	}
+
+	input[type=text].mediumField {
+		width: 40%;
+	}
+
+	input[type=text].longField {
+		width: 80%;
+	}	
+
 	textarea {
 		border: $inputBorder;
-		background-color: white;
-		width: 90%;
+		background-color: $white;
+		width: 100%;
 		max-width: ($maxArticleWidth * .75);
 		height: 10em;
 		font-family: $lato;
@@ -400,68 +465,73 @@ form {
 		font-size: 12pt;
 	}
 
-	input[type=number],
-	input[type=tel] {
-		font-style: normal;
-		background-color: white;
+	select {
+		margin: 0;
+
+		&.styled {
+			display: inline-block;
+			font-family: sans-serif;
+			font-size: 12pt;
+			line-height: 1.2;
+			color: $black;
+			margin: 0 0 ($gutter / 2) 0;
+			padding: ($gutter / 4) 2em ($gutter / 4) ($gutter / 2);
+			max-width: 100%;
+			box-sizing: border-box;
+			border: $inputBorder;
+			box-shadow: 0 1px 0 1px rgba($black, .04);
+			border-radius: 4px;
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			appearance: none;
+			background-color: $white;
+			background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+			  linear-gradient(to bottom, $white 0%, $lightBlue5 125%);
+			background-repeat: no-repeat, repeat;
+			background-position: right .7em top 50%, 0 0;
+			background-size: .65em auto, 100%;
+	
+			&::-ms-expand {
+				display: none;
+			}
+			&:hover {
+				border: $inputBorder;
+			}
+			&:focus {
+				border: $inputBorder;
+				box-shadow: 0 0 1px 3px rgba($blue-2, .7);
+				box-shadow: 0 0 0 3px -moz-mac-focusring;
+				color: $black;
+				outline: none;
+			}
+			option {
+				font-weight:normal;
+			}
+		}
+
+		&.disabled, 
+		&:disabled {
+			border-color: $greyText !important;
+			background-image: none;
+			background-color: rgba($white, .5);
+			opacity: .75;
+			cursor: not-allowed;
+		}
 	}
 
-	input[type=text].longField {
-		width: 80%;
+	&.shortLabels, 
+	fieldset.shortLabels {
+		@include selectSizes($sidebarWidth, .5, none);
 	}
-
-	input[type=text].mediumField {
-		width: 40%;
+	
+	&.mediumLabels, 
+	fieldset.mediumLabels {
+		@include selectSizes($sidebarWidth, 1, none);
 	}
-
-	select.styled {
-		display: inline-block;
-		font-size: 12pt;
-		font-family: sans-serif;
-		color: $black;
-		line-height: 1.2;
-		padding: ($gutter / 4) 2em ($gutter / 4) ($gutter / 2);
-		width: auto;
-		max-width: 100%;
-		box-sizing: border-box;
-		margin: 0 0 ($gutter / 2) 0;
-		border: $inputBorder;
-		box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-		border-radius: 4px;
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		appearance: none;
-		background-color: white;
-		background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-		  linear-gradient(to bottom, $white 0%, $white 100%);
-		background-repeat: no-repeat, repeat;
-		background-position: right .7em top 50%, 0 0;
-		background-size: .65em auto, 100%;
-	}
-	select.styled::-ms-expand {
-		display: none;
-	}
-	select.styled:hover {
-		border-color: $inputBorder;
-	}
-	select.styled:focus {
-		border-color: $inputBorder;
-		box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-		box-shadow: 0 0 0 3px -moz-mac-focusring;
-		color: black;
-		outline: none;
-	}
-	select.styled option {
-		font-weight:normal;
-	}
-
-	select.disabled, 
-	select:disabled {
-		border-color: $greyText !important;
-		background-image: none;
-		background-color: rgba($white, .5);
-		opacity: .75;
-		cursor: not-allowed;
+	
+	&.longLabels, 
+	fieldset.longLabels {
+		@include selectSizes($sidebarWidth, 1.5, none);
 	}
 
 	// shouldBeDeclared is not technically required, but field should always have a value
@@ -494,11 +564,17 @@ form {
 	input[type=email]:required,
 	input[type=url]:required,
 	input[type=number]:required,
-	input[type=date],
+	input[type=date]:required,
 	input[type=tel]:required, 
 	select.styled:required {
 		border-width: $requiredBorderWidth;
-		border-bottom-width: ($requiredBorderWidth * 1.75);
+		border-left-width: round($requiredBorderWidth * 1.75);
+		border-top-left-radius: $requiredBorderWidth + 1;
+		border-bottom-left-radius: $requiredBorderWidth + 1;
+
+		&:placeholder-shown {
+			background-color: rgba($buff, .75) !important;
+		}
 	}
 
 	textarea:read-only,
@@ -506,15 +582,14 @@ form {
 	input[type=email]:read-only,
 	input[type=url]:read-only,
 	input[type=number]:read-only,
-	input[type=date],
+	input[type=date]:read-only,
 	input[type=tel]:read-only {
-		background-color: rgba(255,255,255,.5);
+		background-color: rgba($white, .5);
 	}
 
 	.valueError {
 		border-color: $logo-red !important;
 	}
-
 
 	.description, 
 	.help, 
