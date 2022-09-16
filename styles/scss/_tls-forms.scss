@@ -1,11 +1,49 @@
-/* ########## Form input styles ########## */
+/* Form Structure & Layout */
 
 @import 'tls-mixins';
-@import 'tls-sizes';
 
 
 // input[type=button],
 // reset is found in tls-mixins.scss
+
+
+@mixin inputGroupSizes($sidebar: 20%, $sidebarMultiplier: 1, $maxWidth: null) {
+	$calculatedMaxWidth: $maxWidth; // provided by user
+	@if $maxWidth == null {
+		$calculatedMaxWidth: (100% - ($sidebar * 1)); // calculate it: not beyond label width
+	}
+
+	.inputGroup {
+		width: auto; // by default shrinks width to content
+		max-width: $calculatedMaxWidth;
+	
+		$calculatedWidth: (100% - ($sidebar * $sidebarMultiplier));
+
+		// min() ensures width isn't more than (100% - label)
+		&.tiny {
+			width: min(25%, $calculatedWidth);
+		}
+		&.narrow {
+			width: min(40%, $calculatedWidth);
+		}
+		&.medium {
+			width: min(60%, $calculatedWidth);
+		}
+		&.wide {
+			width: min(80%, $calculatedWidth);
+		}
+		&.fullWidth {
+			width: 100%;
+		}
+
+		// only if max-width is 'none'
+		@if $maxWidth == none {
+			&.totalMinusLabel {
+				width: $calculatedWidth;
+			}
+		}
+	}
+}
 
 
 form {
@@ -13,33 +51,118 @@ form {
 	max-width: ($maxArticleWidth * .75);
 
 	margin: $gutter 0;
-	padding: $gutter;
+	padding: ($gutter / 2) $gutter;
+
+	input, 
+	select, 
+	textarea, 
+	fieldset, 
+	legend, 
+	label {
+		box-sizing: border-box;
+	}
 
 	fieldset {
-		margin: 0 0 $gutter 0;
-		padding: ($gutter / 2) 0 0 0;
+		margin: ($gutter / 2) 0 $gutter 0;
+		padding: 0 0 0 0;
 		border: 0px solid transparent;
 
 		legend {
-			margin: 0;
-			padding: 0;
+			margin: 0 0 ($gutter / 4) 0;
+			padding: 0rem 0 0 0;
+			float: left;
 			font-size: 9pt;
 			color:$darkBlue5;
 			width: 100%;
 			border-bottom: 1px solid $blue5;
+
+			+ * {
+				clear: both;
+			}
 		}
 
-		&:last-of-type {
+		&:last-child {
 			margin-bottom: 0;
+		}
+
+		&.officeUseOnly {
+			background-color: rgba($grey5, .5);
+			border: 1px solid rgba($grey2, .5);
+			padding-bottom: ($gutter / 2);
+			
+			& legend {
+				background-color: rgba($halfwayToWhite, .25);
+				padding-left: ($gutter / 2);
+				border-bottom: 1px solid rgba($grey2, .5);
+				transition: background-color $transitionDuration, color $transitionDuration;
+			}
+			
+			&.collapsible.collapsed {
+				& legend {
+					border-bottom: 0px solid transparent;
+				}
+			}
+			
+			&.collapsible legend:hover {
+				background-color: rgba($halfwayToWhite, .5);
+				transition: background-color $transitionDuration, color $transitionDuration;
+			}
+			
+			& .multipleCheckboxes, 
+			& div.formGroup {
+				padding-left: ($gutter / 2);
+			}
+
+			hr {
+				background-color: rgba($grey2, .5);
+				height: 1px;
+			}
+		}
+	}
+
+	.formColumns {
+		display: flex;
+		flex-flow: row wrap;
+		border: 1px solid $green5; //$lightGreen-2;
+		padding: ($gutter / 2) $gutter 0 $gutter;
+		margin-bottom: $gutter;
+		background-color: rgba($lightGreen, .1);
+		gap: $gutter;
+		margin-bottom: $gutter;
+		
+		&.noBorder {
+			border: 0px solid transparent;
+			background-color: transparent;
+			padding: 0;
+		}
+		
+		&.noMargin {
+			margin-bottom: 0;
+		}
+
+		fieldset {
+			min-width: 300px;
+			flex: 1;
+
+			&.officeUseOnly {
+				margin: 0;
+			}
 		}
 	}
 
 	.formGroup {
 		margin-top: 0;
-		margin-bottom: $gutter;
+		margin-bottom: ($gutter / 2);
+		padding-top: ($gutter / 4);
+		padding-bottom: ($gutter / 4);
+		box-sizing: border-box;
 		display: flex;
 		flex-flow: row wrap;
 		align-items: center; // apply class verticalTop or verticalBottom to change
+
+		&:first-child {
+			margin-top: ($gutter / 2);
+		}
 
 		&:last-child {
 			margin-bottom: 0;
@@ -50,6 +173,7 @@ form {
 			max-width: $sidebarMaxWidth;
 			padding-right: ($gutter / 2);
 			text-align: right;
+			line-height: 115%;
 		}
 
 		&.checkbox {
@@ -68,6 +192,7 @@ form {
 		& input[type=email],
 		& input[type=url],
 		& input[type=number],
+		& input[type=date],
 		& input[type=tel] {
 			margin-bottom: 0
 		}
@@ -84,43 +209,121 @@ form {
 			margin-bottom: 0;
 		}
 
+		&.displayBlock {
+			// negates flexbox
+			display: block;
+		}
+
 		&.verticalCenter {
 			// already default alignment
 			align-items: center;
 		}
 		&.verticalTop {
 			align-items: flex-start;
+
+			&.nudgeLabelBaseline {
+				label {
+					// padding-top of text field + border-top + (font-size difference)
+					margin-top: calc((#{$gutter} / 4) + 1px + 2pt);
+				}
+			}
 		}
 		&.verticalBottom {
 			align-items: flex-end;
-		}
-	}
 
-	.formColumns {
-		display: flex;
-		flex-flow: row wrap;
-		border: 1px solid $green5; //$lightGreen-2;
-		padding: ($gutter / 2) $gutter 0 $gutter;
-		margin-bottom: $gutter;
-		background-color: rgba($lightGreen, .1);
-
-		fieldset {
-			min-width: 300px;
-			padding-right: $gutter;
-			flex-grow: 1;
-			margin-bottom: $gutter;
-
-			&:last-of-type {
-				padding-right: 0;
+			&.nudgeLabelBaseline {
+				label {
+					// padding-top of text field + border-top + (font-size difference)
+					margin-bottom: calc((#{$gutter} / 4) + 1px + 2pt);
+				}
 			}
 		}
 	}
 
-	.formColumns.noBorder {
-		border: 0px solid transparent;
-		padding: 0;
-		margin-bottom: 0;
-		background-color: transparent;
+	.inputGroup {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		gap: ($gutter / 2);
+		outline: 1px dotted pink;
+
+		&.column {
+			flex-flow: column;
+			align-items: start;
+			outline: 1px dotted green;
+		}
+
+		input, 
+		select {
+			margin-right: 0 !important; //NOTE: yes, this needs important
+		}
+
+		&.tiny, 
+		&.narrow, 
+		&.medium, 
+		&.wide, 
+		&.fullWidth, 
+		&.totalMinusLabel {
+			> select, 
+			> input {
+				// expand input's width to declared size of inputGroup
+				// if inputGroup's size is not declared, then <input> determines its own width
+				width: 100%;
+			}
+		}
+
+		// push thing after input (ex: help link) outside of inputGroup's boundary to the right
+		// only required when inputGroup has declared size & <input> field has no assigned width (becomes 100% width)
+		&:not(.column) .outside {
+			margin-right: -100% !important;
+		}	
+		
+		.inputGroup {
+			&.fullWidth {
+				width: 100%;
+				max-width: none;
+			}
+		}
+
+		// a field can have multiple footnotes grouped into a subgroup:
+		// [_field_] {subgroup:(h) (i) (•)}
+		.subGroup {
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+			gap: ($gutter / 2);
+
+			& > * {
+				margin-left: 0 !important;
+				margin-right: 0 !important;
+			}
+		}
+		
+		&.noGap {
+			gap: 0;
+		}
+
+		& >:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// default when form or fieldset doesn't assign ……Labels class
+	@include inputGroupSizes($sidebarWidth, .5);
+
+	&.shortLabels, 
+	fieldset.shortLabels {
+		@include inputGroupSizes($sidebarWidth, .5, none);
+	}
+	
+	&.mediumLabels, 
+	fieldset.mediumLabels {
+		@include inputGroupSizes($sidebarWidth, 1, none);
+	}
+	
+	&.longLabels, 
+	fieldset.longLabels {
+		@include inputGroupSizes($sidebarWidth, 1.5, none);
 	}
 
 	.checkboxToggleIcon {
@@ -139,7 +342,6 @@ form {
 		}
 	}
 
-	//FIXME: trying to upstream this and make it generic from productcdn.scss (.seasons and .safetyWarnings)
 	// override width of each checkbox entry using .multipleCheckboxes li {flex-basis: ###px}
 	.multipleCheckboxes {
 		display: flex;
@@ -156,10 +358,18 @@ form {
 			flex-flow: row nowrap;
 			flex-basis: 180px;
 			align-items: center;
-			margin: 0 ($gutter / 2) ($gutter / 4) 0;
+			// margin: 0 ($gutter / 2) ($gutter / 4) 0;
+			margin: 0 0 ($gutter / 4) ($gutter / 2);
 			padding: 0;
 			height: 1.5rem;
 			line-height: 1.5rem;
+
+			&.notDefined {
+				// margin-right: 0;
+				margin-left: 0;
+				padding-left: ($gutter / 2);
+				padding-right: ($gutter / 2);
+			}
 		}
 		
 		label {
@@ -180,7 +390,31 @@ form {
 		}
 	}
 
+	// indicate fields that haven't been set (as opposed to set with a null value)
+	// - can be applied to fieldsets, formGroups, or <li>s within .multipleCheckboxes
+	// - do not apply to labels
+	.notDefined {
+		background: rgba($logo-red, .0875);
+		background: linear-gradient(180deg, rgba($logo-red, .0875) 5%, rgba($logo-red, .0875) 100%);
 
+		label {
+			color: $logo-red-shadow;
+		}
+
+		& > .multipleCheckboxes {
+			padding-left: 0;
+		}
+	}
+	
+	fieldset.notDefined {
+		legend {
+			background: rgba($logo-red, .0875);
+			background: linear-gradient(180deg, rgba($logo-red, .0875) 5%, rgba($logo-red, .05) 100%);
+			padding-left: ($gutter / 2);
+		}
+	}
+
+	// label (sidebar) width can be set 'globally' for a form and/or then adjusted/set for each formset
 	&.shortLabels, 
 	fieldset.shortLabels {
 		.formGroup {
@@ -191,12 +425,94 @@ form {
 		}
 	}
 
+	&.mediumLabels, 
+	fieldset.mediumLabels {
+		.formGroup {
+			label {
+				width: ($sidebarWidth * 1);
+				max-width: ($sidebarMaxWidth * 1);
+			}
+		}
+	}
+
 	&.longLabels, 
 	fieldset.longLabels {
 		.formGroup {
 			label {
 				width: ($sidebarWidth * 1.5);
 				max-width: ($sidebarMaxWidth * 1.5);
+			}
+		}
+	}
+
+	$toggleSize: 1rem * .75;
+	$toggleGutter: $pxGutter * .75;
+	$arrowFill: str-replace(''+$darkBlueTransition1, '#', '%23');
+	$arrowFillHover: str-replace(''+$green-2, '#', '%23');
+	fieldset.collapsible {
+		legend {
+			background-size: $toggleSize $toggleSize;
+			background-repeat: no-repeat;
+			background-position: right 8px center;
+			display: block;
+			cursor: pointer;
+			
+			&:after {
+				content: "";
+				font-size: 80%;
+				font-weight: 200;
+				font-style: italic;
+				padding-left : ($gutter / 1.5);
+				opacity: .5;
+			}
+
+			&.toggleRight {
+				background-position: right ($toggleGutter * 1.5) center;
+			}
+			
+			&.toggleLeft {
+				background-position: left $toggleGutter center;
+				padding-left: calc(#{($toggleGutter * 2)} + #{$toggleSize});
+			}
+		}
+		
+		&.collapsed {
+			padding: 0;
+			align-self: flex-start;
+
+			* {
+				display: none !important;
+			}
+			
+			legend {
+				display: block !important;
+				margin-bottom: 0;
+				background-image: url("data:image/svg+xml,%3Csvg id='downArrow' class='downArrow' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 450 236.22'%3E%3Cdefs%3E%3Cstyle%3E.down%7Bfill:" + $arrowFill + "%3B%7D%3C/style%3E%3C/defs%3E%3Cpath id='arrow' class='down' d='M448.41 7.23a9.99 9.99 0 0 0-9.24-6.17H10.83c-4.05 0-7.69 2.44-9.24 6.17a9.999 9.999 0 0 0 2.17 10.9L217.93 232.3c1.95 1.95 4.51 2.93 7.07 2.93s5.12-.98 7.07-2.93L446.24 18.13c2.86-2.86 3.71-7.16 2.17-10.9Z'/%3E%3C/svg%3E");
+				
+				&:after {
+					content: "show more...";
+				}
+	
+				&:hover {
+					color: $green-2;
+					background-image: url("data:image/svg+xml,%3Csvg id='downArrow' class='downArrow' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 450 236.22'%3E%3Cdefs%3E%3Cstyle%3E.down%7Bfill:" + $arrowFillHover + "%3B%7D%3C/style%3E%3C/defs%3E%3Cpath id='arrow' class='down' d='M448.41 7.23a9.99 9.99 0 0 0-9.24-6.17H10.83c-4.05 0-7.69 2.44-9.24 6.17a9.999 9.999 0 0 0 2.17 10.9L217.93 232.3c1.95 1.95 4.51 2.93 7.07 2.93s5.12-.98 7.07-2.93L446.24 18.13c2.86-2.86 3.71-7.16 2.17-10.9Z'/%3E%3C/svg%3E");
+					transition: background-color $transitionDuration, color $transitionDuration;
+				}
+			}
+		}
+		
+		&.expanded {
+			legend {
+				background-image: url("data:image/svg+xml,%3Csvg id='upArrow' class='upArrow' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 450 236.22'%3E%3Cdefs%3E%3Cstyle%3E.up%7Bfill:" + $arrowFill + "%3B%7D%3C/style%3E%3C/defs%3E%3Cpath id='arrow' class='up' d='M446.24 218.16 232.07 3.99c-3.9-3.91-10.24-3.91-14.14 0L3.76 218.16a9.999 9.999 0 0 0 7.07 17.07h428.34c4.04 0 7.69-2.44 9.24-6.17 1.55-3.74.69-8.04-2.17-10.9Z'/%3E%3C/svg%3E");
+
+				&:after {
+					content: "";
+				}
+
+				&:hover {
+					color: $green-2;
+					background-image: url("data:image/svg+xml,%3Csvg id='upArrow' class='upArrow' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 450 236.22'%3E%3Cdefs%3E%3Cstyle%3E.up%7Bfill:" + $arrowFillHover + "%3B%7D%3C/style%3E%3C/defs%3E%3Cpath id='arrow' class='up' d='M446.24 218.16 232.07 3.99c-3.9-3.91-10.24-3.91-14.14 0L3.76 218.16a9.999 9.999 0 0 0 7.07 17.07h428.34c4.04 0 7.69-2.44 9.24-6.17 1.55-3.74.69-8.04-2.17-10.9Z'/%3E%3C/svg%3E");
+				}
 			}
 		}
 	}
@@ -228,56 +544,19 @@ form {
 	.shortLabels .hint.underFieldHint {
 		margin-left: ($sidebarWidth * .5);
 	}
+	.mediumLabels .hint.underFieldHint {
+		margin-left: ($sidebarWidth * 1);
+	}
 	.longLabels .hint.underFieldHint {
 		margin-left: ($sidebarWidth * 1.5);
 	}
 
-	input[type='number'], 
-	input[type='text'] {
-		font-size: 10pt;
-		padding: ($pxGutter / 4);
-		font-style: normal;
-
-		&.wide {
-			width: 20rem !important;
-		}
-	}
-
-	input[type='number']{
-		width: 6em;
-		text-align: right;
-	}
-
-	select{
-		margin: 0;
-
-		&.narrow {
-			width: 10rem !important;
-			max-width: none;
-		}
-		&.medium {
-			width: 15rem !important;
-		}
-		&.wide {
-			width: 20rem !important;
-			max-width: none;
-		}
-	}
-
-	input:disabled {
-		border-color: $greyText !important;
-		opacity: 75%;
-		cursor: not-allowed;
-	}
-
-	input[type='submit']{
-		margin: $gutter 0 0 0;
-	}
-}
-
-
-form {
 	&.fullWidth {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	&.autoWidth {
 		width: auto;
 		max-width: none;
 	}
@@ -330,6 +609,7 @@ form {
 		}
 
 		fieldset.shortLabels .formGroup, 
+		fieldset.mediumLabels .formGroup,
 		fieldset.longLabels .formGroup, 
 		.formGroup {
 			flex-flow: column nowrap;
@@ -342,8 +622,29 @@ form {
 				padding: 0;
 			}
 
+			.inputGroup {
+				width: auto;
+				max-width: 100%;
+			}
+
+			&.verticalTop {
+				&.nudgeLabelBaseline {
+					label {
+						margin-top: 0;
+					}
+				}
+			}
+			
 			&.verticalCenter {
 				align-items: flex-start;
+			}
+
+			&.verticalBottom {
+				&.nudgeLabelBaseline {
+					label {
+						margin-bottom: 0;
+					}
+				}
 			}
 			
 			&.checkbox {

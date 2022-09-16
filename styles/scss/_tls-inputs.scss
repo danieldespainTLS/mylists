@@ -407,6 +407,32 @@ form {
 		}
 	}
 
+	input[type=number], 
+	input[type=text] {
+		font-size: 10pt;
+		padding: ($pxGutter / 4);
+		font-style: normal;
+
+		&.wide {
+			width: 20rem !important;
+		}
+	}
+
+	input[type=number]{
+		width: 6em;
+		text-align: right;
+	}
+
+	input:disabled {
+		border-color: $greyText !important;
+		opacity: 75%;
+		cursor: not-allowed;
+	}
+
+	input[type=submit]{
+		margin: $gutter 0 0 0;
+	}
+
 	input[type=radio] + label.inline,
 	input[type=checkbox] + label.inline {
 		padding-left: ($gutter / 2);
