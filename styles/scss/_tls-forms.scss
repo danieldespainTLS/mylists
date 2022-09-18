@@ -48,6 +48,7 @@
 
 
 form {
+	box-sizing: border-box;
 	background-color: $lightBlue-2;
 	max-width: ($maxArticleWidth * .75);
 
