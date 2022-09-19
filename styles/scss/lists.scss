@@ -86,7 +86,7 @@ table.listList {
     border: 0px solid transparent;
 		width: 100%;
 		
-		input[type='checkbox'] {
+		input[type=checkbox] {
 			// display: none;
 		}
 		
@@ -127,7 +127,7 @@ table.listList {
 						background-color: $cardUnselectedColorHover;
 					}
 					
-					input[type='checkbox']:checked {
+					input[type=checkbox]:checked {
 						display: none;
 
 						+ label {
@@ -181,7 +181,7 @@ table.listList {
 			}
 		}
 		
-		input[type='checkbox'] {
+		input[type=checkbox] {
 			display: none;
 			
 			+ label {

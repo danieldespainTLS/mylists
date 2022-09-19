@@ -47,7 +47,7 @@ $roundness: .5; // .5 or higher will be circle; < .5 will be more square
 	}
 }
 
-input[type='checkbox'] {
+input[type=checkbox] {
 	&.slidingToggle {
 		opacity: 0; // hides checkbox
 		position: absolute;
