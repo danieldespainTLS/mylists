@@ -1,5 +1,7 @@
+/* Ajax Loading Indicator - Also Shows Error Count with Link to Show Error Details  */
+
 $spinnerSize: 36px;
-$spinnerPadding: 6px;
+$spinnerPadding: ($pxGutter * .75);
 
 .APIajaxLoader {
 	position: fixed;
@@ -23,7 +25,7 @@ $spinnerPadding: 6px;
 	border-bottom-right-radius: $pxGutter;
 	z-index: 900;
 	top: (($spinnerSize + ($spinnerPadding * 2)) * -1);
-	transition: all .25s;
+	transition: all $transitionDuration;
 	
 	&.show {
 		top: 0;
@@ -101,7 +103,7 @@ $spinnerPadding: 6px;
 	}
 }
 
-@supports not (gap: $gutter) {
+@supports not(gap: $gutter) {
 	.loadingSpinner .label {
 		padding-left: ($gutter / 2);
 	}
