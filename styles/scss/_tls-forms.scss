@@ -331,9 +331,17 @@ form {
 	// default when form or fieldset doesn't assign ……Labels class
 	@include inputGroupSizes($sidebarWidth, .5, 0);
 
+	// label (sidebar) width can be set 'globally' for a form and/or then adjusted/set for each formset
 	&.shortLabels, 
 	fieldset.shortLabels {
 		@include inputGroupSizes($sidebarWidth, .5, 0, none);
+
+		.formGroup {
+			label {
+				width: ($sidebarWidth * .5);
+				max-width: ($sidebarMaxWidth * .5);
+			}
+		}
 	}
 	
 	&.mediumLabels, 
@@ -346,6 +354,13 @@ form {
 				&:not(.column) .outside {
 					margin-right: auto !important;
 				}
+			}
+		}
+
+		.formGroup {
+			label {
+				width: ($sidebarWidth * 1);
+				max-width: ($sidebarMaxWidth * 1);
 			}
 		}
 	}
@@ -362,6 +377,39 @@ form {
 					margin-right: auto !important;
 				}
 			}
+		}
+
+		.formGroup {
+			label {
+				width: ($sidebarWidth * 1.5);
+				max-width: ($sidebarMaxWidth * 1.5);
+			}
+		}
+	}
+
+	// indicate fields that haven't been set (as opposed to set with a null value)
+	// - can be applied to fieldsets, formGroups, or <li>s within .multipleCheckboxes
+	// - do not apply to labels
+	.notDefined {
+		background: rgba($logo-red, .0875);
+		background: linear-gradient(180deg, rgba($logo-red, .0875) 5%, rgba($logo-red, .0875) 100%);
+
+		label {
+			color: $logo-red-shadow;
+		}
+
+		& > .multipleCheckboxes {
+			padding-left: 0;
+		}
+	}
+	
+	fieldset.notDefined {
+		legend {
+			background: rgba($logo-red, .0875);
+			background: linear-gradient(180deg, rgba($logo-red, .0875) 5%, rgba($logo-red, .05) 100%);
+			padding-left: ($gutter / 2);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
 		}
 	}
 
@@ -426,61 +474,6 @@ form {
 
 		&.singleColumn li {
 			flex-basis: 100%;
-		}
-	}
-
-	// indicate fields that haven't been set (as opposed to set with a null value)
-	// - can be applied to fieldsets, formGroups, or <li>s within .multipleCheckboxes
-	// - do not apply to labels
-	.notDefined {
-		background: rgba($logo-red, .0875);
-		background: linear-gradient(180deg, rgba($logo-red, .0875) 5%, rgba($logo-red, .0875) 100%);
-
-		label {
-			color: $logo-red-shadow;
-		}
-
-		& > .multipleCheckboxes {
-			padding-left: 0;
-		}
-	}
-	
-	fieldset.notDefined {
-		legend {
-			background: rgba($logo-red, .0875);
-			background: linear-gradient(180deg, rgba($logo-red, .0875) 5%, rgba($logo-red, .05) 100%);
-			padding-left: ($gutter / 2);
-		}
-	}
-
-	// label (sidebar) width can be set 'globally' for a form and/or then adjusted/set for each formset
-	&.shortLabels, 
-	fieldset.shortLabels {
-		.formGroup {
-			label {
-				width: ($sidebarWidth * .5);
-				max-width: ($sidebarMaxWidth * .5);
-			}
-		}
-	}
-
-	&.mediumLabels, 
-	fieldset.mediumLabels {
-		.formGroup {
-			label {
-				width: ($sidebarWidth * 1);
-				max-width: ($sidebarMaxWidth * 1);
-			}
-		}
-	}
-
-	&.longLabels, 
-	fieldset.longLabels {
-		.formGroup {
-			label {
-				width: ($sidebarWidth * 1.5);
-				max-width: ($sidebarMaxWidth * 1.5);
-			}
 		}
 	}
 
@@ -563,6 +556,11 @@ form {
 
 	.hint {
 		margin-left: $gutter;
+	}
+
+	&.centered {
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	&.fullWidth {
