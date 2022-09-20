@@ -199,19 +199,6 @@ form {
 			}
 		}
 
-		& input[type=text],
-		& input[type=email],
-		& input[type=url],
-		& input[type=number],
-		& input[type=date],
-		& input[type=tel] {
-			margin-bottom: 0
-		}
-
-		& select.styled {
-			margin-bottom: 0;
-		}
-
 		&.tinyMargin {
 			margin-bottom: ($gutter / 4);
 		}
