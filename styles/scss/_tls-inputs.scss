@@ -18,6 +18,9 @@ $requiredBorderWidth: 3px;
 		$calculatedWidth: (100% - ($sidebar * $sidebarMultiplier));
 
 		// min() ensures width isn't more than (100% - label)
+		&.micro {
+			width: min(15%, $calculatedWidth);
+		}
 		&.tiny {
 			width: min(25%, $calculatedWidth);
 		}
@@ -562,21 +565,21 @@ form {
 
 	// shouldBeDeclared is not technically required, but field should always have a value
 	.shouldBeDeclared textarea,
+	.shouldBeDeclared select.styled,
 	.shouldBeDeclared input[type=text],
 	.shouldBeDeclared input[type=email],
 	.shouldBeDeclared input[type=url],
 	.shouldBeDeclared input[type=number],
 	.shouldBeDeclared input[type=date],
 	.shouldBeDeclared input[type=tel], 
-	.shouldBeDeclared select.styled,
 	textarea.shouldBeDeclared,
+	select.styled.shouldBeDeclared, 
 	input[type=text].shouldBeDeclared,
 	input[type=email].shouldBeDeclared,
 	input[type=url].shouldBeDeclared,
 	input[type=number].shouldBeDeclared,
 	input[type=date].shouldBeDeclared,
-	input[type=tel].shouldBeDeclared, 
-	select.styled.shouldBeDeclared {
+	input[type=tel].shouldBeDeclared {
 		border-width: 2px;
 	}
 
@@ -586,13 +589,13 @@ form {
 	}
 
 	textarea:required,
+	select.styled:required, 
 	input[type=text]:required,
 	input[type=email]:required,
 	input[type=url]:required,
 	input[type=number]:required,
 	input[type=date]:required,
-	input[type=tel]:required, 
-	select.styled:required {
+	input[type=tel]:required {
 		border-width: $requiredBorderWidth;
 		border-left-width: round($requiredBorderWidth * 1.75);
 		border-top-left-radius: $requiredBorderWidth + 1;
@@ -604,6 +607,7 @@ form {
 	}
 
 	textarea:read-only,
+	select.styled:read-only,
 	input[type=text]:read-only,
 	input[type=email]:read-only,
 	input[type=url]:read-only,
