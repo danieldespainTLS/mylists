@@ -1,20 +1,18 @@
-/* ########## emulates common iOS inputs ########## */
+/* Emulate Common iOS Inputs */
 
 @import 'tls-colors';
 
-// Color Variables
+// color variables
 $onColor: $green;
-$offColor: white;
-$outterBorderColor: lightgray;
-$knobColor: whitesmoke;
+$offColor: $white;
+$trackBorderColor: $grey3;
+$knobColor: $halfwayToWhite;
 
 // size variables
-$diameter: 20;
-$borderLineWidth: 1;
-$trackWidth: 40;
+$diameter: 20px;
+$borderLineWidth: 1px;
+$trackWidth: 40px;
 $roundness: .5; // .5 or higher will be circle; < .5 will be more square
-
-
 
 @mixin inactiveMixin {
 	content: "";
@@ -23,7 +21,7 @@ $roundness: .5; // .5 or higher will be circle; < .5 will be more square
 }
 
 @mixin beforeAnimation {
-	transition: .2s cubic-bezier(.24, 0, .5, 1);
+	transition: all $transitionDuration cubic-bezier(.24, 0, .5, 1); // how fast track color fades to 'off'
 }
 
 @mixin afterAnimation {
@@ -31,77 +29,83 @@ $roundness: .5; // .5 or higher will be circle; < .5 will be more square
 	0 3px 0px 0 hsla(0, 0%, 0%, .04), 
 	0 3px 9px hsla(0, 0%, 0%, .13), 
 	0 2px 3px hsla(0, 0%, 0%, .05);
-	transition: .35s cubic-bezier(.54, 1.60, .5, 1);
+	transition: all ($transitionDuration * 1.25) cubic-bezier(.54, 1.60, .5, 1); // how fast knob moves
 }
 
 // toggle switch (checkbox as a slider)
 .slidingToggleContainer {
-	line-height: $diameter * 1px + ($borderLineWidth * 2);
-	height: $diameter * 1px + ($borderLineWidth * 2);
-	position: relative;
-
-	& span.description {
-		// color: brown;
-		// position: absolute;
-		// top: 0;
-	}
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: ($gutter / 2);
 }
 
 input[type=checkbox] {
+	box-sizing: border-box;
+
 	&.slidingToggle {
 		opacity: 0; // hides checkbox
 		position: absolute;
 
 		& + label {
-			position: relative;
 			display: inline-block;
+			position: relative;
 			user-select: none;
-			transition: .4s ease;
-			height: $diameter * 1px;
-			width: $trackWidth * 1px;
-			border: $borderLineWidth * 1px solid $outterBorderColor;
-			border-radius: ($diameter * $roundness) * 1px;
-			background: $offColor; // Inactive color
+			width: $trackWidth;
+			height: $diameter;
+			box-sizing: border-box;
+			cursor: pointer;
 			
+			// track
 			&:before {
 				@include inactiveMixin;
 				@include beforeAnimation;
-				height: $diameter * 1px;
-				width: ($trackWidth + $borderLineWidth) * 1px;
+				width: ($trackWidth + $borderLineWidth);
+				height: $diameter;
 				top: 0;
 				left: 0;
-				border-radius: ($diameter * $roundness) * 1px;
+				background-color: $offColor; // inactive color
+				border: $borderLineWidth solid $trackBorderColor;
+				border-radius: ($diameter * $roundness);
+				box-sizing: border-box;
 			}
+
+			// knob
 			&:after {
 				@include inactiveMixin;
 				@include afterAnimation;
-				background: $knobColor;
-				height: ($diameter - $borderLineWidth - $borderLineWidth) * 1px;
-				width: ($diameter - $borderLineWidth - $borderLineWidth) * 1px;
-				top: $borderLineWidth * 1px;
-				left: 0px;
-				border-radius: ($diameter * $roundness) * 1px;
+				width: ($diameter - $borderLineWidth - $borderLineWidth);
+				height: ($diameter - $borderLineWidth - $borderLineWidth);
+				top: $borderLineWidth;
+				left: $borderLineWidth;
+				background-color: $knobColor;
+				border-radius: ($diameter * $roundness);
+				box-sizing: border-box;
 			}
 
+			// words (visible 'label')
 			& + span.description {
-				padding-left: .5em;
 				font-size: 10pt !important;
-				opacity: 1;
-				line-height: $diameter * 1px + ($borderLineWidth * 2);
-				top: 0;
-				position: absolute;
-				margin: 0;
+				line-height: 10pt !important;
+				opacity: .5;
 			}
 		}
 
 		// when active
 		&:checked {
-			& + label:before {
-				background: $onColor; // Active Color
-				transition: width .2s cubic-bezier(0, 0, 0, .1);
-			}
-			& + label:after {
-				left: ($trackWidth + $borderLineWidth + $borderLineWidth - $diameter) * 1px;
+			& + label {
+				&:before {
+					background-color: $onColor; // active color
+					transition: all $transitionDuration cubic-bezier(0, 0, 0, .1); // how fast track color fades to 'on'
+				}
+
+				&:after {
+					left: ($trackWidth + ($borderLineWidth * 2) - $diameter);
+				}
+
+				& + span.description {
+					opacity: 1;
+				}
 			}
 		}
 	}
