@@ -7,8 +7,8 @@
 // input[type=button],
 // reset is found in tls-mixins.scss
 
-
-@mixin inputGroupSizes($sidebar: 20%, $sidebarMultiplier: 1, $maxWidth: null) {
+// sidebar parameter is aka <label>
+@mixin inputGroupSizes($sidebar: 20%, $sidebarMultiplier: 1, $bumpWidthIndex: 0, $maxWidth: null) {
 	$calculatedMaxWidth: $maxWidth; // provided by user
 	@if $maxWidth == null {
 		$calculatedMaxWidth: (100% - ($sidebar * 1)); // calculate it: not beyond label width
@@ -21,6 +21,9 @@
 		$calculatedWidth: (100% - ($sidebar * $sidebarMultiplier));
 
 		// min() ensures width isn't more than (100% - label)
+		&.micro {
+			width: min(15%, $calculatedWidth);
+		}
 		&.tiny {
 			width: min(25%, $calculatedWidth);
 		}
@@ -63,6 +66,12 @@ form {
 	label {
 		box-sizing: border-box;
 	}
+	
+	>fieldset {
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
 
 	fieldset {
 		margin: ($gutter / 2) 0 $gutter 0;
@@ -72,7 +81,6 @@ form {
 		legend {
 			margin: 0 0 ($gutter / 4) 0;
 			padding: 0rem 0 0 0;
-			float: left;
 			font-size: 9pt;
 			color:$darkBlue5;
 			width: 100%;
@@ -93,6 +101,7 @@ form {
 			padding-bottom: ($gutter / 2);
 			
 			& legend {
+				float: left;
 				background-color: rgba($halfwayToWhite, .25);
 				padding-left: ($gutter / 2);
 				border-bottom: 1px solid rgba($grey2, .5);
@@ -260,6 +269,7 @@ form {
 			margin-right: 0 !important; //NOTE: yes, this needs important
 		}
 
+		&.micro, 
 		&.tiny, 
 		&.narrow, 
 		&.medium, 
@@ -280,6 +290,14 @@ form {
 			margin-right: -100% !important;
 		}	
 		
+		// if thing is marked as .outside but within totalMinusLabel, it will overflow inputGroup
+		// …so fix that and pull it back inside inputGroup
+		&.totalMinusLabel {
+			> .outside {
+				margin-right: auto !important;
+			}
+		}
+
 		.inputGroup {
 			&.fullWidth {
 				width: 100%;
@@ -311,21 +329,40 @@ form {
 	}
 
 	// default when form or fieldset doesn't assign ……Labels class
-	@include inputGroupSizes($sidebarWidth, .5);
+	@include inputGroupSizes($sidebarWidth, .5, 0);
 
 	&.shortLabels, 
 	fieldset.shortLabels {
-		@include inputGroupSizes($sidebarWidth, .5, none);
+		@include inputGroupSizes($sidebarWidth, .5, 0, none);
 	}
 	
 	&.mediumLabels, 
 	fieldset.mediumLabels {
-		@include inputGroupSizes($sidebarWidth, 1, none);
+		@include inputGroupSizes($sidebarWidth, 1, 0, none);
+
+		// wide inputGroups no longer have room to the right for .outside elements
+		.inputGroup {
+			&.wide {
+				&:not(.column) .outside {
+					margin-right: auto !important;
+				}
+			}
+		}
 	}
 	
 	&.longLabels, 
 	fieldset.longLabels {
-		@include inputGroupSizes($sidebarWidth, 1.5, none);
+		@include inputGroupSizes($sidebarWidth, 1.5, 0, none);
+
+		// medium & wide inputGroups no longer have room to the right for .outside elements
+		.inputGroup {
+			&.medium, 
+			&.wide {
+				&:not(.column) .outside {
+					margin-right: auto !important;
+				}
+			}
+		}
 	}
 
 	.checkboxToggleIcon {
@@ -573,37 +610,12 @@ form {
 
 /* ###################################### */
 /* RESPONSIVE STYLES (screen size) */
-/* TABLET STYLES (not specifically tied to any particular tablet) */
+/* TABLET STYLES & SMALLER (not specifically tied to any particular tablet) */
 @media screen and (max-width: $tablet) {
-	form, 
-	form.shortLabels {
+	form {
 		padding: ($gutter / 2);
 
-		fieldset {
-			legend {
-				text-align: left;
-			}
-		}
-
-		fieldset.shortLabels .formGroup, 
-		fieldset.mediumLabels .formGroup,
-		fieldset.longLabels .formGroup, 
 		.formGroup {
-			flex-flow: column nowrap;
-			align-items: flex-start;
-
-			label {
-				width: 100%;
-				max-width: 100%;
-				text-align: left;
-				padding: 0;
-			}
-
-			.inputGroup {
-				width: auto;
-				max-width: 100%;
-			}
-
 			&.verticalTop {
 				&.nudgeLabelBaseline {
 					label {
@@ -611,11 +623,7 @@ form {
 					}
 				}
 			}
-			
-			&.verticalCenter {
-				align-items: flex-start;
-			}
-
+	
 			&.verticalBottom {
 				&.nudgeLabelBaseline {
 					label {
@@ -623,14 +631,77 @@ form {
 					}
 				}
 			}
-			
-			&.checkbox {
-				flex-flow: row nowrap;
-				
+		}
+
+		//TODO: bump all inputGroupSizes up one place (micro: 15% => 25%, etc)
+		// …but can't use lists until upgrade to DartSass (instead of LibSass)
+		
+		// on tablet, short… & mediumLabel are still side-by-side, but label is wider %
+		&.shortLabels, 
+		fieldset.shortLabels {
+			.formGroup {
 				label {
-					order: 10;
-					margin-left: ($gutter / 4);
+					width: ($sidebarWidth * 1);
+					max-width: ($sidebarMaxWidth * 1);
 				}
+			}
+
+			// adapt inputGroup width % accordingly to new label width
+			@include inputGroupSizes($sidebarWidth, 1, 0, none);
+		}
+
+		&.mediumLabels, 
+		fieldset.mediumLabels {
+			.formGroup {
+				label {
+					width: ($sidebarWidth * 1.5);
+					max-width: ($sidebarMaxWidth * 1.5);
+				}
+			}
+
+			// adapt inputGroup width % accordingly to new label width
+			@include inputGroupSizes($sidebarWidth, 1.5, 0, none);
+		}
+
+		// on tablet, longLabels fieldsets switch to columns
+		&.longLabels, 
+		fieldset.longLabels {
+			.formGroup {
+				flex-flow: column nowrap;
+				align-items: flex-start;
+	
+				label {
+					width: 100%;
+					max-width: 100%;
+					text-align: left;
+					padding: 0;
+					margin-bottom: ($pxGutter / 4);
+				}
+	
+				&.checkbox {
+					flex-flow: row nowrap;
+					
+					label {
+						order: 10;
+						margin-left: ($gutter / 4);
+					}
+				}
+			}
+		}
+
+		// medium & wide inputGroups no longer have room to the right for .outside elements
+		.inputGroup {
+			&.medium, 
+			&.wide {
+				&:not(.column) .outside {
+					margin-right: auto !important;
+				}
+			}
+		}
+
+		fieldset {
+			legend {
+				text-align: left;
 			}
 		}
 
@@ -642,6 +713,62 @@ form {
 
 
 
-/* PHONE STYLES (not specifically tied to any particular phone) */
+/* PHONE STYLES & SMALLER (not specifically tied to any particular phone) */
 @media screen and (max-width: $phone) {
+	form {
+		// on phone, all fieldsets switch to columns
+		&.shortLabels, 
+		fieldset.shortLabels, 
+		&.mediumLabels, 
+		fieldset.mediumLabels, 
+		&.longLabels, 
+		fieldset.longLabels {
+			.formGroup {
+				label {
+					width: 100%;
+					max-width: 100%;
+				}
+
+				// adapt inputGroup widths % for phone screens
+				// labels at all sizes are 100% width, so inputGroup widths are % of screen (not minus-label)
+				// all widths bump up two places
+				.inputGroup {
+					width: auto;
+					max-width: 100%;
+		
+					&.micro {
+						width: 40%;
+					}
+					&.tiny {
+						width: 60%;
+					}
+					&.narrow {
+						width: 80%;
+					}
+					&.medium {
+						width: 100%;
+					}
+					&.wide {
+						width: 100%;
+					}
+					&.fullWidth {
+						width: 100%;
+					}
+				}
+			}
+		}
+
+		.formGroup {
+			flex-flow: column nowrap;
+			align-items: flex-start;
+
+			label {
+				width: 100%;
+				max-width: 100%;
+				text-align: left;
+				padding: 0;
+				margin-bottom: ($pxGutter / 4);
+			}
+		}
+	}
 }
