@@ -561,6 +561,16 @@ table.listing {
 	p {
 		margin-bottom: ($gutter / 2);
 	}
+
+	&.noMargin {
+		margin: 0;
+	}
+	&.noMarginTop {
+		margin-top: 0;
+	}
+	&.noMarginBottom {
+		margin-bottom: 0;
+	}
 }
 
 

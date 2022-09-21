@@ -89,13 +89,20 @@ h6 + h6 {
 	margin-top: .25em;
 }
 
-$hrSize: 2px;
 hr {
 	margin: ($gutter * 2) 0;
 	background-color: $blue5;
-	height: $hrSize;
+	height: $hrThickness;
 	border: 0;
 	position: relative;
+
+	&.noMargin {
+		margin: 0;
+	}
+
+	&.tinyMargin {
+		margin: ($gutter / 4) 0;
+	}
 }
 
 hr + h1,

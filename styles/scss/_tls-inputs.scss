@@ -499,7 +499,6 @@ form {
 			font-size: 12pt;
 			line-height: 1.2;
 			color: $black;
-			margin: 0 0 ($gutter / 2) 0;
 			padding: ($gutter / 4) 2em ($gutter / 4) ($gutter / 2);
 			max-width: 100%;
 			box-sizing: border-box;
@@ -611,6 +610,18 @@ form {
 	input[type=date]:read-only,
 	input[type=tel]:read-only {
 		background-color: rgba($white, .5);
+	}
+
+	// hide value spinner when field is disabled
+	input[type=number]:disabled {
+		// Chrome, Safari, Edge, Opera
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+		}
+		
+		// Firefox
+		-moz-appearance: textfield;
 	}
 
 	.valueError {
