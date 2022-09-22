@@ -329,53 +329,77 @@ $disabledWeight: 400;
 
 // BLUE BUTTON (standard)
 @mixin blueButton(){
+	color: $lightBlue5;
 	background: linear-gradient(to bottom, $blueGradientLight 0%, $blueGradientDark 110%);
 	border: 1px solid $blueGradientDark;
-	color: $lightBlue5;
+	svg {
+		fill: $lightBlue5;
+	}
 }
 
 @mixin blueButtonHover(){
-	color: white;
+	color: $white;
 	background: linear-gradient(to bottom, $blueGradientLight 50%, $blueGradientDark 200%);
+	svg {
+		fill: $white;
+	}
 }
 
 @mixin blueButtonActive(){
 	color: $yellow5;
 	background: linear-gradient(to top, $blueGradientDark 50%, $blueGradientLight 200%);
+	svg {
+		fill: $yellow5;
+	}
 }
 
 @mixin blueButtonDisabled(){
+	color: rgba($blue, .66);
 	background-color: transparent;
 	background: linear-gradient(to bottom, rgba($blue, .33) 0%, rgba($blueGradientLight, .075) 100%);
-	color: rgba($blue, .66);
-	font-weight: $disabledWeight;
 	border: 1px solid rgba($blue5, .2); // contentAreaFillPrint
+	font-weight: $disabledWeight;
 	cursor: default;
+	svg {
+		fill: rgba($blue, .66);
+	}
 }
 
 // BLUE GHOST BUTTON (secondary or not urgent)
 @mixin blueButtonGhost(){
+	color: $blueGradientDark;
 	background-color: transparent;
 	background: none;
 	border: 1px solid $blueGradientDark;
-	color: $blueGradientDark;
+	svg {
+		fill: $blueGradientDark;
+	}
 }
 
 @mixin blueButtonGhostHover(){
 	color: $logo-blue;
 	border-color: $logo-blue;
+	svg {
+		fill: $logo-blue;
+	}
 }
 
 @mixin blueButtonGhostActive(){
 	color: $green;
 	border-color: $green-2;
+	svg {
+		fill: $green;
+	}
 }
 
 @mixin blueButtonGhostDisabled(){
-	font-weight: $disabledWeight;
 	color: $blue;
 	border: 1px solid $blue;
+	font-weight: $disabledWeight;
 	opacity: .5;
+	svg {
+		fill: $blue;
+	}
 }
 
 // BLUE FLAT BUTTON (cancel or alternative actions)
@@ -405,53 +429,77 @@ $disabledWeight: 400;
 
 // GREEN BUTTON (call to action)
 @mixin greenButton(){
+	color: $white;
 	background: linear-gradient(to bottom, $green2 -10%, $green-2 110%);
 	border: 1px solid $green-2;
-	color: $white;
+	svg {
+		fill: $white;
+	}
 }
 
 @mixin greenButtonHover(){
-	color: white;
+	color: $white;
 	background: linear-gradient(to bottom, $green2 50%, $green-2 200%);
+	svg {
+		fill: $white;
+	}
 }
 
 @mixin greenButtonActive(){
 	color: $yellow4;
 	background: linear-gradient(to top, $green2 50%, $green-2 200%);
+	svg {
+		fill: $yellow4;
+	}
 }
 
 @mixin greenButtonDisabled(){
+	color: rgba($green, .75);
 	background-color: transparent;
 	background: linear-gradient(to bottom, rgba($green, .33) 0%, rgba($green, .075) 100%);
-	color: rgba($green, .75);
-	font-weight: $disabledWeight;
 	border: 1px solid rgba($green5, .2);
+	font-weight: $disabledWeight;
 	cursor: default;
+	svg {
+		fill: rgba($green, .75);
+	}
 }
 
 // GREEN GHOST BUTTON (secondary or not urgent)
 @mixin greenButtonGhost(){
+	color: $logo-green;
 	background-color: transparent;
 	background: none;
 	border: 1px solid $logo-green;
-	color: $logo-green;
+	svg {
+		fill: $logo-green;
+	}
 }
 
 @mixin greenButtonGhostHover(){
 	color: $logo-green-shadow;
 	border-color: $logo-green-shadow;
+	svg {
+		fill: $logo-green-shadow;
+	}
 }
 
 @mixin greenButtonGhostActive(){
 	color: $logo-green-shadow;
 	border-color: $logo-green-shadow;
+	svg {
+		fill: $logo-green-shadow;
+	}
 }
 
 @mixin greenButtonGhostDisabled(){
-	font-weight: $disabledWeight;
 	color: $green5;
 	border: 1px solid $green5;
+	font-weight: $disabledWeight;
 	opacity: .5;
+	svg {
+		fill: $green5;
+	}
 }
 
 // GREEN FLAT BUTTON (cancel or alternative actions)
@@ -481,53 +529,77 @@ $disabledWeight: 400;
 
 // RED BUTTON (cancel or destructive)
 @mixin redButton(){
+	color: $yellow5;
 	background: linear-gradient(to bottom, $logo-red -10%, $logo-red-shadow 110%);
 	border: 1px solid $logo-apple-deep-shadow;
-	color: $yellow5;
+	svg {
+		fill: $yellow5;
+	}
 }
 
 @mixin redButtonHover(){
-	color: white;
+	color: $white;
 	background: linear-gradient(to bottom, $logo-red 50%, $logo-red-shadow 200%);
+	svg {
+		fill: $white;
+	}
 }
 
 @mixin redButtonActive(){
 	color: $yellow5;
 	background: linear-gradient(to top, $logo-red 50%, $logo-red-shadow 200%);
+	svg {
+		fill: $yellow5;
+	}
 }
 
 @mixin redButtonDisabled(){
+	color: rgba($red5, .5);
 	background-color: $lightBlue;
 	background: linear-gradient(to bottom, rgba($red, .33) 0%, rgba($red5, .075) 100%);
-	color: rgba($red5, .5);
-	font-weight: $disabledWeight;
 	border: 1px solid rgba($red5, .2);
+	font-weight: $disabledWeight;
 	cursor: default;
+	svg {
+		fill: rgba($red5, .5);
+	}
 }
 
 // RED GHOST BUTTON (secondary or not urgent)
 @mixin redButtonGhost(){
+	color: $logo-red;
 	background-color: transparent;
 	background: none;
 	border: 1px solid $logo-red;
-	color: $logo-red;
+	svg {
+		fill: $logo-red;
+	}
 }
 
 @mixin redButtonGhostHover(){
 	color: $logo-red-shadow;
 	border-color: $logo-red-shadow;
+	svg {
+		fill: $logo-red-shadow;
+	}
 }
 
 @mixin redButtonGhostActive(){
 	color: $logo-apple;
 	border-color: $logo-apple;
+	svg {
+		fill: $logo-apple;
+	}
 }
 
 @mixin redButtonGhostDisabled(){
-	font-weight: $disabledWeight;
 	color: $red5;
 	border: 1px solid $red5;
+	font-weight: $disabledWeight;
 	opacity: .5;
+	svg {
+		fill: $red5;
+	}
 }
 
 // RED FLAT BUTTON (cancel or alternative actions)
