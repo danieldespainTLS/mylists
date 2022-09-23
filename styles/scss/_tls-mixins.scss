@@ -281,12 +281,16 @@ $disabledWeight: 400;
 	}
 	display: inline-block;
 	min-width: ($buttonMinWidth * $multiplier);
+	@if $size == "fullWidth" {
+		width: 100%;
+	}
 	height: ($buttonHeight * $multiplier);
 	font-size: (13pt * ($multiplier * $textScale));
 	line-height: ($buttonHeight * $multiplier);
 	margin: 0;
 	padding: 0 ($gutter / 1); // top & bottom come from line-height
 
+	background-color: $blueGradientDark;
 	border: none;
     border-radius: 4px;
     font-family: $montserrat;
@@ -295,8 +299,7 @@ $disabledWeight: 400;
 	text-transform: capitalize;
 	text-align: center;
 	box-sizing: border-box;
-	background-color: $blueGradientDark;
-	color: white;
+	color: $white;
 	cursor: pointer;
 
 	&:hover {
