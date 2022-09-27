@@ -270,7 +270,12 @@ p, div, li, blockquote, table, thead, th, td, tfoot, figure, dl, dt, dd {
 }
 
 p {
-    margin-bottom: ($gutter * 2);
+    margin-bottom: $gutter;
+}
+
+p.doubleSpaced, 
+.doubleSpaced p {
+	margin-bottom: ($gutter * 2);
 }
 
 article,
