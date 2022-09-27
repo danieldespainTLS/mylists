@@ -56,7 +56,7 @@ form {
 	max-width: ($maxArticleWidth * .75);
 
 	margin: $gutter 0;
-	padding: ($gutter / 2) $gutter;
+	padding: $gutter;
 
 	input, 
 	select, 
@@ -371,6 +371,31 @@ form {
 				width: ($sidebarWidth * 1.5);
 				max-width: ($sidebarMaxWidth * 1.5);
 			}
+		}
+	}
+
+	.buttonGroup {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		gap: $gutter;
+
+		&.noGap {
+			gap: 0;
+		}
+
+		&.column {
+			flex-flow: column wrap;
+		}
+
+		&.left {
+			justify-content: left;
+		}
+		&.center {
+			justify-content: center;
+		}
+		&.right {
+			justify-content: right;
 		}
 	}
 
