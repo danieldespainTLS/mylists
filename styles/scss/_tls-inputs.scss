@@ -64,8 +64,9 @@ $requiredBorderWidth: 3px;
 	&.large {
 		@include buttonReset("large");
 	}
+
 	&.fullWidth {
-		@include buttonReset("fullWidth");
+		width: 100%;
 	}
 
 	&.largeFont {

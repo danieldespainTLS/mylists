@@ -276,14 +276,11 @@ $disabledWeight: 400;
 		$multiplier: .75;
 		$textScale: 1.25
 	} @else if $size == "large" {
-		$multiplier: 2;
-		$textScale: .5
+		$multiplier: 1.5;
+		$textScale: .75;
 	}
 	display: inline-block;
 	min-width: ($buttonMinWidth * $multiplier);
-	@if $size == "fullWidth" {
-		width: 100%;
-	}
 	height: ($buttonHeight * $multiplier);
 	font-size: (13pt * ($multiplier * $textScale));
 	line-height: ($buttonHeight * $multiplier);
