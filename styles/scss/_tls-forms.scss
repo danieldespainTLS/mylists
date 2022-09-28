@@ -425,22 +425,6 @@ form {
 		}
 	}
 
-	.checkboxToggleIcon {
-		align-items: center;
-
-		& label.icon {
-			display: flex;
-			width: auto;
-			flex: row nowrap;
-			align-items: center;
-			cursor: pointer;
-
-			&.icon >* {
-				padding-left: ($gutter / 2);
-			}
-		}
-	}
-
 	// override width of each checkbox entry using .multipleCheckboxes li {flex-basis: ###px}
 	.multipleCheckboxes {
 		display: flex;
@@ -477,7 +461,7 @@ form {
 		}
 		
 		&.withBorders li {
-			border: 1px solid $blue;
+			border: 1px solid $borderOnLight;
 			padding: 0 0 0 10px;
 			border-radius: 12px;
 			background-color: rgba($blue, .20);
