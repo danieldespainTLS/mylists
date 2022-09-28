@@ -67,7 +67,7 @@ form {
 		box-sizing: border-box;
 	}
 	
-	>fieldset {
+	> fieldset {
 		&:first-of-type {
 			margin-top: 0;
 		}
@@ -548,10 +548,6 @@ form {
 	.instructions {
 		margin: 0 0 ($gutter / 2) 0;
 		font-size: 10pt;
-	}
-
-	.hint {
-		margin-left: $gutter;
 	}
 
 	&.centered {

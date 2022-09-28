@@ -262,9 +262,9 @@ $disabledWeight: 400;
 
 
 
-// buttonReset can be used to reset a system button
+// buttonCoreStyles can be used to reset a system button
 // or to turn a link <a href…> into a basic button
-@mixin buttonReset($size:"regular"){
+@mixin buttonCoreStyles($size:"regular"){
 	-webkit-tap-highlight-color: transparent !important;
 	
 	$multiplier: 1;
@@ -302,25 +302,6 @@ $disabledWeight: 400;
 	&:hover {
 		text-decoration: none;
 	}
-}
-
-@mixin iconButtonReset(){
-	@include buttonReset;
-
-	text-decoration: none;
-	font-size: 0;
-	line-height: 0;
-	border-radius: 0;
-	margin: 0;
-	padding: 0;
-
-	min-width: 0;
-	height: auto;
-	flex-shrink: 0;
-
-	background-color: transparent;
-	background: none;
-	color: inherit;
 }
 
 

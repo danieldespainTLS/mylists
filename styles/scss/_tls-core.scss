@@ -9,6 +9,8 @@
 
 // ROOT LEVEL SETTINGS //
 
+$transitionDuration: .25s;
+
 body {
 	a, button {
 		-webkit-tap-highlight-color: transparent !important;
@@ -175,6 +177,23 @@ main {
     }
 }
 
+.endOfPageMarker {
+	margin: 0;
+	padding-left: ($gutter / 2);
+	padding-bottom: ($gutter / 2);
+	color: $green;
+	font-family: $barlowCondensed;
+	font-size: 0pt;
+	opacity: .5;
+	
+	&:after {
+		font-size: 10pt;
+		line-height: 9pt;
+		content: "finished";
+	}
+}
+
+
 /* ###################################### */
 /* RESPONSIVE STYLES (screen size) */
 /* TABLET STYLES (not specifically tied to any particular tablet) */
@@ -302,29 +321,23 @@ ol.reset {
 	margin: 0;
 	padding: 0;
 
-	&>li {
+	& > li {
 		margin: 0;
 		padding: 0;
 	}
 }
 
-button.reset,
-.button.reset {
-	margin: 0;
-	padding: 0;
-	background-color: transparent;
-	border: none;
-	text-align: center;
-	box-sizing: border-box;
-	color: inherit;
-	font: inherit;
-	cursor: pointer;
+ul.space, 
+ol.space {
+	& > li {
+		margin-bottom: $gutter;
+	}
 }
 
 // blocked items have complete outline and margin between
 ul.blockedItems,
 ol.blockedItems {
-	&>li {
+	& > li {
 		margin-bottom: ($gutter / 1.5);
 		padding: ($gutter / 1.5);
 		border: 1px solid $blue5;
@@ -343,10 +356,10 @@ ol.blockedItems {
 // lined items have no margin and single line between (no line above first; no line below last)
 ul.linedItems, 
 ol.linedItems {
-	&>li {
+	& > li {
 		margin: 0;
 		padding: ($gutter / 1.5);
-		border-bottom: 1px solid $blue5;
+		border-bottom: 1px solid $borderOnLight;
 		background-color: $frostOverlay;
 		
 		&:last-child {
@@ -362,12 +375,14 @@ blockquote {
 	font-style: italic;
 	font-size: 13pt;
 	margin: $gutter ($gutter * 4);
-	padding: ($gutter) ($gutter * 2);
+	padding: ($gutter * .75) ($gutter * 1.5);
 	border: 1px solid $blue;
 	border-right-width: 0;
 	border-bottom-width: 0;
-	background-color: white;
-
+	background-color: $white;
+	border: 3px solid $borderOnLight1;
+	border-left-width: ($pxGutter * 2);
+	
 	cite {
 		display: block;
 		margin-top: $gutter;
@@ -378,6 +393,70 @@ blockquote {
 	}
 }
 
+
+
+.hint {
+	font-size: 75%;
+	line-height: 125%;
+	margin-top: ($pxGutter / 4);
+	margin-left: $gutter;
+	opacity: .75;
+	font-style: italic;
+
+	&.straight {
+		font-style: normal;
+	}
+
+	&.noMargin {
+		margin-left: 0;
+	}
+
+	&.inline {
+		display: inline !important;
+	}
+
+	&.error {
+		color: $logo-red-shadow;
+		opacity: 1;
+		font-size: 80%;
+		font-style: normal;
+	}
+}
+
+.finePrint,
+.legal {
+	color: $greyText;
+	font-size: 9pt;
+}
+
+.helpCursor {
+	cursor: help;
+}
+
+.clickToCopyContent {
+	cursor: copy;
+	transition: color ($transitionDuration * 4), text-shadow ($transitionDuration * 4); // slow OUT
+	
+	&:hover {
+		text-shadow: 0 0 3px rgba($green5, .5);
+
+		text-decoration-line:  underline;
+		text-decoration-color: $green;
+		text-decoration-style: dotted;
+		text-decoration-thickness: 2px;
+
+		-webkit-text-decoration-line:  underline;
+		-webkit-text-decoration-color: $green;
+		-webkit-text-decoration-style: dotted;
+		-webkit-text-decoration-thickness: 2px;
+	}
+	
+	&.coppied {
+		color: $green-2 !important;
+		text-shadow: 0 0 3px rgba($green5, 1.0);
+		transition: color ($transitionDuration / 4), text-shadow ($transitionDuration / 4); // fast IN
+	}
+}
 
 
 .redText {
@@ -444,34 +523,6 @@ $highlightBorderThickness: .15em;
 		color: darken($color: $purple, $amount: 30);
 	}
 }
-
-.hint {
-	font-size: 75%;
-	line-height: 125%;
-	margin-top: ($pxGutter / 4);
-	opacity: .75;
-	font-style: italic;
-
-	&.straight {
-		font-style: normal;
-	}
-
-	&.noMargin {
-		margin-left: 0;
-	}
-}
-
-.helpCursor {
-	cursor: help;
-}
-
-.finePrint,
-.legal {
-	color: $greyText;
-	font-size: 9pt;
-}
-
-
 
 /* use classList.add('hidden') or classList.remove('hidden') */
 .hidden,
