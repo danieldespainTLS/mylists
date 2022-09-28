@@ -248,19 +248,6 @@ button.reset,
     }
 }
 
-
-@media screen and (max-width: ($buttonMinWidth * 2.5)) {
-	.button{
-		&.tiny, 
-		&.small, 
-		&.regular, 
-		&.large {
-			min-width: 100%;
-		}
-	}
-}
-
-
 .subtleButton {
 	&.blue {
 		@include subtleButton();
@@ -415,6 +402,41 @@ button.reset,
 		}
 	}
 }
+
+// useful for buttons with an icon and text
+//NOTE: encapsulate text in a div: <button class='button flex'><svg/><div>Button Text</div></button>
+.button {
+	&.flex {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: .5rem;
+
+		* {
+			// prevent contents (text inside button) from wrapping
+			flex-shrink: 0;
+		}
+
+		img, 
+		svg {
+			width: auto;
+			height: 50%;
+			overflow: visible;
+		}
+	}
+}
+
+@media screen and (max-width: ($buttonMinWidth * 2.5)) {
+	.button{
+		&.tiny, 
+		&.small, 
+		&.regular, 
+		&.large {
+			min-width: 100%;
+		}
+	}
+}
+
 
 
 form {
