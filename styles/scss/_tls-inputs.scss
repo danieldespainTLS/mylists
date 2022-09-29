@@ -403,9 +403,9 @@ button.reset,
 	}
 }
 
-// useful for buttons with an icon and text
-//NOTE: encapsulate text in a div: <button class='button flex'><svg/><div>Button Text</div></button>
 .button {
+	// useful for buttons with an icon and text
+	//NOTE: encapsulate text in a div: <button class='button flex'><svg/><div>Button Text</div></button>
 	&.flex {
 		display: flex;
 		align-items: center;
@@ -423,6 +423,18 @@ button.reset,
 			height: 50%;
 			overflow: visible;
 		}
+	}
+
+	&.noPadding {
+		padding: 0;
+	}
+	&.noPaddingX {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	&.noPaddingY {
+		padding-top: 0;
+		padding-bottom: 0;
 	}
 }
 
