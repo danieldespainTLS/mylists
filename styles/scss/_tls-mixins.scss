@@ -20,7 +20,7 @@ $disabledWeight: 400;
 	text-decoration: none;
 	padding: 0 ($gutter / 2);
 	margin: 0;
-	border: 1px solid $lightBlue-2;
+	border: $buttonBorderWidth solid $lightBlue-2;
 	background-color: $lightBlue;
 	color: $blue;
 	font-size: 10pt;
@@ -40,7 +40,7 @@ $disabledWeight: 400;
 }
 
 @mixin subtleButtonDisabled() {
-	border: 1px solid $lightBlue-2;
+	border: $buttonBorderWidth solid $lightBlue-2;
 	background-color: $lightBlue2;
 	color: rgba($blue, .5);
 	text-decoration: none;
@@ -52,7 +52,7 @@ $disabledWeight: 400;
 @mixin subtleButtonGhost() {
 	background-color: transparent;
 	background: none;
-	border: 1px solid $blue5;
+	border: $buttonBorderWidth solid $blue5;
 	text-decoration: none;
 }
 
@@ -66,7 +66,7 @@ $disabledWeight: 400;
 
 @mixin subtleButtonGhostDisabled() {
 	@include blueButtonGhostDisabled;
-	border: 1px solid rgba($blue5, .5);
+	border: $buttonBorderWidth solid rgba($blue5, .5);
 }
 
 // BLUE SUBTLE FLAT BUTTON (cancel or alternative actions)
@@ -98,7 +98,7 @@ $disabledWeight: 400;
 	
 	background-color: rgba($logo-green, .1);
 	color: $logo-green;
-	border: 1px solid rgba($logo-green, .5);
+	border: $buttonBorderWidth solid rgba($logo-green, .5);
 }
 
 @mixin subtleGreenButtonHover(){
@@ -106,7 +106,7 @@ $disabledWeight: 400;
 
 	background-color: rgba($logo-green, .15);
 	color: $logo-green-shadow;
-	border: 1px solid rgba($logo-green, .65);
+	border: $buttonBorderWidth solid rgba($logo-green, .65);
 }
 
 @mixin subtleGreenButtonActive(){
@@ -114,7 +114,7 @@ $disabledWeight: 400;
 
 	background-color: rgba($logo-green, .175);
 	color: $logo-green-shadow;
-	border: 1px solid $green-2;
+	border: $buttonBorderWidth solid $green-2;
 }
 
 @mixin subtleGreenButtonDisabled() {
@@ -122,7 +122,7 @@ $disabledWeight: 400;
 	
 	background-color: rgba($logo-green, .05);
 	color: rgba($logo-green, .5);
-	border: 1px solid rgba($green-2, .25);
+	border: $buttonBorderWidth solid rgba($green-2, .25);
 	font-weight: $disabledWeight;
 	cursor: default;
 }
@@ -172,7 +172,7 @@ $disabledWeight: 400;
 	
 	background-color: rgba($logo-red, .1);
 	color: $red5;
-	border: 1px solid rgba($red5, .5);
+	border: $buttonBorderWidth solid rgba($red5, .5);
 }
 
 @mixin subtleRedButtonHover(){
@@ -180,7 +180,7 @@ $disabledWeight: 400;
 
 	background-color: rgba($logo-red, .15);
 	color: $logo-red-shadow;
-	border: 1px solid rgba($red-2, .65);
+	border: $buttonBorderWidth solid rgba($red-2, .65);
 }
 
 @mixin subtleRedButtonActive(){
@@ -188,7 +188,7 @@ $disabledWeight: 400;
 
 	background-color: rgba($logo-red, .175);
 	color: $logo-apple-deep-shadow;
-	border: 1px solid $red-2;
+	border: $buttonBorderWidth solid $red-2;
 }
 
 @mixin subtleRedButtonDisabled() {
@@ -196,7 +196,7 @@ $disabledWeight: 400;
 	
 	background-color: rgba($logo-red, .05);
 	color: rgba($red5, .5);
-	border: 1px solid rgba($red5, .25);
+	border: $buttonBorderWidth solid rgba($red5, .25);
 	font-weight: $disabledWeight;
 	cursor: default;
 }
@@ -204,7 +204,7 @@ $disabledWeight: 400;
 // RED SUBTLE GHOST BUTTON (secondary or not urgent)
 @mixin subtleRedButtonGhost() {
 	@include redButtonGhost();
-	border: 1px solid $red5;
+	border: $buttonBorderWidth solid $red5;
 }
 
 @mixin subtleRedButtonGhostHover() {
@@ -217,7 +217,7 @@ $disabledWeight: 400;
 
 @mixin subtleRedButtonGhostDisabled() {
 	@include redButtonGhostDisabled;
-	border: 1px solid rgba($red5, .5);
+	border: $buttonBorderWidth solid rgba($red5, .5);
 	cursor: default;
 }
 
@@ -312,7 +312,7 @@ $disabledWeight: 400;
 @mixin blueButton(){
 	color: $lightBlue5;
 	background: linear-gradient(to bottom, $blueGradientLight 0%, $blueGradientDark 110%);
-	border: 1px solid $blueGradientDark;
+	border: $buttonBorderWidth solid $blueGradientDark;
 	svg {
 		fill: $lightBlue5;
 	}
@@ -338,7 +338,7 @@ $disabledWeight: 400;
 	color: rgba($blue, .66);
 	background-color: transparent;
 	background: linear-gradient(to bottom, rgba($blue, .33) 0%, rgba($blueGradientLight, .075) 100%);
-	border: 1px solid rgba($blue5, .2); // contentAreaFillPrint
+	border: $buttonBorderWidth solid rgba($blue5, .2); // contentAreaFillPrint
 	font-weight: $disabledWeight;
 	cursor: default;
 	svg {
@@ -351,7 +351,7 @@ $disabledWeight: 400;
 	color: $blueGradientDark;
 	background-color: transparent;
 	background: none;
-	border: 1px solid $blueGradientDark;
+	border: $buttonBorderWidth solid $blueGradientDark;
 	svg {
 		fill: $blueGradientDark;
 	}
@@ -375,7 +375,7 @@ $disabledWeight: 400;
 
 @mixin blueButtonGhostDisabled(){
 	color: $blue;
-	border: 1px solid $blue;
+	border: $buttonBorderWidth solid $blue;
 	font-weight: $disabledWeight;
 	opacity: .5;
 	svg {
@@ -412,7 +412,7 @@ $disabledWeight: 400;
 @mixin greenButton(){
 	color: $white;
 	background: linear-gradient(to bottom, $green2 -10%, $green-2 110%);
-	border: 1px solid $green-2;
+	border: $buttonBorderWidth solid $green-2;
 	svg {
 		fill: $white;
 	}
@@ -438,7 +438,7 @@ $disabledWeight: 400;
 	color: rgba($green, .75);
 	background-color: transparent;
 	background: linear-gradient(to bottom, rgba($green, .33) 0%, rgba($green, .075) 100%);
-	border: 1px solid rgba($green5, .2);
+	border: $buttonBorderWidth solid rgba($green5, .2);
 	font-weight: $disabledWeight;
 	cursor: default;
 	svg {
@@ -451,7 +451,7 @@ $disabledWeight: 400;
 	color: $logo-green;
 	background-color: transparent;
 	background: none;
-	border: 1px solid $logo-green;
+	border: $buttonBorderWidth solid $logo-green;
 	svg {
 		fill: $logo-green;
 	}
@@ -475,7 +475,7 @@ $disabledWeight: 400;
 
 @mixin greenButtonGhostDisabled(){
 	color: $green5;
-	border: 1px solid $green5;
+	border: $buttonBorderWidth solid $green5;
 	font-weight: $disabledWeight;
 	opacity: .5;
 	svg {
@@ -512,7 +512,7 @@ $disabledWeight: 400;
 @mixin redButton(){
 	color: $yellow5;
 	background: linear-gradient(to bottom, $logo-red -10%, $logo-red-shadow 110%);
-	border: 1px solid $logo-apple-deep-shadow;
+	border: $buttonBorderWidth solid $logo-apple-deep-shadow;
 	svg {
 		fill: $yellow5;
 	}
@@ -538,7 +538,7 @@ $disabledWeight: 400;
 	color: rgba($red5, .5);
 	background-color: $lightBlue;
 	background: linear-gradient(to bottom, rgba($red, .33) 0%, rgba($red5, .075) 100%);
-	border: 1px solid rgba($red5, .2);
+	border: $buttonBorderWidth solid rgba($red5, .2);
 	font-weight: $disabledWeight;
 	cursor: default;
 	svg {
@@ -551,7 +551,7 @@ $disabledWeight: 400;
 	color: $logo-red;
 	background-color: transparent;
 	background: none;
-	border: 1px solid $logo-red;
+	border: $buttonBorderWidth solid $logo-red;
 	svg {
 		fill: $logo-red;
 	}
@@ -575,7 +575,7 @@ $disabledWeight: 400;
 
 @mixin redButtonGhostDisabled(){
 	color: $red5;
-	border: 1px solid $red5;
+	border: $buttonBorderWidth solid $red5;
 	font-weight: $disabledWeight;
 	opacity: .5;
 	svg {

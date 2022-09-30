@@ -23,6 +23,10 @@ $inlineButtonHeight: 1rem;
 // horizontal rule
 $hrThickness: 2px;
 
+$buttonBorderWidth: 1px;
+$inputBorderWidth: 1px;
+$requiredBorderWidth: 3px; // all-around; gets multiplied for thicker side
+
 // barcodes
 $barcodeWidth: 2.5in;
 $barcodeWidthPrint: 1.75in;

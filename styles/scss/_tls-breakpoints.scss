@@ -7,3 +7,11 @@ $phone: 600px;
 $tablet: 900px;
 
 $desktop: 1200px;
+
+// breakpoints of Bootstrap
+// below 576 => mobile first for portrait phones
+$small: 576px; // landscape phones
+$medium: 768px; // tablets
+$large: 992px; // desktops
+$extraLarge: 1200px; // large desktops
+$extraExtraLarge: 1400px; // huge desktops

@@ -266,6 +266,10 @@ $barcodeBG: #fff;
 
 // item sellingStatus types: "EVALUATE", "STOCK", "DIGITAL", "TBD", "NLS", "PURGE", …
 .sellingStatus {
+	&.INTERNAL {
+		color: $grey;
+		font-style: italic;
+	}
 	&.EVALUATE {
 		color: $grey3;
 		font-style: italic;
@@ -305,10 +309,6 @@ $barcodeBG: #fff;
 	&.NLS {
 		color: $grey2;
 		opacity: .4;
-	}
-	&.INTERNAL {
-		color: $grey;
-		font-style: italic;
 	}
 	&.REMOVE {
 		color: $logo-apple-deep-shadow;

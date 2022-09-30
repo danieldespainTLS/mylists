@@ -2,8 +2,7 @@
 
 @import 'tls-mixins';
 
-$inputBorder: 1px solid $blue-2;
-$requiredBorderWidth: 3px;
+$inputBorder: $inputBorderWidth solid $blue-2;
 
 @mixin selectSizes($sidebar: 20%, $sidebarMultiplier: 1, $maxWidth: null) {
 	$calculatedMaxWidth: $maxWidth; // provided by user
