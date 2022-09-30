@@ -451,7 +451,7 @@ blockquote {
 		-webkit-text-decoration-thickness: 2px;
 	}
 	
-	&.coppied {
+	&.copied {
 		color: $green-2 !important;
 		text-shadow: 0 0 3px rgba($green5, 1.0);
 		transition: color ($transitionDuration / 4), text-shadow ($transitionDuration / 4); // fast IN
