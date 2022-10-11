@@ -437,6 +437,12 @@ button.reset,
 	}
 }
 
+a.button {
+	&.flex {
+		display: inline-flex;
+	}
+}
+
 @media screen and (max-width: ($buttonMinWidth * 2.5)) {
 	.button{
 		&.tiny, 

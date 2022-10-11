@@ -278,7 +278,7 @@ $barcodeBG: #fff;
 		color: $grey1;
 	}
 	&.STOCK {
-		color: inherit;
+		// color: inherit; // inherit can inadvertently override other color classes like redText
 	}
 	&.DIGITAL {
 		color: $darkBlueTransition1;

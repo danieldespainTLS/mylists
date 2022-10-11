@@ -391,6 +391,10 @@ blockquote {
 		font-weight: 700;
 		font-size: 12pt;
 	}
+
+	p:last-of-type {
+		margin-bottom: 0;
+	}
 }
 
 
