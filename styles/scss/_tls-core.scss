@@ -248,6 +248,10 @@ main {
 
 
 // LINKS //
+html {
+	scroll-behavior: smooth;
+}
+
 a {
 	color: $link;
 
