@@ -1,10 +1,10 @@
 /* Fonts */
 
-$oswald: 'Oswald', 'Helvetica Neue', 'Helvetica', 'Arial Narrow', 'Arial', sans-serif; // 200 - 700 :: only using 400 or 700
-$montserrat: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; // 100 - 900
-$barlow: 'Barlow', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; // 100 - 900 :: only using 300 - 600 and 300i - 600i
-$barlowCondensed: 'Barlow Condensed', 'Oswald', 'Helvetica Neue', 'Helvetica', 'Arial Narrow', 'Arial', sans-serif; // 100 - 900 :: only using 300 - 600 and 300i - 600i
-$lato: 'Lato', sans-serif; // 100, 300, 400, 700, 900 :: only using 400, 700, 400i, 700i
+$oswald: 'Oswald', 'Helvetica Neue', 'Helvetica', 'Arial Narrow', 'Arial', sans-serif; // 200 - 700 :: only using 400, 600 and 700
+$montserrat: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; // 100 - 900 :: only using 400-700 and 400i-700i
+$barlow: 'Barlow', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; // 100 - 900 :: only using 400-700 and 400i-700i
+$barlowCondensed: 'Barlow Condensed', 'Oswald', 'Helvetica Neue', 'Helvetica', 'Arial Narrow', 'Arial', sans-serif; // 100 - 900 :: only using 300-600 and 300i-600i
+$lato: 'Lato', sans-serif; // 100, 300, 400, 700, 900 :: only using 400 & 700 and 400i & 700i // not available at 600 weight
 
 $monaco: 'Monaco', 'Verdana', 'Courier New', 'Courier', monospace;
 $courier: 'Courier New', 'Courier', monospace;
@@ -17,6 +17,6 @@ $courier: 'Courier New', 'Courier', monospace;
 // import fonts in the CSS file: @import url('https://fonts.googleapis.com/css?family=...')
 // or in the HTML file: <link href="https://fonts.googleapis.com/css?family=…" rel="stylesheet">
 // … avoid doing both because two http calls to google is redundant
-@import url('https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,500,500i,600,600i|Barlow+Condensed:300,300i,400,400i,500,500i,600,600i|Oswald:300,400,500,700|Lato:300,400,700,300i,400i,700i|Montserrat:bold,bolditalic,300,400,400i,500,600,700,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,400i,500,500i,600,600i,700,700i|Barlow+Condensed:300,300i,400,400i,500,500i,600,600i|Oswald:400,600,700|Lato:400,400i,700,700i|Montserrat:400,400i,500,500i,600,600i,700,700i');
 
 // fonts for WordPress are enqueued in file `enque.php`

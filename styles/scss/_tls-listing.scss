@@ -706,5 +706,27 @@ table.listing {
 				}
 			}
 		}
+
+		// disable wideGutter when printing
+		&.wideGutter {
+			th, 
+			td {
+				padding-right: 0;
+			}
+			.thl, 
+			.tdl {
+				padding-right: 0;
+			}
+			.thc, 
+			.tdc {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			.thr, 
+			.tdr {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
 	}
 }

@@ -487,8 +487,9 @@ form {
 			
 			&:after {
 				content: "";
-				font-size: 80%;
-				font-weight: 200;
+				font-family: $barlowCondensed;
+				font-size: 95%;
+				font-weight: 300;
 				font-style: italic;
 				padding-left : ($gutter / 1.5);
 				opacity: .5;
