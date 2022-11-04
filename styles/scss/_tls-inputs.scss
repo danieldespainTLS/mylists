@@ -456,6 +456,33 @@ a.button {
 
 
 
+.markerFlag {
+	display: inline-block;
+	font-size: 10pt;
+	line-height: 105%;
+	text-decoration: none;
+	margin: 0 0 ($gutter / 2) 0;
+	padding: ($gutter / 4) ($gutter * 1.5) ($gutter / 4) $gutter;
+	color: $blue-1;
+	background-color: $lightBlue-1;
+	background: linear-gradient(90deg, $lightBlue-2 0%, $lightBlue 2rem, $lightBlue1 100%);
+	border: $buttonBorderWidth solid $lightBlue-2;
+	border-left-width: 0;
+	border-top-width: ($buttonBorderWidth * 4);
+	border-bottom-right-radius: $gutter * 1.5;
+	transition: color $transitionDuration, border-color $transitionDuration;
+
+	&:hover {
+		color: $darkBlue5;
+		background-color: $lightBlue-2;
+		background: linear-gradient(90deg, $lightBlue-2 0%, $lightBlue-1 2rem, $lightBlue 100%);
+		border-color: $blueTransition1;
+		text-decoration: none;
+	}
+}
+
+
+
 form {
 	label {
 		display: block;
