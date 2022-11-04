@@ -91,20 +91,38 @@ h6 + h6 {
 	margin-top: .25em;
 }
 
-hr {
-	margin: ($gutter * 2) 0;
-	background-color: $blue5;
-	height: $hrThickness;
-	border: 0;
-	position: relative;
+$baseSize: 23pt;
 
-	&.noMargin {
-		margin: 0;
-	}
+h1, 
+:is(article, aside, nav, section) h1 {
+	font-size: $baseSize;
+	padding-top: .25em;
+	color: $darkBlue;
 
-	&.tinyMargin {
-		margin: ($gutter / 4) 0;
+	&:first-of-type {
+		margin-top: 0;
+		padding-top: 0;
 	}
+}
+h2 {
+	font-size: ($baseSize * .92);
+	color: $darkBlue1;
+}
+h3 {
+	font-size: ($baseSize * .85);
+	color: $darkBlue2;
+}
+h4 {
+	font-size: ($baseSize * .77);
+	color: $darkBlue3;
+}
+h5 {
+	font-size: ($baseSize * .71);
+	color: $darkBlue4;
+}
+h6 {
+	font-size: ($baseSize * .66);
+	color: $darkBlue5;
 }
 
 hr + h1,
@@ -132,40 +150,9 @@ li > h6 {
     margin-top: 0;
 }
 
-$baseSize: 24pt;
 main {
 	header {
 		margin: ($gutter * 2);
-	}
-	h1 {
-		font-size: $baseSize;
-		padding-top: .25em;
-		color: $darkBlue;
-
-		&:first-of-type {
-			margin-top: 0;
-			padding-top: 0;
-		}
-	}
-	h2 {
-		font-size: ($baseSize * .92);
-		color: $darkBlue1;
-	}
-	h3 {
-		font-size: ($baseSize * .85);
-		color: $darkBlue2;
-	}
-	h4 {
-		font-size: ($baseSize * .77);
-		color: $darkBlue3;
-	}
-	h5 {
-		font-size: ($baseSize * .71);
-		color: $darkBlue4;
-	}
-	h6 {
-		font-size: ($baseSize * .66);
-		color: $darkBlue5;
 	}
 
     // very first headline inside main is unique
@@ -175,6 +162,22 @@ main {
         font-size: ($baseSize * 1.1) + 0pt;
         border-bottom: 4px solid $logo-yellow;
     }
+}
+
+hr {
+	margin: ($gutter * 2) 0;
+	background-color: $blue5;
+	height: $hrThickness;
+	border: 0;
+	position: relative;
+
+	&.noMargin {
+		margin: 0;
+	}
+
+	&.tinyMargin {
+		margin: ($gutter / 4) 0;
+	}
 }
 
 .endOfPageMarker {
