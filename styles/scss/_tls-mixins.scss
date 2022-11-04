@@ -269,28 +269,31 @@ $disabledWeight: 400;
 	
 	$multiplier: 1;
 	$textScale: 1;
-	$paddingVertical: ($gutter / 2);
+	$paddingX: $gutter;
+	$paddingY: ($gutter / 2);
 	
 	@if $size == "tiny" {
 		$multiplier: .575;
 		$textScale: 1.15;
-		$paddingVertical: ($gutter / 6);
+		$paddingX: ($gutter / 2);
+		$paddingY: ($gutter / 6);
 	} @else if $size == "small" {
 		$multiplier: .75;
 		$textScale: 1.25;
-		$paddingVertical: ($gutter / 5);
+		$paddingX: ($gutter / 1.875);
+		$paddingY: ($gutter / 5);
 	} @else if $size == "large" {
 		$multiplier: 1.5;
 		$textScale: .75;
-		$paddingVertical: ($gutter / 1.0);
+		$paddingX: ($gutter / .75);
+		$paddingY: ($gutter / 1.0);
 	}
 	display: inline-block;
 	min-width: ($buttonMinWidth * $multiplier);
 	font-size: (13pt * ($multiplier * $textScale));
 	line-height: 120%; // needs leading if button text wraps
 	margin: 0;
-	padding: $paddingVertical ($gutter / 1);
-
+	padding: $paddingY $paddingX;
 	background-color: $blueGradientDark;
 	border: none;
     border-radius: 4px;

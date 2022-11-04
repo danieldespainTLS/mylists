@@ -245,6 +245,64 @@ button.reset,
 			}
 		}
     }
+
+	&.noPadding {
+		padding: 0;
+	}
+	&.noPaddingX {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	&.noPaddingY {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	// flex buttons are useful for buttons with an icon and text
+	//NOTE: encapsulate text in a div: <button class='button flex'><svg/><div>Button Text</div></button>
+	&.flex {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: ($gutter / 2);
+
+		* {
+			// prevent contents (text inside button) from wrapping
+			flex-shrink: 0;
+		}
+
+		img, 
+		svg {
+			width: auto;
+			height: 1.125rem;
+			overflow: visible;
+		}
+
+		&.tiny {
+			img, 
+			svg {
+				height: 0.75rem;
+			}
+		}
+	
+		&.small {
+			img, 
+			svg {
+				height: 1rem;
+			}
+		}
+	
+		&.large {
+			img, 
+			svg {
+				height: 1.625rem;
+			}
+		}
+	}
+}
+
+a.button.flex {
+	display: inline-flex;
 }
 
 .subtleButton {
@@ -402,47 +460,6 @@ button.reset,
 	}
 }
 
-.button {
-	// useful for buttons with an icon and text
-	//NOTE: encapsulate text in a div: <button class='button flex'><svg/><div>Button Text</div></button>
-	&.flex {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: .5rem;
-
-		* {
-			// prevent contents (text inside button) from wrapping
-			flex-shrink: 0;
-		}
-
-		img, 
-		svg {
-			width: auto;
-			height: 1.125rem;
-			overflow: visible;
-		}
-	}
-
-	&.noPadding {
-		padding: 0;
-	}
-	&.noPaddingX {
-		padding-left: 0;
-		padding-right: 0;
-	}
-	&.noPaddingY {
-		padding-top: 0;
-		padding-bottom: 0;
-	}
-}
-
-a.button {
-	&.flex {
-		display: inline-flex;
-	}
-}
-
 @media screen and (max-width: ($buttonMinWidth * 2.5)) {
 	.button{
 		&.tiny, 
@@ -454,6 +471,40 @@ a.button {
 	}
 }
 
+
+/* tag cloud */
+// usually an <ul class='reset tags'>
+.tags {
+	display: flex;
+	flex-flow: row wrap;
+	gap: ($gutter / 2);
+	
+	// usually an <li class='tag'>
+	.tag {
+		$tagRadius: ($gutter / 2);
+		a {
+			display: block;
+			font-size: 9pt;
+			line-height: 100%;
+			text-decoration: none;
+			margin: 0;
+			padding: ($gutter / 4) ($gutter / 2);
+			color: $logo-green;
+			background-color: rgba($yellow5, .5);
+			border: $buttonBorderWidth solid $yellow-1;
+			border-top-left-radius: $tagRadius;
+			border-bottom-right-radius: $tagRadius;
+			cursor: pointer;
+			transition: color $transitionDuration, border-color $transitionDuration, background-color $transitionDuration;
+			
+			&:hover {
+				color: $orange-2;
+				background-color: rgba($yellow5, 1);
+				border-color: $orange5;
+			}
+		}
+	}
+}
 
 
 .markerFlag {
