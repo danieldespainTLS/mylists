@@ -269,23 +269,27 @@ $disabledWeight: 400;
 	
 	$multiplier: 1;
 	$textScale: 1;
+	$paddingVertical: ($gutter / 2);
+	
 	@if $size == "tiny" {
 		$multiplier: .575;
 		$textScale: 1.15;
+		$paddingVertical: ($gutter / 6);
 	} @else if $size == "small" {
 		$multiplier: .75;
-		$textScale: 1.25
+		$textScale: 1.25;
+		$paddingVertical: ($gutter / 5);
 	} @else if $size == "large" {
 		$multiplier: 1.5;
 		$textScale: .75;
+		$paddingVertical: ($gutter / 1.0);
 	}
 	display: inline-block;
 	min-width: ($buttonMinWidth * $multiplier);
-	height: ($buttonHeight * $multiplier);
 	font-size: (13pt * ($multiplier * $textScale));
-	line-height: ($buttonHeight * $multiplier);
+	line-height: 120%; // needs leading if button text wraps
 	margin: 0;
-	padding: 0 ($gutter / 1); // top & bottom come from line-height
+	padding: $paddingVertical ($gutter / 1);
 
 	background-color: $blueGradientDark;
 	border: none;
