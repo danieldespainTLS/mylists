@@ -384,10 +384,6 @@ form {
 			gap: 0;
 		}
 
-		&.column {
-			flex-flow: column wrap;
-		}
-
 		&.left {
 			justify-content: left;
 		}
@@ -396,6 +392,18 @@ form {
 		}
 		&.right {
 			justify-content: right;
+		}
+
+		&.column {
+			flex-flow: column wrap;
+
+			&.left {
+				align-items: start;
+			}
+
+			&.right {
+				align-items: end;
+			}
 		}
 	}
 
