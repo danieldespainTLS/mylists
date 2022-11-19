@@ -4,44 +4,41 @@
 @import 'tls-sizes';
 @import 'tls-breakpoints';
 @import 'tls-fonts';
+@import 'tls-mixins-fadeTo';
 
 
-
-// ROOT LEVEL SETTINGS //
+// ROOT LEVEL SETTINGS
 
 $transitionDuration: .25s;
 
 body {
-	a, button {
-		-webkit-tap-highlight-color: transparent !important;
-	}
-
-    background-color: $pageBG;
-	font-family: $montserrat;
+	background-color: $pageBackground;
 	-webkit-text-size-adjust:none;
-
 	margin: 0;
 	padding: 0;
-
+	font-family: $montserrat;
     font-size: 12pt;
     font-weight: 400;
     font-style: normal;
 	line-height: 160%;
+	
+	a, button {
+		-webkit-tap-highlight-color: transparent !important;
+	}
+}
 
-	strong {
-		font-weight: 600;
-    }
+strong {
+	font-weight: 600;
+}
 
-    em {
-		// font-weight: 400;
-		font-weight: inherit;
-    }
+em {
+	font-style: italic;
+}
 
-    em strong,
-    strong em {
-        font-weight: 600;
-        font-style: italic;
-    }
+em strong,
+strong em {
+	font-weight: 600;
+	font-style: italic;
 }
 
 
@@ -79,16 +76,23 @@ h1, h2, h3, h4, h5, h6 {
     &.noTopMargin, &.noMarginTop {
         margin-top: .1em;
     }
+
+	em {
+		font-weight: 700;
+	}
+}
+
+:is(h2, h3, h4, h5, h6) em {
+	font-weight: 600;
 }
 
 /* If a heading comes right after another heading, reduce top margin (leading) */
-h1 + h1, h1 + h2, h1 + h3, h1 + h4, h1 + h5, h1 + h6,
-h2 + h2, h2 + h3, h2 + h4, h2 + h5, h2 + h6,
-h3 + h3, h3 + h4, h3 + h5, h3 + h6,
-h4 + h4, h4 + h5, h4 + h6,
-h5 + h5, h5 + h6,
-h6 + h6 {
+:is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
 	margin-top: .25em;
+
+	&.noMargin {
+		margin-top: 0;
+	}
 }
 
 $baseSize: 23pt;
@@ -125,28 +129,16 @@ h6 {
 	color: $darkBlue5;
 }
 
-hr + h1,
-h1 + h1,
-h1:first-of-type + h1 {
+hr + :is(h1, h2, h3, h4, h5, h6) {
 	margin-top: 0;
 }
 
-li > h1,
-li > h2,
-li > h3,
-li > h4,
-li > h5,
-li > h6 {
+li > :is(h1, h2, h3, h4, h5, h6) {
 	margin-top: 0;
 }
 
 // first headline of content doesn't need margin
-.content > h1,
-.content > h2,
-.content > h3,
-.content > h4,
-.content > h5,
-.content > h6 {
+.content > :is(h1, h2, h3, h4, h5, h6) {
     margin-top: 0;
 }
 
@@ -177,6 +169,10 @@ hr {
 
 	&.tinyMargin {
 		margin: ($gutter / 4) 0;
+	}
+
+	&.thin {
+		height: ($hrThickness / 2);
 	}
 }
 
@@ -381,14 +377,18 @@ blockquote {
 	font-family: $lato;
 	font-style: italic;
 	font-size: 13pt;
-	margin: $gutter ($gutter * 4);
-	padding: ($gutter * .75) ($gutter * 1.5);
+	margin: $gutter;
+	margin-left: ($gutter * 2);
+	margin-right: ($gutter * 0);
+	padding: ($gutter * .5);
+	padding-left: ($gutter * .75);
+	padding-right: ($gutter * .75);
 	border: 1px solid $blue;
 	border-right-width: 0;
 	border-bottom-width: 0;
 	background-color: $white;
-	border: 3px solid $borderOnLight1;
-	border-left-width: ($pxGutter * 2);
+	border: 2px solid $borderOnLight1;
+	border-left-width: ($pxGutter * 1);
 	
 	cite {
 		display: block;
@@ -399,8 +399,39 @@ blockquote {
 		font-size: 12pt;
 	}
 
-	p:last-of-type {
-		margin-bottom: 0;
+	p {
+		&:first-of-type {
+			margin-top: 0;
+		}
+	
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/* RESPONSIVE SIZE ADJUSTMENTS */
+// tablets & larger
+@media screen and (min-width: $medium){
+	blockquote {
+		margin-left: ($gutter * 2);
+		margin-right: ($gutter * 2);
+		padding-left: ($gutter * 1);
+		padding-right: ($gutter * 1);
+		border: 2px solid $borderOnLight1;
+		border-left-width: ($pxGutter * 1.5);
+	}
+}
+
+// desktop screens & larger
+@media screen and (min-width: $large){
+	blockquote {
+		margin-left: ($gutter * 4);
+		margin-right: ($gutter * 4);
+		padding-left: ($gutter * 1.5);
+		padding-right: ($gutter * 1.5);
+		border: 3px solid $borderOnLight1;
+		border-left-width: ($pxGutter * 2);
 	}
 }
 
@@ -469,30 +500,69 @@ blockquote {
 	}
 }
 
+* {
+	@include fadeToSeries();
+}
 
+.burgundyText {
+	color: $burgundyText;
+	@include fadeToSeries($burgundyText);
+}
 .redText {
 	color: $redText;
+	@include fadeToSeries($redText);
+}
+.orangeText {
+	color: $orangeText;
+	@include fadeToSeries($orangeText);
+}
+.yellowText {
+	color: $yellowText;
+	@include fadeToSeries($yellowText);
+}
+.limeText {
+	color: $limeText;
+	@include fadeToSeries($limeText);
 }
 .greenText {
-    color: $greenText;
+	color: $greenText;
+	@include fadeToSeries($greenText);
 }
-.greyText, .grayText {
-	color: $greyText;
+.cyanText {
+	color: $cyanText;
+	@include fadeToSeries($cyanText);
 }
 .blueText {
 	color: $blueText;
-}
-.orangeText {
-    color: $orangeText;
-}
-.brownText {
-    color: $brownText;
+	@include fadeToSeries($blueText);
 }
 .purpleText {
-    color: $purpleText;
+	color: $purpleText;
+	@include fadeToSeries($purpleText);
 }
-.yellowText {
-	color: $yellow;
+.magentaText {
+	color: $magentaText;
+	@include fadeToSeries($magentaText);
+}
+.pinkText {
+	color: $pinkText;
+	@include fadeToSeries($pinkText);
+}
+.tanText {
+	color: $tanText;
+	@include fadeToSeries($tanText);
+}
+.brownText {
+	color: $brownText;
+	@include fadeToSeries($brownText);
+}
+.charcoalText {
+	color: $charcoalText;
+	@include fadeToSeries($charcoalText);
+}
+.greyText, .grayText {
+	color: $greyText;
+	@include fadeToSeries($greyText);
 }
 
 $highlightBorderThickness: .15em;
@@ -502,6 +572,11 @@ $highlightBorderThickness: .15em;
 	background-color: rgba($green, .30);
 	color: darken($color: $green, $amount: 30);
 
+	&.burgundy {
+		border-bottom: $highlightBorderThickness solid rgba($burgundy, .5);
+		background-color: rgba($burgundy, .20);
+		color: darken($color: $burgundy, $amount: 10);
+	}
 	&.red {
 		border-bottom: $highlightBorderThickness solid rgba($red, .666);
 		background-color: rgba($red, .25);
@@ -517,10 +592,20 @@ $highlightBorderThickness: .15em;
 		background-color: rgba($yellow, .25);
 		color: darken($color: $orange, $amount: 30);
 	}
+	&.lime {
+		border-bottom: $highlightBorderThickness solid rgba($lime, .75);
+		background-color: rgba($lime, .20);
+		color: darken($color: $green, $amount: 10);
+	}
 	&.green {
 		border-bottom: $highlightBorderThickness solid rgba($green, .666);
 		background-color: rgba($green, .25);
 		color: darken($color: $green, $amount: 30);
+	}
+	&.cyan {
+		border-bottom: $highlightBorderThickness solid rgba($blueTransition3, .75);
+		background-color: rgba($blueTransition3, .333);
+		color: darken($color: $blue3, $amount: 30);
 	}
 	&.blue {
 		border-bottom: $highlightBorderThickness solid rgba($blue, .666);
@@ -532,6 +617,36 @@ $highlightBorderThickness: .15em;
 		border-bottom: $highlightBorderThickness solid rgba($hotPurple, .666);
 		background-color: rgba($hotPurple, .2);
 		color: darken($color: $purple, $amount: 30);
+	}
+	&.magenta {
+		border-bottom: $highlightBorderThickness solid rgba($magenta, .666);
+		background-color: rgba($magenta, .25);
+		color: darken($color: $magenta, $amount: 40);
+	}
+	&.pink {
+		border-bottom: $highlightBorderThickness solid rgba($pink, 1);
+		background-color: rgba($pink, .5);
+		color: darken($color: $red5, $amount: 40);
+	}
+	&.tan {
+		border-bottom: $highlightBorderThickness solid rgba($tan, .666);
+		background-color: rgba($tan, .25);
+		color: darken($color: $tan, $amount: 40);
+	}
+	&.brown {
+		border-bottom: $highlightBorderThickness solid rgba($brown, .666);
+		background-color: rgba($brown, .333);
+		color: darken($color: $brown, $amount: 40);
+	}
+	&.charcoal {
+		border-bottom: $highlightBorderThickness solid rgba($charcoal, .666);
+		background-color: rgba($charcoal, .333);
+		color: darken($color: $charcoal, $amount: 40);
+	}
+	&.grey {
+		border-bottom: $highlightBorderThickness solid rgba($grey5, .75);
+		background-color: rgba($grey5, .5);
+		color: darken($color: $grey4, $amount: 40);
 	}
 }
 
@@ -560,6 +675,12 @@ $highlightBorderThickness: .15em;
 								supported by Chrome, Edge, Opera and Firefox */
 }
 
+code {
+	color: $grey1;
+	font-family: $code;
+	font-size: 120%;
+	letter-spacing: -.5px;
+}
 
 
 
@@ -586,28 +707,49 @@ $highlightBorderThickness: .15em;
 		display: none;
     }
 
+	.burgundyText {
+		color: $redTextPrint;
+	}
 	.redText {
 		color: $redTextPrint;
+	}
+	.orangeText {
+		color: $orangeTextPrint;
+	}
+	.yellowText {
+		color: $yellowTextPrint;
+	}
+	.limeText {
+		color: $limeTextPrint;
 	}
 	.greenText {
 		color: $greenTextPrint;
 	}
-	.greyText, .grayText {
-		color: $greyTextPrint;
+	.cyanText {
+		color: $cyanTextPrint;
 	}
 	.blueText {
 		color: $blueTextPrint;
 	}
-    .orangeText {
-        color: $orangeTextPrint;
-    }
-    .brownText {
-        color: $brownTextPrint;
-    }
-    .purpleText {
-        color: $purpleTextPrint;
-    }
-	.yellowText {
-		color: $logo-yellow-shadow;
+	.purpleText {
+		color: $purpleTextPrint;
+	}
+	.magentaText {
+		color: $magentaTextPrint;
+	}
+	.pinkText {
+		color: $pinkTextPrint;
+	}
+	.tanText {
+		color: $tanTextPrint;
+	}
+	.brownText {
+		color: $brownTextPrint;
+	}
+	.charcoalText {
+		color: $charcoalTextPrint;
+	}
+	.greyText, .grayText {
+		color: $greyTextPrint;
 	}
 }

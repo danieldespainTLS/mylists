@@ -1,18 +1,16 @@
-/* ########## Mixins for SCSS ########## */
-/*       use: @include blueButton;       */
+/* ########## Button Mixins for SCSS ########## */
 
 @import 'tls-sizes';
 @import 'tls-colors';
 @import 'tls-fonts';
 
-$enabledWeight: 600;
-$disabledWeight: 400;
-
-
 /* STOP!
    For buttons use class='button blue' etc.
    declared in tls-inputs.scss
 */
+
+$enabledWeight: 600;
+$disabledWeight: 400;
 
 // BLUE SUBTLE BUTTON (standard)
 @mixin subtleButton() {

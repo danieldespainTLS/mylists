@@ -735,6 +735,11 @@ form {
 		}
 	}
 
+	.required label, 
+	.required legend {
+		font-weight: 600;
+	}
+
 	textarea:read-only,
 	select.styled:read-only,
 	input[type=text]:read-only,

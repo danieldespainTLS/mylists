@@ -28,6 +28,7 @@
 
 .debugOutput {
 	@include codeBlock;
+	position:relative;
 	padding: ($gutter / 8) ($gutter / 4);
 	line-height: 10pt;
 	opacity: .5;
@@ -36,6 +37,16 @@
 	&:hover {
 		color: $black;
 		opacity: 1.0;
+	}
+
+	.tag {
+		background-color:rgba($black,.75);
+		color: $white;
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 2px 2px 1px 4px;
+		border-bottom-left-radius: ($pxGutter / 2);
 	}
 }
 

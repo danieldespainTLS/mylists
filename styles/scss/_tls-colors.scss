@@ -1,5 +1,7 @@
 /* ########## Global definition of colors for SCSS ########## */
 
+@import 'tls-mixins-fadeTo';
+
 // shades of dark blue
 $darkBlue-2: #1e355a;
 $darkBlue-1: #1c3962;
@@ -118,7 +120,8 @@ $purple2: #8d1fa4;
 $purple3: #a819bf;
 $purple4: #c212d9;
 $purple5: #dd0cf4;
-$magenta: magenta; // (#FF00FF is true magenta)
+
+$magenta: #f41aff; // (#FF00FF is true HTML 'magenta')
 $hotPurple: purple; // #800080 (html purple)
 
 
@@ -161,24 +164,31 @@ $logo-bulb-stop-6: #fcee23;
 $logo-bulb-stop-7: #ffffff;
 
 // OTHER colors
+$charcoal: $grey2;
 $brown: #6b442a; // rgb(116, 75, 47);
+$tan: #bb9f7b;
 $pink: #fdd8df;
-$hotPink: hotpink; // HTML hotpink
+$softPink: #feacce;
+$hotPink: #ff69b4; // HTML hotpink
+$burgundy: #960236;
+$lime: #75e575; // based off $green5
 
 
 
 
 
 // PAGE
-$white          : #fff;
-$black          : #000;
-$halfwayToBlack : #142b45;
-$pageBG		    : $lightBlue5;
-$veryLight	    : $lightBlue; // figure background
-$frostOverlay	: rgba($white, .75);
-$whiteBGfade    : #eff9fe; // fade 90% opacity
-$halfwayToWhite : #f8fdff; // halfway between lightBlue5 and white
-$buff			: #ffffd7;
+$white          		: #fff;
+$black          		: #000;
+$halfwayToBlack 		: #142b45;
+$halfwayToBlackGreen	: #023722; // halfway between logo-green-shadow and black
+$halfwayToBlackCoolGrey	: #1a222c;
+$pageBackground		    : $lightBlue5;
+$veryLight	    		: $lightBlue; // figure background
+$frostOverlay			: rgba($white, .75);
+$whiteBGfade    		: #eff9fe; // fade 90% opacity
+$halfwayToWhite 		: #f8fdff; // halfway between lightBlue5 and white
+$buff					: #ffffd7;
 
 
 // BORDERS
@@ -207,16 +217,20 @@ $linkPrint			: $blue-2;
 // ZEBRA STRIPING
 $zebraStripeOdd		: $halfwayToWhite;
 $zebraStripeEven	: $white;
-$rowHighlight		: $lightBlue-2;
 $rowHighlight       : $yellow5;
+$rowHighlightHead   : $yellow3;
+$rowHighlightFoot   : $yellow4;
 $rowHighlightPink	: $pink;
 
+
+// BURGUNDY TEXT
+$burgundyText			: $burgundy;
+$burgundyTextPrint		: $burgundy;
 
 // RED TEXT
 $almostRedText		: lighten($logo-red, 20%); // before comitting to redText (ie: hover)
 $redText			: $logo-red;
 $redTextPrint		: $logo-apple-shadow;
-
 
 // ORANGE TEXT
 $orangeText				: $orange2;
@@ -224,34 +238,57 @@ $orangeTextPrint		: $orange1;
 $orangeBackground		: $orange5;
 $orangeBackgroundPrint	: gold;
 
+// YELLOW TEXT
+$yellowText			: $logo-yellow;
+$yellowTextPrint	: $logo-yellow-shadow;
 
-// BROWN TEXT
-$brownText			: $brown;
-$brownTextPrint		: $brown;
-
-
-// PURPLE TEXT
-$purpleText			: $purple;
-$purpleTextPrint	: $purple;
-
-
-// BLUE TEXT
-$almostBlueText		: $blue-2; // before comitting to blueText (ie: hover)
-$blueText			: $logo-blue;
-$blueTextPrint		: $logo-blue-shadow;
-
+// LIME TEXT
+$limeText			: $lime;
+$limeTextPrint		: darken($lime, 20%);
 
 // GREEN TEXT
 $almostGreenText	: lighten($logo-green, 20%); // before comitting to greenText (ie: hover)
 $greenText			: $logo-green;
 $greenTextPrint		: $logo-green-shadow;
 
+// CYAN TEXT
+$cyanText			: $blue4;
+$cyanTextPrint		: $blue;
 
-// FINE (GREY) PRINT
-$greyText		: $grey3;
-$greyTextPrint	: $grey-2;
-$grayText		: $greyText;
-$grayTextPrint	: $greyTextPrint;
+// BLUE TEXT
+$almostBlueText		: $blue-2; // before comitting to blueText (ie: hover)
+$blueText			: $logo-blue;
+$blueTextPrint		: $logo-blue-shadow;
+
+// PURPLE TEXT
+$purpleText			: $purple2;
+$purpleTextPrint	: $purple1;
+
+// MAGENTA TEXT
+$magentaText		: $magenta;
+$magentaTextPrint	: $magenta;
+
+// PINK TEXT
+$pinkText			: $softPink;
+$pinkTextPrint		: darken($softPink, 20%);
+
+// TAN TEXT
+$tanText			: $tan;
+$tanTextPrint		: darken($tan, 20%);
+
+// BROWN TEXT
+$brownText			: $brown;
+$brownTextPrint		: $brown;
+
+// CHARCOAL TEXT
+$charcoalText		: $grey2;
+$charcoalTextPrint	: $grey2;
+
+// GREY TEXT (FINE PRINT)
+$greyText			: $grey4;
+$greyTextPrint		: $grey;
+$grayText			: $greyText;
+$grayTextPrint		: $greyTextPrint;
 
 
 // INFO BLUE (i) icon
@@ -269,53 +306,67 @@ $barcodeBG: #fff;
 	&.INTERNAL {
 		color: $grey;
 		font-style: italic;
+		@include fadeToSeries($grey);
 	}
 	&.EVALUATE {
 		color: $grey3;
 		font-style: italic;
+		@include fadeToSeries($grey3);
 	}
 	&.TEST {
 		color: $grey1;
+		@include fadeToSeries($grey1);
 	}
 	&.STOCK {
 		// color: inherit; // inherit can inadvertently override other color classes like redText
 	}
 	&.DIGITAL {
 		color: $darkBlueTransition1;
+		@include fadeToSeries($darkBlueTransition1);
 	}
 	&.FIVEDAYS {
 		color: $logo-green-shadow;
+		@include fadeToSeries($logo-green-shadow);
 	}
 	&.DIRECT {
 		color: $logo-apple-leaf;
+		@include fadeToSeries($logo-apple-leaf);
 		font-style: italic;
 	}
 	&.TBD {
 		color: $orange-1;
+		@include fadeToSeries($orange-1);
 	}
 	&.TBD25 {
 		color: $orangeText;
+		@include fadeToSeries($orangeText);
 	}
 	&.TBD50 {
 		color: $redText;
+		@include fadeToSeries($redText);
 	}
 	&.TBD75 {
 		color: $hotPurple;
+		@include fadeToSeries($hotPurple);
 	}
 	&.DBIN {
 		color: $purple5;
 		font-weight: bold;
+		@include fadeToSeries($purple5);
 	}
 	&.NLS {
 		color: $grey2;
 		opacity: .4;
+		@include fadeToSeries($grey2);
 	}
 	&.REMOVE {
 		color: $logo-apple-deep-shadow;
 		text-decoration: line-through;
+		@include fadeToSeries($grey2);
 	}
 	&.PURGE {
 		color: $hotPink;
 		text-decoration: line-through;
+		@include fadeToSeries($hotPink);
 	}
 }

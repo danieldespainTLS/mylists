@@ -100,7 +100,7 @@ form {
 			border: 1px solid rgba($grey2, .5);
 			padding-bottom: ($gutter / 2);
 			
-			& legend {
+			legend {
 				float: left;
 				background-color: rgba($halfwayToWhite, .25);
 				padding-left: ($gutter / 2);
@@ -109,7 +109,7 @@ form {
 			}
 			
 			&.collapsible.collapsed {
-				& legend {
+				legend {
 					border-bottom: 0px solid transparent;
 				}
 			}
@@ -119,8 +119,8 @@ form {
 				transition: background-color $transitionDuration, color $transitionDuration;
 			}
 			
-			& .multipleCheckboxes, 
-			& div.formGroup {
+			.multipleCheckboxes, 
+			div.formGroup {
 				padding-left: ($gutter / 2);
 			}
 
@@ -148,6 +148,7 @@ form {
 		}
 		
 		&.noMargin {
+			margin-top: 0;
 			margin-bottom: 0;
 		}
 
@@ -204,6 +205,7 @@ form {
 		}
 
 		&.noMargin {
+			margin-top: 0;
 			margin-bottom: 0;
 		}
 

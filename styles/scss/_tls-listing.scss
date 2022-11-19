@@ -2,9 +2,16 @@
 
 @import 'tls-colors';
 
-$borderWidth	: 1px;
-$hPadding		: ($pxGutter / 2);
-$vPadding		: ($pxGutter / 4);
+$borderWidth		: 1px;
+$hPadding			: ($pxGutter / 2);
+$vPadding			: ($pxGutter / 4);
+
+/* border colors */
+$border_outer			: $darkBlue4;
+$border_outer_thead		: $darkBlueTransition2;
+$border_outer_tfoot		: $darkBlueTransition2;
+$border_inner_thead		: $darkBlueTransition3;
+$border_inner_tfoot		: $blue5; //$darkBlueTransition3;
 
 // header rows colors
 $thead_BG			: $lightBlue-2;
@@ -17,83 +24,126 @@ $notes_BG			: $lightBlue5;
 $notes_BG_hover		: $frostOverlay;
 $notes_color		: $darkBlueTransition3;
 $notes_color_hover	: $darkBlueTransition1;
-$notes_border		: $blue;
+$notes_border		: $blue5;
 
 // zebra stripes
-$zebra_dark				: $zebraStripeOdd;
-$zebra_light			: $zebraStripeEven;
-$zebra_hover			: $rowHighlight;
+$zebra_dark							: $zebraStripeOdd;
+$zebra_light						: $zebraStripeEven;
+$zebra_hover						: $rowHighlight;
+$zebra_headDark						: $lightBlue2;
+$zebra_headLight					: $lightBlue3;
+$zebra_headHover					: $rowHighlightHead;
+$zebra_footDark						: $lightBlue3;
+$zebra_footLight					: $lightBlue5;
+$zebra_footHover					: $rowHighlightFoot;
+$zebra_rowsBorderColor				: $lightBlue-2;
+$zebra_columnsBorderColor			: $lightBlue;
 
-$zebra_over_dark		: #ddd4ff; // violet
-$zebra_over_light		: #e7e0ff;
-$zebra_over_hover		: #b9a6ff;
-$zebra_over_border		: #c3b2ff;
-$zebra_over_color		: #0b0033;
+$zebra_yes_color					: #003303; // green
+$zebra_yes_dark						: #b4f0b8;
+$zebra_yes_light					: #cffad2;
+$zebra_yes_hover					: #7fd485;
+$zebra_yes_headDark					: #9de6a2;
+$zebra_yes_headLight				: #b5efb9;
+$zebra_yes_headHover				: #6fcb75;
+$zebra_yes_footDark					: #a9ebad;
+$zebra_yes_footLight				: #c2f5c6;
+$zebra_yes_footHover				: #77d07d;
+$zebra_yes_rowsBorderColor			: #a1e6a5;
+$zebra_yes_columnsBorderColor		: #a1e6a5;
 
-$zebra_yes_dark			: #b4f0b8; // green
-$zebra_yes_light		: #cffad2;
-$zebra_yes_hover		: #7fd485;
-$zebra_yes_border		: #a1e6a5;
-$zebra_yes_color		: #003303;
+$zebra_no_color						: #330012; // pink
+$zebra_no_dark						: #ffd6e4;
+$zebra_no_light						: #ffe8f0;
+$zebra_no_hover						: #ffa6c4;
+$zebra_no_headDark					: #ffc3d7;
+$zebra_no_headLight					: #ffd4e2;
+$zebra_no_headHover					: #ff97b9;
+$zebra_no_footDark					: #ffcdde;
+$zebra_no_footLight					: #ffdee9;
+$zebra_no_footHover					: #ff9fbf;
+$zebra_no_rowsBorderColor			: #ffc4d8;
+$zebra_no_columnsBorderColor		: #ffc4d8;
 
-$zebra_partial_dark		: #fce165; // amber
-$zebra_partial_light	: #fff066;
-$zebra_partial_hover	: #ffc44d;
-$zebra_partial_border	: #f2d349;
-$zebra_partial_color	: #332200;
+$zebra_alert_color					: #332200; // amber
+$zebra_alert_dark					: #fce165;
+$zebra_alert_light					: #fff066;
+$zebra_alert_hover					: #fabc40;
+$zebra_alert_headDark				: #facf4e;
+$zebra_alert_headLight				: #fddd4f;
+$zebra_alert_headHover				: #f8ad32;
+$zebra_alert_footDark				: #fbd85a;
+$zebra_alert_footLight				: #fee75b;
+$zebra_alert_footHover				: #f9b539;
+$zebra_alert_rowsBorderColor		: #f2d349;
+$zebra_alert_columnsBorderColor		: #f2d349;
 
-$zebra_no_dark			: #ffd6e4; // pink
-$zebra_no_light			: #ffe8f0;
-$zebra_no_hover			: #ffa6c4;
-$zebra_no_border		: #ffc4d8;
-$zebra_no_color			: #330012;
+$zebra_observe_color				: #0b0033; // violet
+$zebra_observe_dark					: #ddd4ff;
+$zebra_observe_light				: #e7e0ff;
+$zebra_observe_hover				: #b9a6ff;
+$zebra_observe_headDark				: #cbbeff;
+$zebra_observe_headLight			: #d4c8ff;
+$zebra_observe_headHover			: #aa94ff;
+$zebra_observe_footDark				: #d4c9ff;
+$zebra_observe_footLight			: #ded4ff;
+$zebra_observe_footHover			: #b19dff;
+$zebra_observe_rowsBorderColor		: #c3b2ff;
+$zebra_observe_columnsBorderColor	: #c3b2ff;
 
-$zebra_paused_dark		: #bdeeff; // ice blue
-$zebra_paused_light		: #d9f3ff;
-$zebra_paused_hover		: #66c8ff;
-$zebra_paused_border	: #73bde5;
-$zebra_paused_color		: #0072b2;
+$zebra_void_color					: $greyText; // grey (void)
+$zebra_void_colorHover				: $grey-1;
+$zebra_void_hover					: $grey5;
+$zebra_void_headHover				: darken($grey5, 8%); // $grey3 was too dark
+$zebra_void_footHover				: darken($grey5, 4%); // $grey4 was too dark
 
+$zebra_paused_color					: #0072b2; // ice blue
+$zebra_paused_dark					: #bdeeff;
+$zebra_paused_light					: #d9f3ff;
+$zebra_paused_hover					: #66c8ff;
+$zebra_paused_border				: #73bde5;
 
 // faux groups: like a table-within-a-table
 // header rows  (within tbody)
 // header cells (within tr)
 $bodyGroupHead_BG		: $lightBlue-1; // heading ROWS in <tr class='bodyGroupHead'>...</tr>
-$bodyGroupHead_border	: $blue;
-$bodyGroupFoot_BG		: $lightBlue5; // footer ROWS in <tr class='bodyGroupFoot'>...</tr>
-$bodyGroupFoot_border	: $darkBlue5;
-
-$zebra_rhead_dark		: $lightBlue2; // heading CELLS in <tr><th>...</th><td>...</td>
-$zebra_rhead_light		: $lightBlue3;
-$zebra_rhead_hover		: $lightBlue-1;
-$zebra_rhead_borderT	: $lightBlue2;
-$zebra_rhead_borderR	: $lightBlue1;
-
-$zebra_rfoot_dark		: $lightBlue3; // footer CELLS in ...<td class='rfoot'>...</td></tr>
-$zebra_rfoot_light		: $lightBlue5;
-$zebra_rfoot_hover		: $lightBlue-1;
-$zebra_rfoot_border		: $lightBlue3;
-
-
-/* border colors */
-$border_outer			: $darkBlue-2;
-$border_outer_thead		: $darkBlueTransition2;
-$border_outer_tfoot		: $darkBlueTransition2;
-$border_inner_thead		: $darkBlueTransition3;
-$border_inner_tbody		: $lightBlue-2;
-$border_inner_tfoot		: $darkBlueTransition3;
+$bodyGroupHeadHead_BG	: $lightBlue-2; // <th> or .rhead within .bodyGroupHead
+$bodyGroupHeadFoot_BG	: $lightBlue-2; // .rfoot within .bodyGroupHead
+$bodyGroupHead_border	: $blue3;
+$bodyGroupFoot_BG		: $lightBlue4; // footer ROWS in <tr class='bodyGroupFoot'>...</tr>
+$bodyGroupFootHead_BG	: $lightBlue2; // <th> or .rhead within .bodyGroupFoot
+$bodyGroupFootFoot_BG	: $lightBlue3; // .rfoot within .bodyGroupFoot
+$bodyGroupFoot_border	: $blue3;
 
 
 table.listing {
+	// custom properties for zebra striping are scoped to table.listing
+	--zebraColor: $black; // text color
+	--zebraDark: #{$zebra_dark};
+	--zebraLight: #{$zebra_light};
+	--zebraHover: #{$zebra_hover};
+	// th, .rhead (rows; not table header)
+	--zebraHeadDark: #{$zebra_headDark};
+	--zebraHeadLight: #{$zebra_headLight};
+	--zebraHeadHover: #{$zebra_headHover};
+	// .rfoot (rows; not table footer) -- not quite as darkened as rhead
+	--zebraFootDark: #{$zebra_footDark};
+	--zebraFootLight: #{$zebra_footLight};
+	--zebraFootHover: #{$zebra_footHover};
+	// borders within <tbody>
+	--zebraRowsBorderColor: #{$zebra_rowsBorderColor}; //#{$purple2};
+	--zebraColumnsBorderColor: #{$zebra_columnsBorderColor}; //#{$hotPurple};
+
 	width: auto;
+	background-color: $white;
 	border: $borderWidth solid $border_outer; // outside border
 	border-collapse: collapse;
+	border-spacing: 0; // equivalent of deprecated cellspacing
 	text-align: left;
 	
 	tr {
-		border-top:   $borderWidth solid $border_inner_tbody; // border between rows
-		border-left:  $borderWidth solid $border_outer; // outside border
-		border-right: $borderWidth solid $border_outer; // outside border
+		border-width: $borderWidth;
+		border-style: solid;
 	}
 	
 	td, 
@@ -102,6 +152,8 @@ table.listing {
         font-size: 8pt;
         line-height: normal;
 		border: none;
+		border-width: 0;
+		border-style: solid;
 		padding: $vPadding;
 		padding-right: $hPadding;
 		vertical-align: middle;
@@ -111,121 +163,192 @@ table.listing {
 	.hint {
 		font-size: 6pt;
 	}
-	
 
-	// header row(s)
+	// table header row(s)
 	// use <thead> to group <tr><th>...</th></tr> and to get visual line at bottom of header row(s)
-	thead, 
-	thead tr, 
-	thead tr th {
-		background-color: $thead_BG; // thead background color
-		font-weight: bold;
-	}
 	thead {
+		background-color: $thead_BG;
+		font-weight: bold;
 		border-bottom: ($borderWidth * 2) solid $border_outer_thead;
         
         // header row sticks as page is scrolled
         // apply class to <thead class='sticky'> but it's the <th> that actually sticks
         &.sticky {
             th {
+				background-color: $thead_BG;
                 position: -webkit-sticky;
                 position: sticky;
                 top: 0;
+				opacity: 100% !important;
             }
         }
 		
 		tr {
-			border-top:    $borderWidth solid $border_inner_thead; // in-between head tr's border
+			border-color: $border_inner_thead;
+			border-left-color: $border_outer;
+			border-right-color: $border_outer;
 			
-			
+			td, 
+			th {
+				border-color: $border_inner_thead;
+				padding-top: $vPadding;
+				padding-bottom: $vPadding;
+			}
+
 			&:first-of-type {
 				border-top: 0px solid transparent;
 			}
 		}
-		th {
-			padding-top: $vPadding;
-			padding-bottom: $vPadding;
-		
-			a {
-				color: black;
-				text-decoration: none;
-			}
-			// hover only on screen
-		}
-		
-		// classes to add cell borders on top, left, right, or both (use class='borderLeft borderRight' for both)
-		// lowercase because webKit bug classList.remove() doesn't work with mixed/uppercase letters == .noBorderTop won't work
-		.borderLeft, 
-		&.grid .borderLeft {
-			border-left: $borderWidth solid $border_inner_thead; // border between columns
-		}
-		.borderRight, 
-		&.grid .borderRight {
-			border-right: $borderWidth solid $border_inner_thead; // border between columns
-		}
 	}
 	
 
-	// body row(s)
+	// table body row(s)
 	tbody {
-		tr:first-of-type {
-			border-top: 0px solid transparent;
-		}
-		td {
-			background-color: transparent;
-		}
-		td a {
-			text-decoration: none;
-		}
-		
 		// Zebra striping & row highlighting
 		// ONLY in tbody
-		// Could also be tr:nth-child(4n+1) == every fourth row, starting at row 1
 		tr {
-			// default normal zebra stripes
-			&:nth-of-type(odd) {
-				background-color: $zebra_dark; // zebra stripe : odd (darker)
+			/* adjust custom properties according to color-coding choice */
+			&.yesRow, 
+			td.yesCell {
+				--zebraColor: #{$zebra_yes_color};
+				--zebraDark: #{$zebra_yes_dark};
+				--zebraLight: #{$zebra_yes_light};
+				--zebraHover: #{$zebra_yes_hover};
+				--zebraHeadDark: #{$zebra_yes_headDark};
+				--zebraHeadLight: #{$zebra_yes_headLight};
+				--zebraHeadHover: #{$zebra_yes_headHover};
+				--zebraFootDark: #{$zebra_yes_footDark};
+				--zebraFootLight: #{$zebra_yes_footLight};
+				--zebraFootHover: #{$zebra_yes_footHover};
+				--zebraRowsBorderColor: #{$zebra_yes_rowsBorderColor};
+				--zebraColumnsBorderColor: #{$zebra_yes_columnsBorderColor};
 			}
+			&.noRow, 
+			td.noCell {
+				--zebraColor: #{$zebra_no_color};
+				--zebraDark: #{$zebra_no_dark};
+				--zebraLight: #{$zebra_no_light};
+				--zebraHover: #{$zebra_no_hover};
+				--zebraHeadDark: #{$zebra_no_headDark};
+				--zebraHeadLight: #{$zebra_no_headLight};
+				--zebraHeadHover: #{$zebra_no_headHover};
+				--zebraFootDark: #{$zebra_no_footDark};
+				--zebraFootLight: #{$zebra_no_footLight};
+				--zebraFootHover: #{$zebra_no_footHover};
+				--zebraRowsBorderColor: #{$zebra_no_rowsBorderColor};
+				--zebraColumnsBorderColor: #{$zebra_no_columnsBorderColor};
+			}
+			&.alertRow, 
+			td.alertCell {
+				--zebraColor: #{$zebra_alert_color};
+				--zebraDark: #{$zebra_alert_dark};
+				--zebraLight: #{$zebra_alert_light};
+				--zebraHover: #{$zebra_alert_hover};
+				--zebraHeadDark: #{$zebra_alert_headDark};
+				--zebraHeadLight: #{$zebra_alert_headLight};
+				--zebraHeadHover: #{$zebra_alert_headHover};
+				--zebraFootDark: #{$zebra_alert_footDark};
+				--zebraFootLight: #{$zebra_alert_footLight};
+				--zebraFootHover: #{$zebra_alert_footHover};
+				--zebraRowsBorderColor: #{$zebra_alert_rowsBorderColor};
+				--zebraColumnsBorderColor: #{$zebra_alert_columnsBorderColor};
+			}
+			&.observeRow, 
+			td.observeCell {
+				--zebraColor: #{$zebra_observe_color};
+				--zebraDark: #{$zebra_observe_dark};
+				--zebraLight: #{$zebra_observe_light};
+				--zebraHover: #{$zebra_observe_hover};
+				--zebraHeadDark: #{$zebra_observe_headDark};
+				--zebraHeadLight: #{$zebra_observe_headLight};
+				--zebraHeadHover: #{$zebra_observe_headHover};
+				--zebraFootDark: #{$zebra_observe_footDark};
+				--zebraFootLight: #{$zebra_observe_footLight};
+				--zebraFootHover: #{$zebra_observe_footHover};
+				--zebraRowsBorderColor: #{$zebra_observe_rowsBorderColor};
+				--zebraColumnsBorderColor: #{$zebra_observe_columnsBorderColor};
+			}
+			&.voidRow, 
+			td.voidCell {
+				// void rows mostly inherit regualr rows, except for color and row-highlight background color
+				--zebraColor: #{$zebra_void_color};
+				--zebraColorHover: #{$zebra_void_colorHover};
+				--zebraHover: #{$zebra_void_hover};
+				--zebraHeadHover: #{$zebra_void_headHover};
+				--zebraFootHover: #{$zebra_void_footHover};
+			}
+
+			// border color (rows & columns) within <tbody>
+			border-color: var(--zebraRowsBorderColor);
+			border-left-color: $border_outer;
+			border-right-color: $border_outer;
+			border-bottom-width: 0;
+			
+			&:last-child {
+				border-bottom-width: 0;
+			}
+
+			// zebra stripe: common for both odd & even rows
+			// could also be tr:nth-child(4n+1) == every fourth row, starting at row 1
+			&:nth-of-type(odd), 
 			&:nth-of-type(even) {
-				background-color: $zebra_light; // zebra stripe : even (lighter)
+				td, 
+				th, 
+				.rhead, 
+				.rfoot {
+					border-style: solid;
+					border-left-color: var(--zebraColumnsBorderColor);
+					border-right-color: var(--zebraColumnsBorderColor);
+				}
+
+				&:not(.disableHighlight, .bodyGroupHead, .bodyGroupFoot):hover {
+					td {
+						background-color: var(--zebraHover);
+					}
+		
+					th, 
+					.rhead {
+						background-color: var(--zebraHeadHover);
+					}
+		
+					.rfoot {
+						background-color: var(--zebraFootHover);
+					}
+				}
 			}
-			
-			// header cells <th> within tbody are also shaded
-			// like <thead> but within a single table row
-			th, 
-			.rhead {
-				border-top: $borderWidth solid $zebra_rhead_borderT; // needs a slightly darker border than normal cells
-				border-top: none;
+
+			// zebra stripe : odd (darker)
+			&:nth-of-type(odd) {
+				td {
+					background-color: var(--zebraDark);
+				}
+				
+				th, 
+				.rhead {
+					background-color: var(--zebraHeadDark);
+				}
+				
+				.rfoot {
+					background-color: var(--zebraFootDark);
+				}
 			}
-			&:first-of-type th, 
-			&:first-of-type .rhead {
-				// border-top: 0px solid transparent; BUT NOT the first row
-				border-top: 1px solid $border_inner_thead;
+
+			// zebra stripe : even (lighter)
+			&:nth-of-type(even) {
+				td {
+					background-color: var(--zebraLight);
+				}
+
+				th, 
+				.rhead {
+					background-color: var(--zebraHeadLight);
+				}
+
+				.rfoot {
+					background-color: var(--zebraFootLight);
+				}
 			}
-			
-			&:nth-of-type(odd) th, 
-			&:nth-of-type(odd) .rhead {
-				background-color: $zebra_rhead_dark; // row heading <th> zebra stripe : odd (darker)
-				border-right-color: $zebra_rhead_borderR;
-			}
-			&:nth-of-type(even) th, 
-			&:nth-of-type(even) .rhead {
-				background-color: $zebra_rhead_light; // row heading <th> zebra stripe : even (lighter)
-				border-right-color: $zebra_rhead_borderR;
-			}
-			
-			// footer cells <td class='rfoot'> within body are also shaded
-			// like <tfoot> but within a single table row
-			.rfoot {
-				border-left: $borderWidth solid $zebra_rfoot_border; // needs a slightly darker border than normal cells
-			}
-			
-			&:nth-of-type(odd) .rfoot {
-				background-color: $zebra_rfoot_dark; // row foot <td class='rfoot'> zebra stripe : odd (darker)
-			}
-			&:nth-of-type(even) .rfoot {
-				background-color: $zebra_rfoot_light; // row foot <td class='rfoot'> zebra stripe : even (lighter)
-			}
+
 			
 			/* 
 			'faux' head and foot rows within <tbody> can give visual clues to tbody groups
@@ -240,231 +363,375 @@ table.listing {
 							tfoot for GRAND TOTAL 
 			*/
 			&.bodyGroupHead, 
-			&:hover.bodyGroupHead {
-				background-color: $bodyGroupHead_BG !important; // important prevents hover
-				border-bottom: $borderWidth solid $bodyGroupHead_border !important;
+			&.bodyGroupHead:hover {
+				background-color: $bodyGroupHead_BG;
 				
-				.rfoot {
-					background-color: $lightBlue3 !important;
+				th, 
+				td {
+					background-color: transparent;
+					border-bottom: $borderWidth solid $bodyGroupHead_border;
+					
+					&:is(th), 
+					&.rhead {
+						background-color: $bodyGroupHeadHead_BG;
+					}
+					&.rfoot {
+						background-color: $bodyGroupHeadFoot_BG;
+					}
 				}
 			}
 			
 			&.bodyGroupFoot, 
-			&:hover.bodyGroupFoot {
-				background-color: $bodyGroupFoot_BG !important; // important prevents hover
-				border-top: $borderWidth solid $bodyGroupFoot_border;
+			&.bodyGroupFoot:hover {
+				background-color: $bodyGroupFoot_BG;
 				
-				th {
-					background-color: $lightBlue3 !important;
-					border-top-color: $lightBlue-2;
-				}
-				
-				.rfoot {
-					background-color: $lightBlue4 !important;
-					border-top-color: $lightBlue2;
+				th, 
+				td {
+					background-color: transparent;
+					border-top: $borderWidth solid $bodyGroupFoot_border;
+					
+					&:is(th), 
+					&.rhead {
+						background-color: $bodyGroupFootHead_BG;
+					}
+					
+					&.rfoot {
+						background-color: $bodyGroupFootFoot_BG;
+					}
 				}
 			}
 			
 			
 			// notes
 			&.notes {
-				background-color: $notes_BG !important;
-				border-top: $borderWidth solid $notes_border; /* same as tbody border */
+				border-top-color: $notes_border;
 				color: $notes_color;
 				
 				td {
+					background-color: $notes_BG;
 					font-weight: normal;
 					font-style: italic;
 				}
-			}
-			
-			
-			// over rows zebra stripes = line qty more than expected
-			&.overRow:nth-of-type(odd) {
-				background-color: $zebra_over_dark; // zebra stripe : odd (darker)
-				border-top-color: $zebra_over_border;
-				color: $zebra_over_color;
-			}
-			&.overRow:nth-of-type(even) {
-				background-color: $zebra_over_light; // zebra stripe : even (lighter)
-				border-top-color: $zebra_over_border;
-				color: $zebra_over_color;
-			}
-			
-			
-			// yes rows zebra stripes = line complete/done/shipped
-			&.yesRow:nth-of-type(odd) {
-				background-color: $zebra_yes_dark; // zebra stripe : odd (darker)
-				border-top-color: $zebra_yes_border;
-				color: $zebra_yes_color;
-			}
-			&.yesRow:nth-of-type(even) {
-				background-color: $zebra_yes_light; // zebra stripe : even (lighter)
-				border-top-color: $zebra_yes_border;
-				color: $zebra_yes_color;
-			}
-			
-			
-			// partial rows zebra stripes = line incomplete
-			&.partialRow:nth-of-type(odd) {
-				background-color: $zebra_partial_dark; // zebra stripe : odd (darker)
-				border-top-color: $zebra_partial_border;
-				color: $zebra_partial_color;
-			}
-			&.partialRow:nth-of-type(even) {
-				background-color: $zebra_partial_light; // zebra stripe : even (lighter)
-				border-top-color: $zebra_partial_border;
-				color: $zebra_partial_color;
-			}
-			
-			
-			// no rows zebra stripes = line unfinished/backordered/cancelled
-			&.noRow:nth-of-type(odd) {
-				background-color: $zebra_no_dark; // zebra stripe : odd (darker)
-				border-top-color: $zebra_no_border;
-				color: $zebra_no_color;
-			}
-			&.noRow:nth-of-type(even) {
-				background-color: $zebra_no_light; // zebra stripe : even (lighter)
-				border-top-color: $zebra_no_border;
-				color: $zebra_no_color;
-			}
-			
-			
-			// paused rows zebra stripes = line paused (in limbo)
-			&.pausedRow:nth-of-type(odd) {
-				background-color: $zebra_paused_dark; // zebra stripe : odd (darker)
-				border-top-color: $zebra_paused_border;
-				color: $zebra_paused_color;
-			}
-			&.pausedRow:nth-of-type(even) {
-				background-color: $zebra_paused_light; // zebra stripe : even (lighter)
-				border-top-color: $zebra_paused_border;
-				color: $zebra_paused_color;
+
+				&:not(.disableHighlight):hover {
+					td {
+						background-color: $notes_BG_hover;
+						color: $notes_color_hover;
+					}
+				}
 			}
 			
 			
 			&.voidRow {
-				color: $greyText !important;
+				color: $zebra_void_color;
 				text-decoration: line-through;
 				
-				td {
+				td, 
+				th {
 					opacity: .4;
+				}
+
+				&:not(.disableHighlight):hover {
+					color: $zebra_void_colorHover;
+					
+					td, 
+					th {
+						opacity: .85;
+						color: $zebra_void_colorHover;
+					}
+
+					td {
+						background-color: var(--zebraHover);
+					}
+	
+					th, 
+					.rhead {
+						background-color: var(--zebraHeadHover);
+					}
+	
+					.rfoot {
+						background-color: var(--zebraFootHover);
+					}
 				}
 			}
 			
 			
-			
-			// classes to add cell borders on top, left, right, or both (use class='borderLeft borderRight' for both)
-			// lowercase because webKit bug classList.remove() doesn't work with mixed/uppercase letters == .noBorderTop won't work
-			.borderLeft, 
-			&.grid .borderLeft {
-				border-left: $borderWidth solid $border_inner_tbody; // border between columns
+	
+			// color-coding can also be applied at table cell (td/th) level
+			th, 
+			td {
+				&.yesCell {
+					color: $zebra_yes_color;
+				}
+				&.noCell {
+					color: $zebra_no_color;
+				}
+				.alertCell {
+					color: $zebra_alert_color;
+				}
+				.observeCell {
+					color: $zebra_observe_color;
+				}
 			}
-			.borderRight, 
-			&.grid .borderRight {
-				border-right: $borderWidth solid $border_inner_tbody; // border between columns
-			}
-		}
 
-		td {
-			&.noCell {
-				background-color: $zebra_no_dark;
+			&:nth-of-type(odd), 
+			&:nth-of-type(even) {
+				&:not(.disableHighlight, .bodyGroupHead, .bodyGroupFoot):hover {
+					td {
+						&.yesCell {
+							background-color: $zebra_yes_hover;
+						}
+						&.noCell {
+							background-color: $zebra_no_hover;
+						}
+						&.alertCell {
+							background-color: $zebra_alert_hover;
+						}
+						&.observeCell {
+							background-color: $zebra_observe_hover;
+						}
+						&.voidCell {
+							background-color: $zebra_void_hover;
+						}
+					}
+					
+					th, 
+					.rhead {
+						&.yesCell {
+							background-color: $zebra_yes_headHover;
+						}
+						&.noCell {
+							background-color: $zebra_no_headHover;
+						}
+						&.alertCell {
+							background-color: $zebra_alert_headHover;
+						}
+						&.observeCell {
+							background-color: $zebra_observe_headHover;
+						}
+						&.voidCell {
+							background-color: $zebra_void_headHover;
+						}
+					}
+					
+					.rfoot {
+						&.yesCell {
+							background-color: $zebra_yes_footHover;
+						}
+						&.noCell {
+							background-color: $zebra_no_footHover;
+						}
+						&.alertCell {
+							background-color: $zebra_alert_footHover;
+						}
+						&.observeCell {
+							background-color: $zebra_observe_footHover;
+						}
+						&.voidCell {
+							background-color: $zebra_void_footHover;
+						}
+					}
+				}
 			}
-			&.yesCell {
-				background-color: $zebra_yes_light;
+
+			// target cells of odd rows (darker)
+			&:nth-of-type(odd) {
+				td {
+					&.yesCell {
+						background-color: $zebra_yes_dark;
+					}
+					&.noCell {
+						background-color: $zebra_no_dark;
+					}
+					.alertCell {
+						background-color: $zebra_alert_dark;
+					}
+					.observeCell {
+						background-color: $zebra_observe_dark;
+					}
+					.voidCell {
+						background-color: $zebra_void_hover;
+					}
+				}
+
+				th, 
+				.rhead {
+					&.yesCell {
+						background-color: $zebra_yes_headDark;
+					}
+					&.noCell {
+						background-color: $zebra_no_headDark;
+					}
+					.alertCell {
+						background-color: $zebra_alert_headDark;
+					}
+					.observeCell {
+						background-color: $zebra_observe_headDark;
+					}
+					.voidCell {
+						background-color: $zebra_void_headHover;
+					}
+				}
+
+				.rfoot {
+					&.yesCell {
+						background-color: $zebra_yes_footDark;
+					}
+					&.noCell {
+						background-color: $zebra_no_footDark;
+					}
+					.alertCell {
+						background-color: $zebra_alert_headDark;
+					}
+					.observeCell {
+						background-color: $zebra_observe_headDark;
+					}
+					.voidCell {
+						background-color: $zebra_void_footHover;
+					}
+				}
+			}
+
+			// target cells of even rows (lighter)
+			&:nth-of-type(even) {
+				td {
+					&.yesCell {
+						background-color: $zebra_yes_light;
+					}
+					&.noCell {
+						background-color: $zebra_no_light;
+					}
+					.alertCell {
+						background-color: $zebra_alert_light;
+					}
+					.observeCell {
+						background-color: $zebra_observe_light;
+					}
+					.voidCell {
+						background-color: $zebra_void_hover;
+					}
+				}
+
+				th, 
+				.rhead {
+					&.yesCell {
+						background-color: $zebra_yes_headLight;
+					}
+					&.noCell {
+						background-color: $zebra_no_headLight;
+					}
+					.alertCell {
+						background-color: $zebra_alert_headLight;
+					}
+					.observeCell {
+						background-color: $zebra_observe_headLight;
+					}
+					.voidCell {
+						background-color: $zebra_void_headHover;
+					}
+				}
+
+				.rfoot {
+					&.yesCell {
+						background-color: $zebra_yes_footLight;
+					}
+					&.noCell {
+						background-color: $zebra_no_footLight;
+					}
+					.alertCell {
+						background-color: $zebra_alert_footLight;
+					}
+					.observeCell {
+						background-color: $zebra_observe_footLight;
+					}
+					.voidCell {
+						background-color: $zebra_void_footHover;
+					}
+				}
 			}
 		}
 		
 		// Darker line between multiple tbody 'sections' within one table
-		&:nth-of-type(n+2) tr:first-of-type td {
-			border-top: $borderWidth solid $border_inner_thead; // border between multiple tbody sections
+		&:nth-of-type(n+2) tr:first-of-type {
+			td, 
+			th {
+				border-top-width: $borderWidth;
+				border-top-color: $border_outer;
+			}
 		}
 	}
 	
 	
 	
-	// footer row(s)
+	// table footer row(s)
 	// use <tfoot> to group <tr><th>...</th></tr> and to get visual line at top of summary row(s)
 	tfoot {
 		background-color: $tfoot_BG; // tfoot background color
 		border-top: $borderWidth solid $border_outer_tfoot; // tfoot top border
 		
 		tr {
-			background-color: $tfoot_BG; // tfoot background color
-			border-top: $borderWidth solid $border_inner_tfoot; // in-between foot tr's border
+			border-color: $border_inner_tfoot;
+			border-left-color: $border_outer;
+			border-right-color: $border_outer;
 			
+			td, 
+			th {
+				border-color: $border_inner_tfoot;
+			}
+
 			&:first-of-type {
 				border-top: 0px solid transparent;
+			}
+			&:last-of-type {
+				border-bottom: 0px solid transparent;
 			}
 			
 			td {
 				padding-right: $hPadding;
 				font-weight: bold;
 			}
-			
-			// classes to add cell borders on top, left, right, or both (use class='borderLeft borderRight' for both)
-			// lowercase because webKit bug classList.remove() doesn't work with mixed/uppercase letters == .noBorderTop won't work
-			.borderLeft, 
-			&.grid td.borderLeft {
-				border-left: $borderWidth solid $border_inner_tfoot; // border between columns
-			}
-			.borderRight, 
-			&.grid td.borderRight {
-				border-right: $borderWidth solid $border_inner_tfoot; // border between columns
-			}
 		}
 	}
-	
-	
+
 	
 	// grid class has borders on all sides
 	&.grid {
-		thead th {
-			border-right: $borderWidth solid $border_inner_thead; // in-between head tr's border
-			
-			&:last-of-type {
-				border-right: 0px solid transparent; // except last head column
+		:is(thead, tbody, tfoot) {
+			tr {
+				border-bottom-width: 0;
+
+				td, 
+				th {
+					// row borders are applied to TOP of each row
+					// column borders are applied to RIGHT of each cell
+					border-left-width: ($borderWidth * 0);
+					border-right-width: $borderWidth;
+
+					&:first-child {
+						border-left-width: 0;
+					}
+					&:last-child {
+						border-right-width: 0;
+					}
+				}
 			}
 		}
-		
-		tbody td {
-			border-right: $borderWidth solid $border_inner_tbody; // border between body columns
-			
-			&:last-of-type {
-				border-right: 0px solid transparent; // except last body column
+
+		:is(tr.bodyGroupHead) {
+			td, 
+			th {
+				border-right-color: $blueTransition3;
 			}
 		}
-		
-		tfoot td {
-			border-right: $borderWidth solid $border_inner_tfoot; // border between foot columns
-			
-			&:last-of-type {
-				border-right: 0px solid transparent; // except last foot column
+
+		:is(tr.bodyGroupFoot) {
+			td, 
+			th {
+				border-right-color: $lightBlue-1;
 			}
 		}
 	}
-	
-	
-	
-	// regular rows
-	tr {
-		&>td:first-of-type, 
-		&>th:first-of-type {
-			padding-left: ($hPadding / 2);
-		}
-		
-		&>td:last-of-type, 
-		&>th:last-of-type {
-			padding-right: $hPadding;
-			border-right: $borderWidth solid $border_outer; // outer right side border
-		}
-		
-		&:last-of-type td {
-			border-bottom: 0px solid transparent; // allow table border to show through at bottom of table
-		}
-	}
-	
+
 	
 	
 	// left, center, right alignment cells
@@ -485,6 +752,19 @@ table.listing {
 		text-align: center;
 	}
 	
+	
+	// regular rows padding
+	tr {
+		&>td:first-of-type, 
+		&>th:first-of-type {
+			padding-left: ($hPadding / 2);
+		}
+		
+		&>td:last-of-type, 
+		&>th:last-of-type {
+			padding-right: $hPadding;
+		}
+	}
 	
 	
 	// wideGutter tables have more padding between columns
@@ -508,26 +788,27 @@ table.listing {
 			padding-right: $hPadding;
 		}
 	}
+
 	// disable wideGutter on specific cells by adding class noGutter
+	// even though conceptually padding is set to "none" 0 looks too tight when text smashes against column borders
 	th.noGutter, 
 	td.noGutter {
-		padding-right: ($hPadding) !important;
+		padding-right: ($hPadding / 2);
 	}
 	.thl.noGutter, 
 	.tdl.noGutter {
-		padding-right: ($hPadding);
+		padding-right: ($hPadding / 2);
 	}
 	.thc.noGutter, 
 	.tdc.noGutter {
-		padding-left: ($hPadding);
-		padding-right: ($hPadding);
+		padding-left: ($hPadding / 2);
+		padding-right: ($hPadding / 2);
 	}
 	.thr.noGutter, 
 	.tdr.noGutter {
-		padding-left: ($hPadding) !important;
-		padding-right: $hPadding !important;
+		padding-left: ($hPadding / 2);
+		padding-right: ($hPadding / 2);
 	}
-	
 	
 	
 	// class='padded' can be applied to individual cells or an entire row
@@ -539,23 +820,31 @@ table.listing {
 	}
 	
 	
-	
-	// classes to remove cell borders on top, left, right, or both (use class='borderLeft borderRight' for both)
-	// lowercase because webKit bug classList.remove() doesn't work with mixed/uppercase letters == .noBorderTop won't work
-	.noborderleft, 
+			
+	// classes to add cell borders on left, right, or both (use class='borderLeft borderRight' for both)
+	.borderLeft, 
+	&.grid .borderLeft {
+		border-left-width: $borderWidth;
+	}
+	.borderRight, 
+	&.grid .borderRight {
+		border-right-width: $borderWidth;
+	}
+
+	// classes to remove cell borders on left, right, or both (use class='borderLeft borderRight' for both)
+	.noBorderTop, 
+	&.grid .noBorderLeft {
+		border-top-width: 0;
+	}
 	.noBorderLeft, 
 	&.grid .noBorderLeft {
-		border-left: 0px solid transparent;
+		border-left-width: 0;
 	}
-	.noborderright, 
 	.noBorderRight, 
 	&.grid .noBorderRight {
-		border-right: 0px solid transparent;
+		border-right-width: 0;
 	}
-	.nobordertop, 
-	.noBorderTop {
-		border-top: 0px solid transparent !important;
-	}
+
 
 	p {
 		margin-bottom: ($gutter / 2);
@@ -583,92 +872,12 @@ table.listing {
 
 @media screen {
 	table.listing {
-		// head does not change on hover, but links become visible on hover
-		th a:hover, 
-		td a:hover {
+		a:hover {
 			text-decoration: underline;
-		}
-		th a:hover {
 			color: $lightBlue;
-
+			
 			&.hiddenLink {
 				color: inherit;
-			}
-		}
-		
-		tbody {
-			&:hover td[rowspan], 
-			tr:nth-of-type(odd):hover, 
-			tr:nth-of-type(even):hover {
-				background-color: $zebra_hover; // zebra stripe : hover
-			}
-			// .disableHighlight to prevent row highlighting (applied to <tr>)
-			tr:nth-of-type(odd).disableHighlight:hover {
-				background-color: $zebra_dark; // ignore zebra stripe hover : odd
-			}
-			tr:nth-of-type(even).disableHighlight:hover {
-				background-color: $zebra_light; // ignore zebra stripe hover : even
-			}
-			
-			// only hover rows' th cells on screen (not in print)
-			tr {
-				&:hover {
-					background-color: $zebra_hover;
-					
-					th,
-					.rhead {
-						background-color: $zebra_rhead_hover !important;
-					}
-					.rfoot {
-						background-color: $zebra_rfoot_hover !important;
-					}
-				}
-				
-				&.notes:hover {
-					background-color: $notes_BG_hover !important;
-					color: $notes_color_hover;
-				}
-				&.notes.disableHighlight:hover {
-					background-color: $notes_BG !important;
-				}
-				
-				&.overRow:hover {
-					background-color: $zebra_over_hover !important;
-				}
-				&.yesRow:hover {
-					background-color: $zebra_yes_hover !important;
-				}
-				&.partialRow:hover {
-					background-color: $zebra_partial_hover !important;
-				}
-				&.noRow:hover {
-					background-color: $zebra_no_hover !important;
-				}
-				
-				// manually disable highlights for a row
-				&.disableHighlight:hover {
-					&:nth-of-type(odd){
-						background-color: $zebra_dark !important;
-						th {
-							background-color: $zebra_rhead_dark !important;
-						}
-						.rfoot {
-							background-color: $zebra_rfoot_dark !important;
-						}
-					}
-					&:nth-of-type(even){
-						background-color: $zebra_light !important;
-						th {
-							background-color: $zebra_rhead_light !important;
-						}
-						.rfoot {
-							background-color: $zebra_rfoot_light !important;
-						}
-					}
-					&.notes {
-						background-color: $notes_BG !important;
-					}
-				}
 			}
 		}
 		
@@ -686,18 +895,18 @@ table.listing {
 		tbody {
 			tr {
 				// all zebra stripe rows print in black
-				&.overRow:nth-of-type(odd), 
-				&.overRow:nth-of-type(even), 
 				&.yesRow:nth-of-type(odd), 
 				&.yesRow:nth-of-type(even), 
-				&.partialRow:nth-of-type(odd), 
-				&.partialRow:nth-of-type(even), 
 				&.noRow:nth-of-type(odd), 
-				&.noRow:nth-of-type(even) {
-					color: black;
+				&.noRow:nth-of-type(even), 
+				&.alertRow:nth-of-type(odd), 
+				&.alertRow:nth-of-type(even), 
+				&.observeRow:nth-of-type(odd), 
+				&.observeRow:nth-of-type(even) {
+					color: $black;
 				}
 				&.voidRow {
-					color: $greyTextPrint !important;
+					color: $greyTextPrint;
 				}
 				
 				&.notes {

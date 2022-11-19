@@ -1,0 +1,17 @@
+/* ########## Mixins for SCSS ########## */
+
+/* fade a color mixins */
+@mixin fadeTo($color:$black, $selectorPercent:'25', $fadeToPercent:25%) {
+	&.fadeTo#{$selectorPercent}, 
+	.fadeTo#{$selectorPercent} {
+		color: rgba($color, $fadeToPercent);
+	}	
+}	
+
+@mixin fadeToSeries($color:$black) {
+	@include fadeTo($color, 25, 25%);
+	@include fadeTo($color, 33, 33%);
+	@include fadeTo($color, 50, 50%);
+	@include fadeTo($color, 66, 33%);
+	@include fadeTo($color, 75, 75%);
+}
