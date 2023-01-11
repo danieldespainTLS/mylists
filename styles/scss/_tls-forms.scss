@@ -245,12 +245,12 @@ form {
 		flex-flow: row nowrap;
 		align-items: center;
 		gap: ($gutter / 2);
-		outline: 1px dotted pink;
+		// outline: 1px dotted pink;
 
 		&.column {
 			flex-flow: column;
 			align-items: start;
-			outline: 1px dotted green;
+			// outline: 1px dotted green;
 		}
 
 		input, 

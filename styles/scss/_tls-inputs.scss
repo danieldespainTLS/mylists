@@ -87,6 +87,10 @@ button.reset,
 		width: 100%;
 	}
 
+	&.noMinWidth {
+		min-width: auto;
+	}
+
 	&.largeFont {
 		font-size: 200%;
 	}
@@ -585,6 +589,7 @@ form {
 
 	input[type=text],
 	input[type=email],
+	input[type=password],
 	input[type=url],
 	input[type=number],
 	input[type=date],
@@ -697,6 +702,7 @@ form {
 	.shouldBeDeclared select.styled,
 	.shouldBeDeclared input[type=text],
 	.shouldBeDeclared input[type=email],
+	.shouldBeDeclared input[type=password],
 	.shouldBeDeclared input[type=url],
 	.shouldBeDeclared input[type=number],
 	.shouldBeDeclared input[type=date],
@@ -705,6 +711,7 @@ form {
 	select.styled.shouldBeDeclared, 
 	input[type=text].shouldBeDeclared,
 	input[type=email].shouldBeDeclared,
+	input[type=password].shouldBeDeclared,
 	input[type=url].shouldBeDeclared,
 	input[type=number].shouldBeDeclared,
 	input[type=date].shouldBeDeclared,
@@ -721,6 +728,7 @@ form {
 	select.styled:required, 
 	input[type=text]:required,
 	input[type=email]:required,
+	input[type=password]:required,
 	input[type=url]:required,
 	input[type=number]:required,
 	input[type=date]:required,
@@ -744,6 +752,7 @@ form {
 	select.styled:read-only,
 	input[type=text]:read-only,
 	input[type=email]:read-only,
+	input[type=password]:read-only,
 	input[type=url]:read-only,
 	input[type=number]:read-only,
 	input[type=date]:read-only,

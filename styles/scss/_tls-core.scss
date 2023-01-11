@@ -49,7 +49,7 @@ strong em {
 h1, h2, h3, h4, h5, h6 {
 	font-family: $oswald;
 	font-weight: 700;
-	margin: .75em 0 .1em 0;
+	margin: .75em 0 .25em 0;
 	padding: 0;
 	line-height: 130%;
 	font-style: normal;
@@ -280,7 +280,25 @@ a {
 	}
 }
 
-
+a.skipNavigation {
+	position: absolute;
+	top: 0;
+	left: $gutter;
+	transform: translateY(-120%);
+	box-sizing: border-box;
+	padding: ($gutter / 3) $gutter;
+	color: $halfwayToWhite;
+	background-color: $logo-green-shadow;
+	border-radius: 0 0 $pxGutter $pxGutter;
+	font-family: $lato;
+	font-style: italic;
+	transition: transform 0s;
+	
+	&:focus {
+		transform: translateY(0%);
+		transition: transform $transitionDuration;
+	}
+}
 
 
 
@@ -297,25 +315,27 @@ p {
 
 p.doubleSpaced, 
 .doubleSpaced p {
+	margin-top: $gutter;
 	margin-bottom: ($gutter * 2);
-}
-
-article,
-body article {
-    max-width: $maxArticleWidth;
-    margin: 0 auto ($gutter * 4) auto;
-
-    &:last-of-type {
-        margin-bottom: $gutter;
-    }
-}
-
-body.single article {
-    max-width: 100%;
 }
 
 body.sideMargins {
 	margin: 0 $gutter;
+}
+
+article {
+	margin: 0;
+	padding: 0;
+	
+	&.maxArticleWidth {
+		max-width: $maxArticleWidth;
+		
+		// .centered should only be applied in conjunction with .maxArticleWidth
+		&.centered {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
 }
 
 ul.reset,
@@ -406,6 +426,117 @@ blockquote {
 	
 		&:last-of-type {
 			margin-bottom: 0;
+		}
+	}
+}
+
+.callout {
+	color: $halfwayToBlackGreen;
+	background-color: rgba($green5, .125);
+	border: 1px solid $green-2;
+	border-top-width: 3px;
+	// padding: ($gutter / 2);
+	margin: $gutter 0;
+	border-radius: 2px 2px 4px 4px;
+
+	.header {
+		background-color: rgba($green, .25);
+		font-size: 120%;
+		padding: ($gutter / 3) ($gutter * .75);
+		margin-bottom: ($gutter / 3);
+		font-weight: bold;
+	}
+
+	> *:not(.header) {
+		margin-left: ($gutter * .75);
+		margin-right: ($gutter * .75);
+	}
+
+	> *:not(.header):first-child {
+		margin-top: ($gutter * .5);
+	}
+
+	> *:not(.header):last-child {
+		margin-bottom: ($gutter * .5);
+	}
+
+	&.red {
+		color: $halfwayToBlackRed;
+		background-color: rgba($red5, .125);
+		border-color: $red-2;
+
+		.header {
+			background-color: rgba($red-2, .20);
+		}
+	}
+
+	&.orange {
+		color: $halfwayToBlackRed;
+		background-color: rgba($logo-yellow-shadow, .125);
+		border-color: $logo-yellow-shadow;
+
+		.header {
+			background-color: rgba($logo-yellow-shadow, .25);
+		}
+	}
+
+	&.yellow {
+		color: $halfwayToBlackRed;
+		background-color: rgba($yellow1, .125);
+		border-color: $yellow-2;
+
+		.header {
+			background-color: rgba($yellow, .333);
+		}
+	}
+
+	&.green {
+		color: $halfwayToBlackGreen;
+		background-color: rgba($green5, .125);
+		border-color: $green-2;
+
+		.header {
+			background-color: rgba($green, .25);
+		}
+	}
+
+	&.blue {
+		color: $halfwayToBlack;
+		background-color: rgba($blueTransition3, .125);
+		border-color: $darkBlueTransition1;
+
+		.header {
+			background-color: rgba($blueTransition3, .25);
+		}
+	}
+
+	&.purple {
+		color: $halfwayToBlackCoolGrey;
+		background-color: rgba($purple, .125);
+		border-color: $purple;
+
+		.header {
+			background-color: rgba($purple, .25);
+		}
+	}
+
+	&.brown {
+		color: $halfwayToBlackRed;
+		background-color: rgba($brown, .125);
+		border-color: $brown;
+
+		.header {
+			background-color: rgba($brown, .25);
+		}
+	}
+
+	&.grey {
+		color: $halfwayToBlackCoolGrey;
+		background-color: rgba($grey2, .125);
+		border-color: $grey2;
+
+		.header {
+			background-color: rgba($grey2, .25);
 		}
 	}
 }
@@ -678,7 +809,7 @@ $highlightBorderThickness: .15em;
 code {
 	color: $grey1;
 	font-family: $code;
-	font-size: 120%;
+	font-size: 115%; // 115% matches helvetica x-height, but 120% matches Montserrat x-height
 	letter-spacing: -.5px;
 }
 
@@ -692,6 +823,30 @@ code {
 @media screen {
 	.noScreen {
 		display: none;
+	}
+}
+
+
+// article has .maxArticleWidth and .marginX on screen width <= $maxArticleWidth
+@media screen and (max-width: calc($maxArticleWidth + ($gutter * 2))) {
+	article {
+		&.maxArticleWidth {
+			&.marginX {
+				margin-left: $gutter;
+				margin-right: $gutter;
+			}
+		}
+	}
+
+	@media screen and (max-width: $medium) {
+		article {
+			&.maxArticleWidth {
+				&.marginX {
+					margin-left: ($gutter / 2);
+					margin-right: ($gutter / 2);
+				}
+			}
+		}
 	}
 }
 

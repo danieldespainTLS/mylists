@@ -172,23 +172,30 @@ $softPink: #feacce;
 $hotPink: #ff69b4; // HTML hotpink
 $burgundy: #960236;
 $lime: #75e575; // based off $green5
+$buff: #ffffd7;
 
 
 
 
 
 // PAGE
-$white          		: #fff;
-$black          		: #000;
-$halfwayToBlack 		: #142b45;
-$halfwayToBlackGreen	: #023722; // halfway between logo-green-shadow and black
-$halfwayToBlackCoolGrey	: #1a222c;
-$pageBackground		    : $lightBlue5;
-$veryLight	    		: $lightBlue; // figure background
-$frostOverlay			: rgba($white, .75);
-$whiteBGfade    		: #eff9fe; // fade 90% opacity
-$halfwayToWhite 		: #f8fdff; // halfway between lightBlue5 and white
-$buff					: #ffffd7;
+$white          			: #fff;
+$halfwayToWhite 			: #f8fdff; // halfway between lightBlue5 and white
+$black          			: #000;
+$halfwayToBlack 			: #142b45;
+$halfwayToBlackRed			: #3e0f11; // 60% between logo-apple-deep-shadow and black
+$halfwayToBlackGreen		: #023722; // halfway between logo-green-shadow and black
+$halfwayToBlackCoolGrey		: #1a222c; // dark mode page background
+$pageBackground		    	: $lightBlue5;
+$text						: $black;
+$textOnDark					: $lightBlue;
+$veryLight	    			: $lightBlue; // figure background
+$frostOverlay				: rgba($white, .75);
+$frostOverlayHover			: rgba($white, .90);
+$frostOverlayOnDark			: rgba($lightBlue5, .075);
+$frostOverlayOnDarkHover	: rgba($lightBlue5, .10);
+$scrim						: rgba($lightBlue5, .75);
+$scrimOnDark				: rgba($halfwayToBlackCoolGrey, .75);
 
 
 // BORDERS
@@ -206,12 +213,12 @@ $borderOnDark2		: $blueTransition2; // = very light
 
 
 // LINKS
-$link				: $blue-1;
-$linkHover			: $darkBlue5;
-$linkActive			: $green;
-$linkVisited		: $blue-2;
-$linkVisitedHover	: $darkBlue3;
-$linkPrint			: $blue-2;
+$link				: $darkBlueTransition3;
+$linkHover			: $darkBlue4;
+$linkActive			: $green-1;
+$linkVisited		: $darkBlueTransition2;
+$linkVisitedHover	: $darkBlue2;
+$linkPrint			: $darkBlueTransition1;
 
 
 // ZEBRA STRIPING
